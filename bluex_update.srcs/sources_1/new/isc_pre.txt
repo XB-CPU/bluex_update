@@ -1,0 +1,21 @@
+`def x r1
+`def a r2
+`def s r3
+`def i r4
+
+mirl a, 32109
+add s, a, r0
+`def t r5
+`def sf r6
+`def tmp r7
+mirl t, 10
+mirl sf, 1
+
+for:
+srl x, s, sf
+dvm r7, a, x
+add s, tmp, x
+addi i, r4, 1
+beq i, t, for
+
+jmp -1

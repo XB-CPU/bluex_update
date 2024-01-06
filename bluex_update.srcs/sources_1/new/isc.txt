@@ -92,24 +92,91 @@
 # jmp -1
 
 # r1: dividend; r2: divisor; r3: dvm result; r4: ; r5: quotient; r8: remainder:
-mirl r1, 34
-mirl r2, 7
-mirl r12, 4
-mirl r14, 3
-mirl r13, 0
-for:
-svw r2, r0, 0
-mirl r2, 9999
-mirl r6, 16
-ldw r2, r0, 0
-dvm r3, r1, r2 # 4, 6
-srl r5, r3, r6 # 4, quotient
-sll r4, r5, r6
-sub r8, r3, r4 # 6, remainder
-mul r7, r2, r5 # 28
-addi r13, r13, 1
-dvmi r9, r1, 9 # 3, 7
-bne r13, r14, for
-muli r10, r6, -9 # -144
-muli r11, r6, 9 # 144
+# mirl r1, 34
+# mirl r2, 7
+# mirl r12, 4
+# mirl r14, 3
+# mirl r13, 0
+# for:
+# svw r2, r0, 0
+# mirl r2, 9999
+# mirl r6, 16
+# ldw r2, r0, 0
+# dvm r3, r1, r2 # 4, 6
+# srl r5, r3, r6 # 4, quotient
+# sll r4, r5, r6
+# sub r8, r3, r4 # 6, remainder
+# mul r7, r2, r5 # 28
+# addi r13, r13, 1
+# dvmi r9, r1, 9 # 3, 7
+# bne r13, r14, for
+# muli r10, r6, -9 # -144
+# muli r11, r6, 9 # 144
+# jmp -1
+
+# square function
+## r1: x; a: r2; r3: s; r4: i; r5: 10; r6: 2
+# mirl r2, 32109
+# add r3, r2, r0
+# for:
+# srl r1, r3, r6
+
+`def x r1
+`def a r2
+`def s r3
+`def i r4
+`def it r5
+`def sf1 r6
+`def tmp r7
+`def sf16 r8
+`def j r9
+`def jt r10
+`def err r11
+`def sum r12
+`def sumj r13
+`def ave_err r14
+
+mirl it, 10
+mirl jt, 4
+mirl sf1, 1
+mirl sf16, 16
+
+add j, r0, r0
+forj:
+mirl a, 32767
+sub a, a, j
+add s, a, r0
+
+add i, r0, r0
+fori:
+srl x, s, sf1
+dvm r7, a, x
+srl tmp, r7, sf16
+add s, tmp, x
+
+addi i, i, 1
+bne i, it, fori
+
+mul x, x, x
+sls err, x, a
+beq err, sf1, xsmall
+xlarge:
+sub err, x, a
+jmp 1
+xsmall:
+sub err, a, x
+svw err, j, 0
+
+addi j, j, 1
+bne j, jt, forj
+
+add j, r0, r0
+forsum:
+ldw sumj, j, 0
+add sum, sum, sumj
+addi j, j, 1
+bne j, jt, forsum
+dvm tmp, sum, jt
+srl ave_err, tmp, sf16
+
 jmp -1

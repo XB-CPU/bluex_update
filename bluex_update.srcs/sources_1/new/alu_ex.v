@@ -16,6 +16,7 @@ module alu_ex (
 );
 	wire [`GPR_BIT : 0] rd_add = {rs + rt};
 	wire [`GPR_BIT : 0] rd_sub = {rs - rt};
+	wire [`GPR_BIT : 0] rd_mul;
 
 	always @(*) begin
 		case (alu_op)
@@ -59,13 +60,13 @@ module alu_ex (
 			end
 			/* shift */
 			`ALO_SLL:	begin
-				rd_value = rt << rt;
+				rd_value = rs << rt;
 			end
 			`ALO_SRL:	begin
-				rd_value = rt >> rt;
+				rd_value = rs >> rt;
 			end
 			`ALO_SRA:	begin
-				rd_value = rt >>> rt;
+				rd_value = rs >>> rt;
 			end
 			/* compare */
 			`ALO_SLS:	begin
@@ -88,9 +89,21 @@ module alu_ex (
 			`ALO_MIRH:	begin
 				rd_value = rt << (`GPR_BIT - `IMM_BIT);
 			end
+			`ALO_MUL:	begin
+				rd_value = rd_mul;
+			end
+			`ALO_MULI:	begin
+				rd_value = rd_mul;
+			end
 			default: begin
 				rd_value = {(`GPR_BIT){1'b0}};
 			end
 		endcase
 	end
+
+	mult_gen_0 u_multiplier (
+		.A(rs[15 : 0]),  // input wire [15 : 0] A
+		.B(rt[15 : 0]),  // input wire [15 : 0] B
+		.P(rd_mul)  // output wire [31 : 0] P
+	);
 endmodule

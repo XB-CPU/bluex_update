@@ -79,7 +79,7 @@ def asb_print(mes:str, file:io.TextIOWrapper=None, line_index:int=None, level:in
 			else:
 				print()
 
-def imm_proc(user_imm:str, f:io.TextIOWrapper, line_index):
+def imm_proc(user_imm:str, f:io.TextIOWrapper, line_index, im_limit_bit:int=15):
 	hex_flag = False
 	bin_flag = False
 	imm = None
@@ -104,6 +104,10 @@ def imm_proc(user_imm:str, f:io.TextIOWrapper, line_index):
 		asb_print(f"unable to convert the given imm {user_imm} to {imm_type}integer, please check it", f, line_index)
 	if imm >= (1 << IMM_BIT):
 		asb_print(f"converted imm is larger than {(1 << IMM_BIT) - 1}, consider reduce it", f, line_index)
+	elif imm >= (1 << (IMM_BIT - 1)) or imm < -(1 << (IMM_BIT - 1)):
+		warning_print("converted imm exceed the range of a 16 bit 2' complement, which may cause unexpected result.")
+	elif imm >= (1 << (im_limit_bit)) or imm < -(1 << (im_limit_bit)):
+		asb_print(f"converted imm exceed the range of a {im_limit_bit} bit 2' complement, which is prohibited here", f, line_index)
 	return (imm & 0xffff)
 
 class isc_code:
@@ -165,8 +169,10 @@ class isc_code:
 	def add_im(self, im_value:int, f:io.TextIOWrapper, line_index:int):
 		if not isinstance(im_value, int):
 			asb_print(f"Compile error: im value must be a integer, but {type(im_value)} are given", f, line_index)
+		# min_lim = min(((1 << IMM_BIT) - 1), special_isc_limit)
+		# print(((1 << IMM_BIT) - 1), special_isc_limit, min_lim)
 		if im_value > ((1 << IMM_BIT) - 1):
-			asb_print(f"Compile error: im value must be less than {1 << IMM_BIT}, but {im_value} are given", f, line_index)
+			asb_print(f"Compile error: im value must be less than {((1 << IMM_BIT) - 1)}, but {im_value} are given", f, line_index)
 		elif im_value < 0:
 			im_value = im_value & 0xffff
 		self.isc += im_value << isc_code.IM_DISP
@@ -366,7 +372,7 @@ def compile(f:io.TextIOWrapper):
 			if line[0] in R_set:
 				cmd_type = "R"
 				ic.set_cmd_type(cmd_type)
-				if line[0] in ("ADD", "SUB", "ORL", "AND", "XOR", "SLL", "SRL", "SRA", "SLS"):
+				if line[0] in ("ADD", "SUB", "MUL", "ORL", "AND", "XOR", "SLL", "SRL", "SRA", "SLS"):
 					if len(line) > 4:
 						if line[4].startswith("#") or line[4].startswith("//"):
 							line = line[0:4]
@@ -416,7 +422,7 @@ def compile(f:io.TextIOWrapper):
 			elif line[0] in I_set:
 				cmd_type = "I"
 				ic.set_cmd_type(cmd_type)
-				if line[0] in ("ADDI", "SUBI", "ORLI", "ANDI", "XORI", "SLSI", "LDW", "SVW"):
+				if line[0] in ("ADDI", "SUBI", "MULI", "ORLI", "ANDI", "XORI", "SLSI", "LDW", "SVW"):
 					if len(line) > 4:
 						if line[4].startswith("#") or line[4].startswith("//"):
 							line = line[0:4]
@@ -444,7 +450,10 @@ def compile(f:io.TextIOWrapper):
 								asb_print(f"rim should have a form like \"Rx\" where x is a integer, but unrecognizable form {rim} are found", f, index)
 							ic.add_rs(rim_num, f, index)				
 						elif rim_pos == 2:
-							ic.add_im(imm_proc(rim, f, index), f, index)
+							if line[0] == "MULI":
+								ic.add_im(imm_proc(rim, f, index, IMM_BIT-1), f, index)
+							else:
+								ic.add_im(imm_proc(rim, f, index), f, index)
 					ic.set_cmd_str(line[0])
 				elif line[0] in ("BEQ", "BNE"):
 					if len(line) > 4:

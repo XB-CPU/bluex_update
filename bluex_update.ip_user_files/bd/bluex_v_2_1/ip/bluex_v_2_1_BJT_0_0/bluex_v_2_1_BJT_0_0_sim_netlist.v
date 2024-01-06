@@ -4,14 +4,373 @@
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 // Date        : Wed Dec 27 22:30:25 2023
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_BJT_0_0/bluex_v_2_1_BJT_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_BJT_0_0 -prefix
+//               bluex_v_2_1_BJT_0_0_ bluex_v_2_1_BJT_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_BJT_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-2
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
+
+module bluex_v_2_1_BJT_0_0_BJT
+   (id_jump_flag,
+    branch_addr_ex,
+    branch_addr_id,
+    alu_op_id,
+    imm_ex,
+    pc_next_ex,
+    imm_id,
+    pc_next_id);
+  output id_jump_flag;
+  output [15:0]branch_addr_ex;
+  output [15:0]branch_addr_id;
+  input [5:0]alu_op_id;
+  input [15:0]imm_ex;
+  input [15:0]pc_next_ex;
+  input [15:0]imm_id;
+  input [15:0]pc_next_id;
+
+  wire [5:0]alu_op_id;
+  wire [15:0]branch_addr_ex;
+  wire \branch_addr_ex[0]_INST_0_i_1_n_0 ;
+  wire \branch_addr_ex[0]_INST_0_i_2_n_0 ;
+  wire \branch_addr_ex[0]_INST_0_i_3_n_0 ;
+  wire \branch_addr_ex[0]_INST_0_i_4_n_0 ;
+  wire \branch_addr_ex[0]_INST_0_n_0 ;
+  wire \branch_addr_ex[0]_INST_0_n_1 ;
+  wire \branch_addr_ex[0]_INST_0_n_2 ;
+  wire \branch_addr_ex[0]_INST_0_n_3 ;
+  wire \branch_addr_ex[12]_INST_0_i_1_n_0 ;
+  wire \branch_addr_ex[12]_INST_0_i_2_n_0 ;
+  wire \branch_addr_ex[12]_INST_0_i_3_n_0 ;
+  wire \branch_addr_ex[12]_INST_0_i_4_n_0 ;
+  wire \branch_addr_ex[12]_INST_0_n_1 ;
+  wire \branch_addr_ex[12]_INST_0_n_2 ;
+  wire \branch_addr_ex[12]_INST_0_n_3 ;
+  wire \branch_addr_ex[4]_INST_0_i_1_n_0 ;
+  wire \branch_addr_ex[4]_INST_0_i_2_n_0 ;
+  wire \branch_addr_ex[4]_INST_0_i_3_n_0 ;
+  wire \branch_addr_ex[4]_INST_0_i_4_n_0 ;
+  wire \branch_addr_ex[4]_INST_0_n_0 ;
+  wire \branch_addr_ex[4]_INST_0_n_1 ;
+  wire \branch_addr_ex[4]_INST_0_n_2 ;
+  wire \branch_addr_ex[4]_INST_0_n_3 ;
+  wire \branch_addr_ex[8]_INST_0_i_1_n_0 ;
+  wire \branch_addr_ex[8]_INST_0_i_2_n_0 ;
+  wire \branch_addr_ex[8]_INST_0_i_3_n_0 ;
+  wire \branch_addr_ex[8]_INST_0_i_4_n_0 ;
+  wire \branch_addr_ex[8]_INST_0_n_0 ;
+  wire \branch_addr_ex[8]_INST_0_n_1 ;
+  wire \branch_addr_ex[8]_INST_0_n_2 ;
+  wire \branch_addr_ex[8]_INST_0_n_3 ;
+  wire [15:0]branch_addr_id;
+  wire \branch_addr_id[0]_INST_0_i_1_n_0 ;
+  wire \branch_addr_id[0]_INST_0_i_2_n_0 ;
+  wire \branch_addr_id[0]_INST_0_i_3_n_0 ;
+  wire \branch_addr_id[0]_INST_0_i_4_n_0 ;
+  wire \branch_addr_id[0]_INST_0_n_0 ;
+  wire \branch_addr_id[0]_INST_0_n_1 ;
+  wire \branch_addr_id[0]_INST_0_n_2 ;
+  wire \branch_addr_id[0]_INST_0_n_3 ;
+  wire \branch_addr_id[12]_INST_0_i_1_n_0 ;
+  wire \branch_addr_id[12]_INST_0_i_2_n_0 ;
+  wire \branch_addr_id[12]_INST_0_i_3_n_0 ;
+  wire \branch_addr_id[12]_INST_0_i_4_n_0 ;
+  wire \branch_addr_id[12]_INST_0_n_1 ;
+  wire \branch_addr_id[12]_INST_0_n_2 ;
+  wire \branch_addr_id[12]_INST_0_n_3 ;
+  wire \branch_addr_id[4]_INST_0_i_1_n_0 ;
+  wire \branch_addr_id[4]_INST_0_i_2_n_0 ;
+  wire \branch_addr_id[4]_INST_0_i_3_n_0 ;
+  wire \branch_addr_id[4]_INST_0_i_4_n_0 ;
+  wire \branch_addr_id[4]_INST_0_n_0 ;
+  wire \branch_addr_id[4]_INST_0_n_1 ;
+  wire \branch_addr_id[4]_INST_0_n_2 ;
+  wire \branch_addr_id[4]_INST_0_n_3 ;
+  wire \branch_addr_id[8]_INST_0_i_1_n_0 ;
+  wire \branch_addr_id[8]_INST_0_i_2_n_0 ;
+  wire \branch_addr_id[8]_INST_0_i_3_n_0 ;
+  wire \branch_addr_id[8]_INST_0_i_4_n_0 ;
+  wire \branch_addr_id[8]_INST_0_n_0 ;
+  wire \branch_addr_id[8]_INST_0_n_1 ;
+  wire \branch_addr_id[8]_INST_0_n_2 ;
+  wire \branch_addr_id[8]_INST_0_n_3 ;
+  wire id_jump_flag;
+  wire [15:0]imm_ex;
+  wire [15:0]imm_id;
+  wire [15:0]pc_next_ex;
+  wire [15:0]pc_next_id;
+  wire [3:3]\NLW_branch_addr_ex[12]_INST_0_CO_UNCONNECTED ;
+  wire [3:3]\NLW_branch_addr_id[12]_INST_0_CO_UNCONNECTED ;
+
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_ex[0]_INST_0 
+       (.CI(1'b0),
+        .CO({\branch_addr_ex[0]_INST_0_n_0 ,\branch_addr_ex[0]_INST_0_n_1 ,\branch_addr_ex[0]_INST_0_n_2 ,\branch_addr_ex[0]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(imm_ex[3:0]),
+        .O(branch_addr_ex[3:0]),
+        .S({\branch_addr_ex[0]_INST_0_i_1_n_0 ,\branch_addr_ex[0]_INST_0_i_2_n_0 ,\branch_addr_ex[0]_INST_0_i_3_n_0 ,\branch_addr_ex[0]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[0]_INST_0_i_1 
+       (.I0(imm_ex[3]),
+        .I1(pc_next_ex[3]),
+        .O(\branch_addr_ex[0]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[0]_INST_0_i_2 
+       (.I0(imm_ex[2]),
+        .I1(pc_next_ex[2]),
+        .O(\branch_addr_ex[0]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[0]_INST_0_i_3 
+       (.I0(imm_ex[1]),
+        .I1(pc_next_ex[1]),
+        .O(\branch_addr_ex[0]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[0]_INST_0_i_4 
+       (.I0(imm_ex[0]),
+        .I1(pc_next_ex[0]),
+        .O(\branch_addr_ex[0]_INST_0_i_4_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_ex[12]_INST_0 
+       (.CI(\branch_addr_ex[8]_INST_0_n_0 ),
+        .CO({\NLW_branch_addr_ex[12]_INST_0_CO_UNCONNECTED [3],\branch_addr_ex[12]_INST_0_n_1 ,\branch_addr_ex[12]_INST_0_n_2 ,\branch_addr_ex[12]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,imm_ex[14:12]}),
+        .O(branch_addr_ex[15:12]),
+        .S({\branch_addr_ex[12]_INST_0_i_1_n_0 ,\branch_addr_ex[12]_INST_0_i_2_n_0 ,\branch_addr_ex[12]_INST_0_i_3_n_0 ,\branch_addr_ex[12]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[12]_INST_0_i_1 
+       (.I0(imm_ex[15]),
+        .I1(pc_next_ex[15]),
+        .O(\branch_addr_ex[12]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[12]_INST_0_i_2 
+       (.I0(imm_ex[14]),
+        .I1(pc_next_ex[14]),
+        .O(\branch_addr_ex[12]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[12]_INST_0_i_3 
+       (.I0(imm_ex[13]),
+        .I1(pc_next_ex[13]),
+        .O(\branch_addr_ex[12]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[12]_INST_0_i_4 
+       (.I0(imm_ex[12]),
+        .I1(pc_next_ex[12]),
+        .O(\branch_addr_ex[12]_INST_0_i_4_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_ex[4]_INST_0 
+       (.CI(\branch_addr_ex[0]_INST_0_n_0 ),
+        .CO({\branch_addr_ex[4]_INST_0_n_0 ,\branch_addr_ex[4]_INST_0_n_1 ,\branch_addr_ex[4]_INST_0_n_2 ,\branch_addr_ex[4]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(imm_ex[7:4]),
+        .O(branch_addr_ex[7:4]),
+        .S({\branch_addr_ex[4]_INST_0_i_1_n_0 ,\branch_addr_ex[4]_INST_0_i_2_n_0 ,\branch_addr_ex[4]_INST_0_i_3_n_0 ,\branch_addr_ex[4]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[4]_INST_0_i_1 
+       (.I0(imm_ex[7]),
+        .I1(pc_next_ex[7]),
+        .O(\branch_addr_ex[4]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[4]_INST_0_i_2 
+       (.I0(imm_ex[6]),
+        .I1(pc_next_ex[6]),
+        .O(\branch_addr_ex[4]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[4]_INST_0_i_3 
+       (.I0(imm_ex[5]),
+        .I1(pc_next_ex[5]),
+        .O(\branch_addr_ex[4]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[4]_INST_0_i_4 
+       (.I0(imm_ex[4]),
+        .I1(pc_next_ex[4]),
+        .O(\branch_addr_ex[4]_INST_0_i_4_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_ex[8]_INST_0 
+       (.CI(\branch_addr_ex[4]_INST_0_n_0 ),
+        .CO({\branch_addr_ex[8]_INST_0_n_0 ,\branch_addr_ex[8]_INST_0_n_1 ,\branch_addr_ex[8]_INST_0_n_2 ,\branch_addr_ex[8]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(imm_ex[11:8]),
+        .O(branch_addr_ex[11:8]),
+        .S({\branch_addr_ex[8]_INST_0_i_1_n_0 ,\branch_addr_ex[8]_INST_0_i_2_n_0 ,\branch_addr_ex[8]_INST_0_i_3_n_0 ,\branch_addr_ex[8]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[8]_INST_0_i_1 
+       (.I0(imm_ex[11]),
+        .I1(pc_next_ex[11]),
+        .O(\branch_addr_ex[8]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[8]_INST_0_i_2 
+       (.I0(imm_ex[10]),
+        .I1(pc_next_ex[10]),
+        .O(\branch_addr_ex[8]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[8]_INST_0_i_3 
+       (.I0(imm_ex[9]),
+        .I1(pc_next_ex[9]),
+        .O(\branch_addr_ex[8]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_ex[8]_INST_0_i_4 
+       (.I0(imm_ex[8]),
+        .I1(pc_next_ex[8]),
+        .O(\branch_addr_ex[8]_INST_0_i_4_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_id[0]_INST_0 
+       (.CI(1'b0),
+        .CO({\branch_addr_id[0]_INST_0_n_0 ,\branch_addr_id[0]_INST_0_n_1 ,\branch_addr_id[0]_INST_0_n_2 ,\branch_addr_id[0]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(imm_id[3:0]),
+        .O(branch_addr_id[3:0]),
+        .S({\branch_addr_id[0]_INST_0_i_1_n_0 ,\branch_addr_id[0]_INST_0_i_2_n_0 ,\branch_addr_id[0]_INST_0_i_3_n_0 ,\branch_addr_id[0]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[0]_INST_0_i_1 
+       (.I0(imm_id[3]),
+        .I1(pc_next_id[3]),
+        .O(\branch_addr_id[0]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[0]_INST_0_i_2 
+       (.I0(imm_id[2]),
+        .I1(pc_next_id[2]),
+        .O(\branch_addr_id[0]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[0]_INST_0_i_3 
+       (.I0(imm_id[1]),
+        .I1(pc_next_id[1]),
+        .O(\branch_addr_id[0]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[0]_INST_0_i_4 
+       (.I0(imm_id[0]),
+        .I1(pc_next_id[0]),
+        .O(\branch_addr_id[0]_INST_0_i_4_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_id[12]_INST_0 
+       (.CI(\branch_addr_id[8]_INST_0_n_0 ),
+        .CO({\NLW_branch_addr_id[12]_INST_0_CO_UNCONNECTED [3],\branch_addr_id[12]_INST_0_n_1 ,\branch_addr_id[12]_INST_0_n_2 ,\branch_addr_id[12]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI({1'b0,imm_id[14:12]}),
+        .O(branch_addr_id[15:12]),
+        .S({\branch_addr_id[12]_INST_0_i_1_n_0 ,\branch_addr_id[12]_INST_0_i_2_n_0 ,\branch_addr_id[12]_INST_0_i_3_n_0 ,\branch_addr_id[12]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[12]_INST_0_i_1 
+       (.I0(imm_id[15]),
+        .I1(pc_next_id[15]),
+        .O(\branch_addr_id[12]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[12]_INST_0_i_2 
+       (.I0(imm_id[14]),
+        .I1(pc_next_id[14]),
+        .O(\branch_addr_id[12]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[12]_INST_0_i_3 
+       (.I0(imm_id[13]),
+        .I1(pc_next_id[13]),
+        .O(\branch_addr_id[12]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[12]_INST_0_i_4 
+       (.I0(imm_id[12]),
+        .I1(pc_next_id[12]),
+        .O(\branch_addr_id[12]_INST_0_i_4_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_id[4]_INST_0 
+       (.CI(\branch_addr_id[0]_INST_0_n_0 ),
+        .CO({\branch_addr_id[4]_INST_0_n_0 ,\branch_addr_id[4]_INST_0_n_1 ,\branch_addr_id[4]_INST_0_n_2 ,\branch_addr_id[4]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(imm_id[7:4]),
+        .O(branch_addr_id[7:4]),
+        .S({\branch_addr_id[4]_INST_0_i_1_n_0 ,\branch_addr_id[4]_INST_0_i_2_n_0 ,\branch_addr_id[4]_INST_0_i_3_n_0 ,\branch_addr_id[4]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[4]_INST_0_i_1 
+       (.I0(imm_id[7]),
+        .I1(pc_next_id[7]),
+        .O(\branch_addr_id[4]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[4]_INST_0_i_2 
+       (.I0(imm_id[6]),
+        .I1(pc_next_id[6]),
+        .O(\branch_addr_id[4]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[4]_INST_0_i_3 
+       (.I0(imm_id[5]),
+        .I1(pc_next_id[5]),
+        .O(\branch_addr_id[4]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[4]_INST_0_i_4 
+       (.I0(imm_id[4]),
+        .I1(pc_next_id[4]),
+        .O(\branch_addr_id[4]_INST_0_i_4_n_0 ));
+  (* ADDER_THRESHOLD = "35" *) 
+  CARRY4 \branch_addr_id[8]_INST_0 
+       (.CI(\branch_addr_id[4]_INST_0_n_0 ),
+        .CO({\branch_addr_id[8]_INST_0_n_0 ,\branch_addr_id[8]_INST_0_n_1 ,\branch_addr_id[8]_INST_0_n_2 ,\branch_addr_id[8]_INST_0_n_3 }),
+        .CYINIT(1'b0),
+        .DI(imm_id[11:8]),
+        .O(branch_addr_id[11:8]),
+        .S({\branch_addr_id[8]_INST_0_i_1_n_0 ,\branch_addr_id[8]_INST_0_i_2_n_0 ,\branch_addr_id[8]_INST_0_i_3_n_0 ,\branch_addr_id[8]_INST_0_i_4_n_0 }));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[8]_INST_0_i_1 
+       (.I0(imm_id[11]),
+        .I1(pc_next_id[11]),
+        .O(\branch_addr_id[8]_INST_0_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[8]_INST_0_i_2 
+       (.I0(imm_id[10]),
+        .I1(pc_next_id[10]),
+        .O(\branch_addr_id[8]_INST_0_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[8]_INST_0_i_3 
+       (.I0(imm_id[9]),
+        .I1(pc_next_id[9]),
+        .O(\branch_addr_id[8]_INST_0_i_3_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \branch_addr_id[8]_INST_0_i_4 
+       (.I0(imm_id[8]),
+        .I1(pc_next_id[8]),
+        .O(\branch_addr_id[8]_INST_0_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000001000)) 
+    id_jump_flag__0
+       (.I0(alu_op_id[5]),
+        .I1(alu_op_id[4]),
+        .I2(alu_op_id[2]),
+        .I3(alu_op_id[0]),
+        .I4(alu_op_id[3]),
+        .I5(alu_op_id[1]),
+        .O(id_jump_flag));
+endmodule
 
 (* CHECK_LICENSE_TYPE = "bluex_v_2_1_BJT_0_0,BJT,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "BJT,Vivado 2023.2" *) 
@@ -397,366 +756,6 @@ module bluex_v_2_1_BJT_0_0
         .imm_id(imm_id[15:0]),
         .pc_next_ex(pc_next_ex),
         .pc_next_id(pc_next_id));
-endmodule
-
-(* ORIG_REF_NAME = "BJT" *) 
-module bluex_v_2_1_BJT_0_0_BJT
-   (id_jump_flag,
-    branch_addr_ex,
-    branch_addr_id,
-    alu_op_id,
-    imm_ex,
-    pc_next_ex,
-    imm_id,
-    pc_next_id);
-  output id_jump_flag;
-  output [15:0]branch_addr_ex;
-  output [15:0]branch_addr_id;
-  input [5:0]alu_op_id;
-  input [15:0]imm_ex;
-  input [15:0]pc_next_ex;
-  input [15:0]imm_id;
-  input [15:0]pc_next_id;
-
-  wire [5:0]alu_op_id;
-  wire [15:0]branch_addr_ex;
-  wire \branch_addr_ex[0]_INST_0_i_1_n_0 ;
-  wire \branch_addr_ex[0]_INST_0_i_2_n_0 ;
-  wire \branch_addr_ex[0]_INST_0_i_3_n_0 ;
-  wire \branch_addr_ex[0]_INST_0_i_4_n_0 ;
-  wire \branch_addr_ex[0]_INST_0_n_0 ;
-  wire \branch_addr_ex[0]_INST_0_n_1 ;
-  wire \branch_addr_ex[0]_INST_0_n_2 ;
-  wire \branch_addr_ex[0]_INST_0_n_3 ;
-  wire \branch_addr_ex[12]_INST_0_i_1_n_0 ;
-  wire \branch_addr_ex[12]_INST_0_i_2_n_0 ;
-  wire \branch_addr_ex[12]_INST_0_i_3_n_0 ;
-  wire \branch_addr_ex[12]_INST_0_i_4_n_0 ;
-  wire \branch_addr_ex[12]_INST_0_n_1 ;
-  wire \branch_addr_ex[12]_INST_0_n_2 ;
-  wire \branch_addr_ex[12]_INST_0_n_3 ;
-  wire \branch_addr_ex[4]_INST_0_i_1_n_0 ;
-  wire \branch_addr_ex[4]_INST_0_i_2_n_0 ;
-  wire \branch_addr_ex[4]_INST_0_i_3_n_0 ;
-  wire \branch_addr_ex[4]_INST_0_i_4_n_0 ;
-  wire \branch_addr_ex[4]_INST_0_n_0 ;
-  wire \branch_addr_ex[4]_INST_0_n_1 ;
-  wire \branch_addr_ex[4]_INST_0_n_2 ;
-  wire \branch_addr_ex[4]_INST_0_n_3 ;
-  wire \branch_addr_ex[8]_INST_0_i_1_n_0 ;
-  wire \branch_addr_ex[8]_INST_0_i_2_n_0 ;
-  wire \branch_addr_ex[8]_INST_0_i_3_n_0 ;
-  wire \branch_addr_ex[8]_INST_0_i_4_n_0 ;
-  wire \branch_addr_ex[8]_INST_0_n_0 ;
-  wire \branch_addr_ex[8]_INST_0_n_1 ;
-  wire \branch_addr_ex[8]_INST_0_n_2 ;
-  wire \branch_addr_ex[8]_INST_0_n_3 ;
-  wire [15:0]branch_addr_id;
-  wire \branch_addr_id[0]_INST_0_i_1_n_0 ;
-  wire \branch_addr_id[0]_INST_0_i_2_n_0 ;
-  wire \branch_addr_id[0]_INST_0_i_3_n_0 ;
-  wire \branch_addr_id[0]_INST_0_i_4_n_0 ;
-  wire \branch_addr_id[0]_INST_0_n_0 ;
-  wire \branch_addr_id[0]_INST_0_n_1 ;
-  wire \branch_addr_id[0]_INST_0_n_2 ;
-  wire \branch_addr_id[0]_INST_0_n_3 ;
-  wire \branch_addr_id[12]_INST_0_i_1_n_0 ;
-  wire \branch_addr_id[12]_INST_0_i_2_n_0 ;
-  wire \branch_addr_id[12]_INST_0_i_3_n_0 ;
-  wire \branch_addr_id[12]_INST_0_i_4_n_0 ;
-  wire \branch_addr_id[12]_INST_0_n_1 ;
-  wire \branch_addr_id[12]_INST_0_n_2 ;
-  wire \branch_addr_id[12]_INST_0_n_3 ;
-  wire \branch_addr_id[4]_INST_0_i_1_n_0 ;
-  wire \branch_addr_id[4]_INST_0_i_2_n_0 ;
-  wire \branch_addr_id[4]_INST_0_i_3_n_0 ;
-  wire \branch_addr_id[4]_INST_0_i_4_n_0 ;
-  wire \branch_addr_id[4]_INST_0_n_0 ;
-  wire \branch_addr_id[4]_INST_0_n_1 ;
-  wire \branch_addr_id[4]_INST_0_n_2 ;
-  wire \branch_addr_id[4]_INST_0_n_3 ;
-  wire \branch_addr_id[8]_INST_0_i_1_n_0 ;
-  wire \branch_addr_id[8]_INST_0_i_2_n_0 ;
-  wire \branch_addr_id[8]_INST_0_i_3_n_0 ;
-  wire \branch_addr_id[8]_INST_0_i_4_n_0 ;
-  wire \branch_addr_id[8]_INST_0_n_0 ;
-  wire \branch_addr_id[8]_INST_0_n_1 ;
-  wire \branch_addr_id[8]_INST_0_n_2 ;
-  wire \branch_addr_id[8]_INST_0_n_3 ;
-  wire id_jump_flag;
-  wire [15:0]imm_ex;
-  wire [15:0]imm_id;
-  wire [15:0]pc_next_ex;
-  wire [15:0]pc_next_id;
-  wire [3:3]\NLW_branch_addr_ex[12]_INST_0_CO_UNCONNECTED ;
-  wire [3:3]\NLW_branch_addr_id[12]_INST_0_CO_UNCONNECTED ;
-
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_ex[0]_INST_0 
-       (.CI(1'b0),
-        .CO({\branch_addr_ex[0]_INST_0_n_0 ,\branch_addr_ex[0]_INST_0_n_1 ,\branch_addr_ex[0]_INST_0_n_2 ,\branch_addr_ex[0]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI(imm_ex[3:0]),
-        .O(branch_addr_ex[3:0]),
-        .S({\branch_addr_ex[0]_INST_0_i_1_n_0 ,\branch_addr_ex[0]_INST_0_i_2_n_0 ,\branch_addr_ex[0]_INST_0_i_3_n_0 ,\branch_addr_ex[0]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[0]_INST_0_i_1 
-       (.I0(imm_ex[3]),
-        .I1(pc_next_ex[3]),
-        .O(\branch_addr_ex[0]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[0]_INST_0_i_2 
-       (.I0(imm_ex[2]),
-        .I1(pc_next_ex[2]),
-        .O(\branch_addr_ex[0]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[0]_INST_0_i_3 
-       (.I0(imm_ex[1]),
-        .I1(pc_next_ex[1]),
-        .O(\branch_addr_ex[0]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[0]_INST_0_i_4 
-       (.I0(imm_ex[0]),
-        .I1(pc_next_ex[0]),
-        .O(\branch_addr_ex[0]_INST_0_i_4_n_0 ));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_ex[12]_INST_0 
-       (.CI(\branch_addr_ex[8]_INST_0_n_0 ),
-        .CO({\NLW_branch_addr_ex[12]_INST_0_CO_UNCONNECTED [3],\branch_addr_ex[12]_INST_0_n_1 ,\branch_addr_ex[12]_INST_0_n_2 ,\branch_addr_ex[12]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,imm_ex[14:12]}),
-        .O(branch_addr_ex[15:12]),
-        .S({\branch_addr_ex[12]_INST_0_i_1_n_0 ,\branch_addr_ex[12]_INST_0_i_2_n_0 ,\branch_addr_ex[12]_INST_0_i_3_n_0 ,\branch_addr_ex[12]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[12]_INST_0_i_1 
-       (.I0(imm_ex[15]),
-        .I1(pc_next_ex[15]),
-        .O(\branch_addr_ex[12]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[12]_INST_0_i_2 
-       (.I0(imm_ex[14]),
-        .I1(pc_next_ex[14]),
-        .O(\branch_addr_ex[12]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[12]_INST_0_i_3 
-       (.I0(imm_ex[13]),
-        .I1(pc_next_ex[13]),
-        .O(\branch_addr_ex[12]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[12]_INST_0_i_4 
-       (.I0(imm_ex[12]),
-        .I1(pc_next_ex[12]),
-        .O(\branch_addr_ex[12]_INST_0_i_4_n_0 ));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_ex[4]_INST_0 
-       (.CI(\branch_addr_ex[0]_INST_0_n_0 ),
-        .CO({\branch_addr_ex[4]_INST_0_n_0 ,\branch_addr_ex[4]_INST_0_n_1 ,\branch_addr_ex[4]_INST_0_n_2 ,\branch_addr_ex[4]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI(imm_ex[7:4]),
-        .O(branch_addr_ex[7:4]),
-        .S({\branch_addr_ex[4]_INST_0_i_1_n_0 ,\branch_addr_ex[4]_INST_0_i_2_n_0 ,\branch_addr_ex[4]_INST_0_i_3_n_0 ,\branch_addr_ex[4]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[4]_INST_0_i_1 
-       (.I0(imm_ex[7]),
-        .I1(pc_next_ex[7]),
-        .O(\branch_addr_ex[4]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[4]_INST_0_i_2 
-       (.I0(imm_ex[6]),
-        .I1(pc_next_ex[6]),
-        .O(\branch_addr_ex[4]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[4]_INST_0_i_3 
-       (.I0(imm_ex[5]),
-        .I1(pc_next_ex[5]),
-        .O(\branch_addr_ex[4]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[4]_INST_0_i_4 
-       (.I0(imm_ex[4]),
-        .I1(pc_next_ex[4]),
-        .O(\branch_addr_ex[4]_INST_0_i_4_n_0 ));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_ex[8]_INST_0 
-       (.CI(\branch_addr_ex[4]_INST_0_n_0 ),
-        .CO({\branch_addr_ex[8]_INST_0_n_0 ,\branch_addr_ex[8]_INST_0_n_1 ,\branch_addr_ex[8]_INST_0_n_2 ,\branch_addr_ex[8]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI(imm_ex[11:8]),
-        .O(branch_addr_ex[11:8]),
-        .S({\branch_addr_ex[8]_INST_0_i_1_n_0 ,\branch_addr_ex[8]_INST_0_i_2_n_0 ,\branch_addr_ex[8]_INST_0_i_3_n_0 ,\branch_addr_ex[8]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[8]_INST_0_i_1 
-       (.I0(imm_ex[11]),
-        .I1(pc_next_ex[11]),
-        .O(\branch_addr_ex[8]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[8]_INST_0_i_2 
-       (.I0(imm_ex[10]),
-        .I1(pc_next_ex[10]),
-        .O(\branch_addr_ex[8]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[8]_INST_0_i_3 
-       (.I0(imm_ex[9]),
-        .I1(pc_next_ex[9]),
-        .O(\branch_addr_ex[8]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_ex[8]_INST_0_i_4 
-       (.I0(imm_ex[8]),
-        .I1(pc_next_ex[8]),
-        .O(\branch_addr_ex[8]_INST_0_i_4_n_0 ));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_id[0]_INST_0 
-       (.CI(1'b0),
-        .CO({\branch_addr_id[0]_INST_0_n_0 ,\branch_addr_id[0]_INST_0_n_1 ,\branch_addr_id[0]_INST_0_n_2 ,\branch_addr_id[0]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI(imm_id[3:0]),
-        .O(branch_addr_id[3:0]),
-        .S({\branch_addr_id[0]_INST_0_i_1_n_0 ,\branch_addr_id[0]_INST_0_i_2_n_0 ,\branch_addr_id[0]_INST_0_i_3_n_0 ,\branch_addr_id[0]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[0]_INST_0_i_1 
-       (.I0(imm_id[3]),
-        .I1(pc_next_id[3]),
-        .O(\branch_addr_id[0]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[0]_INST_0_i_2 
-       (.I0(imm_id[2]),
-        .I1(pc_next_id[2]),
-        .O(\branch_addr_id[0]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[0]_INST_0_i_3 
-       (.I0(imm_id[1]),
-        .I1(pc_next_id[1]),
-        .O(\branch_addr_id[0]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[0]_INST_0_i_4 
-       (.I0(imm_id[0]),
-        .I1(pc_next_id[0]),
-        .O(\branch_addr_id[0]_INST_0_i_4_n_0 ));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_id[12]_INST_0 
-       (.CI(\branch_addr_id[8]_INST_0_n_0 ),
-        .CO({\NLW_branch_addr_id[12]_INST_0_CO_UNCONNECTED [3],\branch_addr_id[12]_INST_0_n_1 ,\branch_addr_id[12]_INST_0_n_2 ,\branch_addr_id[12]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI({1'b0,imm_id[14:12]}),
-        .O(branch_addr_id[15:12]),
-        .S({\branch_addr_id[12]_INST_0_i_1_n_0 ,\branch_addr_id[12]_INST_0_i_2_n_0 ,\branch_addr_id[12]_INST_0_i_3_n_0 ,\branch_addr_id[12]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[12]_INST_0_i_1 
-       (.I0(imm_id[15]),
-        .I1(pc_next_id[15]),
-        .O(\branch_addr_id[12]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[12]_INST_0_i_2 
-       (.I0(imm_id[14]),
-        .I1(pc_next_id[14]),
-        .O(\branch_addr_id[12]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[12]_INST_0_i_3 
-       (.I0(imm_id[13]),
-        .I1(pc_next_id[13]),
-        .O(\branch_addr_id[12]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[12]_INST_0_i_4 
-       (.I0(imm_id[12]),
-        .I1(pc_next_id[12]),
-        .O(\branch_addr_id[12]_INST_0_i_4_n_0 ));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_id[4]_INST_0 
-       (.CI(\branch_addr_id[0]_INST_0_n_0 ),
-        .CO({\branch_addr_id[4]_INST_0_n_0 ,\branch_addr_id[4]_INST_0_n_1 ,\branch_addr_id[4]_INST_0_n_2 ,\branch_addr_id[4]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI(imm_id[7:4]),
-        .O(branch_addr_id[7:4]),
-        .S({\branch_addr_id[4]_INST_0_i_1_n_0 ,\branch_addr_id[4]_INST_0_i_2_n_0 ,\branch_addr_id[4]_INST_0_i_3_n_0 ,\branch_addr_id[4]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[4]_INST_0_i_1 
-       (.I0(imm_id[7]),
-        .I1(pc_next_id[7]),
-        .O(\branch_addr_id[4]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[4]_INST_0_i_2 
-       (.I0(imm_id[6]),
-        .I1(pc_next_id[6]),
-        .O(\branch_addr_id[4]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[4]_INST_0_i_3 
-       (.I0(imm_id[5]),
-        .I1(pc_next_id[5]),
-        .O(\branch_addr_id[4]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[4]_INST_0_i_4 
-       (.I0(imm_id[4]),
-        .I1(pc_next_id[4]),
-        .O(\branch_addr_id[4]_INST_0_i_4_n_0 ));
-  (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 \branch_addr_id[8]_INST_0 
-       (.CI(\branch_addr_id[4]_INST_0_n_0 ),
-        .CO({\branch_addr_id[8]_INST_0_n_0 ,\branch_addr_id[8]_INST_0_n_1 ,\branch_addr_id[8]_INST_0_n_2 ,\branch_addr_id[8]_INST_0_n_3 }),
-        .CYINIT(1'b0),
-        .DI(imm_id[11:8]),
-        .O(branch_addr_id[11:8]),
-        .S({\branch_addr_id[8]_INST_0_i_1_n_0 ,\branch_addr_id[8]_INST_0_i_2_n_0 ,\branch_addr_id[8]_INST_0_i_3_n_0 ,\branch_addr_id[8]_INST_0_i_4_n_0 }));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[8]_INST_0_i_1 
-       (.I0(imm_id[11]),
-        .I1(pc_next_id[11]),
-        .O(\branch_addr_id[8]_INST_0_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[8]_INST_0_i_2 
-       (.I0(imm_id[10]),
-        .I1(pc_next_id[10]),
-        .O(\branch_addr_id[8]_INST_0_i_2_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[8]_INST_0_i_3 
-       (.I0(imm_id[9]),
-        .I1(pc_next_id[9]),
-        .O(\branch_addr_id[8]_INST_0_i_3_n_0 ));
-  LUT2 #(
-    .INIT(4'h6)) 
-    \branch_addr_id[8]_INST_0_i_4 
-       (.I0(imm_id[8]),
-        .I1(pc_next_id[8]),
-        .O(\branch_addr_id[8]_INST_0_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000000000001000)) 
-    id_jump_flag__0
-       (.I0(alu_op_id[5]),
-        .I1(alu_op_id[4]),
-        .I2(alu_op_id[2]),
-        .I3(alu_op_id[0]),
-        .I4(alu_op_id[3]),
-        .I5(alu_op_id[1]),
-        .O(id_jump_flag));
 endmodule
 `ifndef GLBL
 `define GLBL

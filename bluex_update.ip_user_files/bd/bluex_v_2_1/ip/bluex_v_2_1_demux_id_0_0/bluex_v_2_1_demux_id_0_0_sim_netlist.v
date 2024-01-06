@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Wed Jan  3 20:00:50 2024
+// Date        : Wed Jan  3 20:11:05 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_demux_id_0_0/bluex_v_2_1_demux_id_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_demux_id_0_0 -prefix
+//               bluex_v_2_1_demux_id_0_0_ bluex_v_2_1_demux_id_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_demux_id_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -61,6 +61,7 @@ module bluex_v_2_1_demux_id_0_0
   output [15:0]pc_next;
 
   wire \<const0> ;
+  wire ROM_en;
   wire ROM_rst;
   wire branch_taken;
   wire clk;
@@ -72,7 +73,6 @@ module bluex_v_2_1_demux_id_0_0
   wire rst;
 
   assign ROM_clk = clk;
-  assign ROM_en = \<const0> ;
   assign ROM_we = \<const0> ;
   assign addr[15:0] = isc[15:0];
   assign imm[15:0] = isc[15:0];
@@ -85,7 +85,8 @@ module bluex_v_2_1_demux_id_0_0
   GND GND
        (.G(\<const0> ));
   bluex_v_2_1_demux_id_0_0_demux_id inst
-       (.SR(ROM_rst),
+       (.E(ROM_en),
+        .SR(ROM_rst),
         .branch_taken(branch_taken),
         .clk(clk),
         .ena_n(ena_n),
@@ -96,11 +97,11 @@ module bluex_v_2_1_demux_id_0_0
         .rst(rst));
 endmodule
 
-(* ORIG_REF_NAME = "demux_id" *) 
 module bluex_v_2_1_demux_id_0_0_demux_id
    (real_op,
     pc_next,
     SR,
+    E,
     isc,
     pc_next_inw,
     clk,
@@ -110,6 +111,7 @@ module bluex_v_2_1_demux_id_0_0_demux_id
   output [5:0]real_op;
   output [15:0]pc_next;
   output [0:0]SR;
+  output [0:0]E;
   input [11:0]isc;
   input [15:0]pc_next_inw;
   input clk;
@@ -117,7 +119,7 @@ module bluex_v_2_1_demux_id_0_0_demux_id
   input rst;
   input branch_taken;
 
-  wire ID_IF_ena;
+  wire [0:0]E;
   wire [0:0]SR;
   wire branch_taken;
   wire clk;
@@ -130,110 +132,110 @@ module bluex_v_2_1_demux_id_0_0_demux_id
   wire \real_op[5]_INST_0_i_1_n_0 ;
   wire rst;
 
+  LUT1 #(
+    .INIT(2'h1)) 
+    ROM_en_INST_0
+       (.I0(ena_n),
+        .O(E));
   LUT2 #(
     .INIT(4'hE)) 
     ROM_rst_INST_0
        (.I0(rst),
         .I1(branch_taken),
         .O(SR));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \pc_next[15]_i_1 
-       (.I0(ena_n),
-        .O(ID_IF_ena));
   FDRE \pc_next_reg[0] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[0]),
         .Q(pc_next[0]),
         .R(SR));
   FDRE \pc_next_reg[10] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[10]),
         .Q(pc_next[10]),
         .R(SR));
   FDRE \pc_next_reg[11] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[11]),
         .Q(pc_next[11]),
         .R(SR));
   FDRE \pc_next_reg[12] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[12]),
         .Q(pc_next[12]),
         .R(SR));
   FDRE \pc_next_reg[13] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[13]),
         .Q(pc_next[13]),
         .R(SR));
   FDRE \pc_next_reg[14] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[14]),
         .Q(pc_next[14]),
         .R(SR));
   FDRE \pc_next_reg[15] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[15]),
         .Q(pc_next[15]),
         .R(SR));
   FDRE \pc_next_reg[1] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[1]),
         .Q(pc_next[1]),
         .R(SR));
   FDRE \pc_next_reg[2] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[2]),
         .Q(pc_next[2]),
         .R(SR));
   FDRE \pc_next_reg[3] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[3]),
         .Q(pc_next[3]),
         .R(SR));
   FDRE \pc_next_reg[4] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[4]),
         .Q(pc_next[4]),
         .R(SR));
   FDRE \pc_next_reg[5] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[5]),
         .Q(pc_next[5]),
         .R(SR));
   FDRE \pc_next_reg[6] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[6]),
         .Q(pc_next[6]),
         .R(SR));
   FDRE \pc_next_reg[7] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[7]),
         .Q(pc_next[7]),
         .R(SR));
   FDRE \pc_next_reg[8] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[8]),
         .Q(pc_next[8]),
         .R(SR));
   FDRE \pc_next_reg[9] 
        (.C(clk),
-        .CE(ID_IF_ena),
+        .CE(E),
         .D(pc_next_inw[9]),
         .Q(pc_next[9]),
         .R(SR));

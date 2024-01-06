@@ -1260,8 +1260,8 @@
       "aux_ex_0_alu_op": {
         "ports": [
           "aux_ex_0/alu_op",
-          "alu_ex_0/alu_op",
-          "BJT_0/alu_op_ex"
+          "BJT_0/alu_op_ex",
+          "alu_ex_0/alu_op"
         ]
       },
       "aux_ex_0_branch_isc": {
@@ -1273,8 +1273,8 @@
       "aux_ex_0_imm": {
         "ports": [
           "aux_ex_0/imm",
-          "alu_ex_0/imm",
-          "BJT_0/imm_ex"
+          "BJT_0/imm_ex",
+          "alu_ex_0/imm"
         ]
       },
       "aux_ex_0_mem_to_reg_ex": {
@@ -1306,15 +1306,15 @@
       "aux_ex_0_rs": {
         "ports": [
           "aux_ex_0/rs",
-          "alu_ex_0/rs",
-          "BJT_0/rs"
+          "BJT_0/rs",
+          "alu_ex_0/rs"
         ]
       },
       "aux_ex_0_rt": {
         "ports": [
           "aux_ex_0/rt",
-          "alu_ex_0/rt",
-          "BJT_0/rt"
+          "BJT_0/rt",
+          "alu_ex_0/rt"
         ]
       },
       "aux_ex_0_write_data": {
@@ -1346,12 +1346,12 @@
       "clk_0_1": {
         "ports": [
           "clk",
-          "reg_wb_0/clk",
           "wrapper_mem_0/clk",
           "PC_0/clk",
           "aux_ex_0/clk",
           "demux_id_0/clk",
-          "reg_heap_id_0/clk"
+          "reg_heap_id_0/clk",
+          "reg_wb_0/clk"
         ]
       },
       "controller_0_EX_MEM_cen": {
@@ -1619,10 +1619,10 @@
       "rst_n_0_1": {
         "ports": [
           "rst_n",
-          "reg_wb_0/rst_n",
           "wrapper_mem_0/rst_n",
           "PC_0/rst_n",
-          "reg_heap_id_0/rst_n"
+          "reg_heap_id_0/rst_n",
+          "reg_wb_0/rst_n"
         ]
       },
       "wr_en_i_0_1": {
@@ -1640,8 +1640,8 @@
       "wrapper_mem_0_alu_result": {
         "ports": [
           "wrapper_mem_0/alu_result",
-          "reg_wb_0/alu_result_inw",
-          "aux_ex_0/alu_result_back"
+          "aux_ex_0/alu_result_back",
+          "reg_wb_0/alu_result_inw"
         ]
       },
       "wrapper_mem_0_memory_to_reg": {
@@ -1659,8 +1659,8 @@
       "wrapper_mem_0_reg_write": {
         "ports": [
           "wrapper_mem_0/reg_write",
-          "reg_wb_0/reg_write_inw",
-          "controller_0/reg_write_mem"
+          "controller_0/reg_write_mem",
+          "reg_wb_0/reg_write_inw"
         ]
       },
       "wrapper_mem_0_write_mem_addr": {
@@ -1702,8 +1702,8 @@
       "wrapper_mem_0_write_reg_addr": {
         "ports": [
           "wrapper_mem_0/write_reg_addr",
-          "reg_wb_0/write_reg_addr_inw",
-          "controller_0/write_reg_addr_mem"
+          "controller_0/write_reg_addr_mem",
+          "reg_wb_0/write_reg_addr_inw"
         ]
       }
     }

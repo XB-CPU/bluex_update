@@ -16,7 +16,7 @@ reg   clk                                  = 0 ;
 reg   [0:0]  enable_CPU                    = 0 ;
 reg   [31:0]  isc                          = 0 ;
 reg   [31:0]  ram_rd_data                  = 0 ;
-wire   [31:0]  read_mem_out_inw              ;
+reg   [31:0]  read_mem_out_inw              ;
 reg   rst_n                                = 0 ;
 reg   rst                                  = 1 ;
 reg   wr_en_i                              = 0 ;
@@ -56,7 +56,17 @@ always @(posedge ROM_clk) begin
         end
     end
 end
-assign read_mem_out_inw = RAM[write_mem_addr];
+// assign read_mem_out_inw = RAM[write_mem_addr];
+always @(posedge write_mem_clk) begin
+    if (write_mem_rst) begin
+        read_mem_out_inw <= 0;
+    end
+    else begin
+        if (write_mem_en) begin
+            read_mem_out_inw <= RAM[write_mem_addr];
+        end
+    end
+end
 
 integer i;
 
@@ -131,7 +141,7 @@ end
 initial
 begin
 	// #(PERIOD*2.5) enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
-	#(PERIOD*200) 
+	#(PERIOD*110) 
 	// for (i = 0; i < 20; i = i + 1) begin
 	// 	enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
 	// end

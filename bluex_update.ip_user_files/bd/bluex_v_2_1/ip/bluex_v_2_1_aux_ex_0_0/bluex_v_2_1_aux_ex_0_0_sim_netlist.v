@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Wed Jan  3 16:45:13 2024
+// Date        : Wed Jan  3 16:45:12 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_aux_ex_0_0/bluex_v_2_1_aux_ex_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_aux_ex_0_0 -prefix
+//               bluex_v_2_1_aux_ex_0_0_ bluex_v_2_1_aux_ex_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_aux_ex_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -13,132 +13,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "bluex_v_2_1_aux_ex_0_0,aux_ex,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "aux_ex,Vivado 2023.2" *) 
-(* NotValidForBitStream *)
-module bluex_v_2_1_aux_ex_0_0
-   (clk,
-    rst,
-    cen,
-    rs_inw,
-    rt_inw,
-    imm_inw,
-    write_back_data,
-    alu_result_back,
-    rs_forward_inw,
-    rt_forward_inw,
-    alu_src_inw,
-    branch_isc_inw,
-    alu_op_inw,
-    mem_write_inw,
-    mem_to_reg_inw,
-    reg_write_inw,
-    pc_next_inw,
-    write_reg_addr_inw,
-    rs,
-    rt,
-    imm,
-    alu_op,
-    branch_isc,
-    pc_next,
-    write_data,
-    write_reg_addr,
-    reg_write_ex,
-    mem_to_reg_ex,
-    mem_write_ex);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bluex_v_2_1_clk_0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
-  input cen;
-  input [31:0]rs_inw;
-  input [31:0]rt_inw;
-  input [31:0]imm_inw;
-  input [31:0]write_back_data;
-  input [31:0]alu_result_back;
-  input [1:0]rs_forward_inw;
-  input [1:0]rt_forward_inw;
-  input alu_src_inw;
-  input branch_isc_inw;
-  input [5:0]alu_op_inw;
-  input mem_write_inw;
-  input mem_to_reg_inw;
-  input reg_write_inw;
-  input [15:0]pc_next_inw;
-  input [4:0]write_reg_addr_inw;
-  output [31:0]rs;
-  output [31:0]rt;
-  output [31:0]imm;
-  output [5:0]alu_op;
-  output branch_isc;
-  output [15:0]pc_next;
-  output [31:0]write_data;
-  output [4:0]write_reg_addr;
-  output reg_write_ex;
-  output mem_to_reg_ex;
-  output mem_write_ex;
-
-  wire [5:0]alu_op;
-  wire [5:0]alu_op_inw;
-  wire [31:0]alu_result_back;
-  wire alu_src_inw;
-  wire branch_isc;
-  wire branch_isc_inw;
-  wire cen;
-  wire clk;
-  wire [31:0]imm;
-  wire [31:0]imm_inw;
-  wire mem_to_reg_ex;
-  wire mem_to_reg_inw;
-  wire mem_write_ex;
-  wire mem_write_inw;
-  wire [15:0]pc_next;
-  wire [15:0]pc_next_inw;
-  wire reg_write_ex;
-  wire reg_write_inw;
-  wire [31:0]rs;
-  wire [1:0]rs_forward_inw;
-  wire [31:0]rs_inw;
-  wire rst;
-  wire [31:0]rt;
-  wire [1:0]rt_forward_inw;
-  wire [31:0]rt_inw;
-  wire [31:0]write_back_data;
-  wire [31:0]write_data;
-  wire [4:0]write_reg_addr;
-  wire [4:0]write_reg_addr_inw;
-
-  bluex_v_2_1_aux_ex_0_0_aux_ex inst
-       (.alu_op(alu_op),
-        .alu_op_inw(alu_op_inw),
-        .alu_result_back(alu_result_back),
-        .alu_src_inw(alu_src_inw),
-        .branch_isc(branch_isc),
-        .branch_isc_inw(branch_isc_inw),
-        .cen(cen),
-        .clk(clk),
-        .imm(imm),
-        .imm_inw(imm_inw),
-        .mem_to_reg_ex(mem_to_reg_ex),
-        .mem_to_reg_inw(mem_to_reg_inw),
-        .mem_write_ex(mem_write_ex),
-        .mem_write_inw(mem_write_inw),
-        .pc_next(pc_next),
-        .pc_next_inw(pc_next_inw),
-        .reg_write_ex(reg_write_ex),
-        .reg_write_inw(reg_write_inw),
-        .rs(rs),
-        .rs_forward_inw(rs_forward_inw),
-        .rs_inw(rs_inw),
-        .rst(rst),
-        .rt(rt),
-        .rt_forward_inw(rt_forward_inw),
-        .rt_inw(rt_inw),
-        .write_back_data(write_back_data),
-        .write_data(write_data),
-        .write_reg_addr(write_reg_addr),
-        .write_reg_addr_inw(write_reg_addr_inw));
-endmodule
-
-(* ORIG_REF_NAME = "aux_ex" *) 
 module bluex_v_2_1_aux_ex_0_0_aux_ex
    (imm,
     alu_op,
@@ -1858,6 +1732,131 @@ module bluex_v_2_1_aux_ex_0_0_aux_ex
         .D(write_reg_addr_inw[4]),
         .Q(write_reg_addr[4]),
         .R(rst));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "bluex_v_2_1_aux_ex_0_0,aux_ex,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "aux_ex,Vivado 2023.2" *) 
+(* NotValidForBitStream *)
+module bluex_v_2_1_aux_ex_0_0
+   (clk,
+    rst,
+    cen,
+    rs_inw,
+    rt_inw,
+    imm_inw,
+    write_back_data,
+    alu_result_back,
+    rs_forward_inw,
+    rt_forward_inw,
+    alu_src_inw,
+    branch_isc_inw,
+    alu_op_inw,
+    mem_write_inw,
+    mem_to_reg_inw,
+    reg_write_inw,
+    pc_next_inw,
+    write_reg_addr_inw,
+    rs,
+    rt,
+    imm,
+    alu_op,
+    branch_isc,
+    pc_next,
+    write_data,
+    write_reg_addr,
+    reg_write_ex,
+    mem_to_reg_ex,
+    mem_write_ex);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bluex_v_2_1_clk_0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
+  input cen;
+  input [31:0]rs_inw;
+  input [31:0]rt_inw;
+  input [31:0]imm_inw;
+  input [31:0]write_back_data;
+  input [31:0]alu_result_back;
+  input [1:0]rs_forward_inw;
+  input [1:0]rt_forward_inw;
+  input alu_src_inw;
+  input branch_isc_inw;
+  input [5:0]alu_op_inw;
+  input mem_write_inw;
+  input mem_to_reg_inw;
+  input reg_write_inw;
+  input [15:0]pc_next_inw;
+  input [4:0]write_reg_addr_inw;
+  output [31:0]rs;
+  output [31:0]rt;
+  output [31:0]imm;
+  output [5:0]alu_op;
+  output branch_isc;
+  output [15:0]pc_next;
+  output [31:0]write_data;
+  output [4:0]write_reg_addr;
+  output reg_write_ex;
+  output mem_to_reg_ex;
+  output mem_write_ex;
+
+  wire [5:0]alu_op;
+  wire [5:0]alu_op_inw;
+  wire [31:0]alu_result_back;
+  wire alu_src_inw;
+  wire branch_isc;
+  wire branch_isc_inw;
+  wire cen;
+  wire clk;
+  wire [31:0]imm;
+  wire [31:0]imm_inw;
+  wire mem_to_reg_ex;
+  wire mem_to_reg_inw;
+  wire mem_write_ex;
+  wire mem_write_inw;
+  wire [15:0]pc_next;
+  wire [15:0]pc_next_inw;
+  wire reg_write_ex;
+  wire reg_write_inw;
+  wire [31:0]rs;
+  wire [1:0]rs_forward_inw;
+  wire [31:0]rs_inw;
+  wire rst;
+  wire [31:0]rt;
+  wire [1:0]rt_forward_inw;
+  wire [31:0]rt_inw;
+  wire [31:0]write_back_data;
+  wire [31:0]write_data;
+  wire [4:0]write_reg_addr;
+  wire [4:0]write_reg_addr_inw;
+
+  bluex_v_2_1_aux_ex_0_0_aux_ex inst
+       (.alu_op(alu_op),
+        .alu_op_inw(alu_op_inw),
+        .alu_result_back(alu_result_back),
+        .alu_src_inw(alu_src_inw),
+        .branch_isc(branch_isc),
+        .branch_isc_inw(branch_isc_inw),
+        .cen(cen),
+        .clk(clk),
+        .imm(imm),
+        .imm_inw(imm_inw),
+        .mem_to_reg_ex(mem_to_reg_ex),
+        .mem_to_reg_inw(mem_to_reg_inw),
+        .mem_write_ex(mem_write_ex),
+        .mem_write_inw(mem_write_inw),
+        .pc_next(pc_next),
+        .pc_next_inw(pc_next_inw),
+        .reg_write_ex(reg_write_ex),
+        .reg_write_inw(reg_write_inw),
+        .rs(rs),
+        .rs_forward_inw(rs_forward_inw),
+        .rs_inw(rs_inw),
+        .rst(rst),
+        .rt(rt),
+        .rt_forward_inw(rt_forward_inw),
+        .rt_inw(rt_inw),
+        .write_back_data(write_back_data),
+        .write_data(write_data),
+        .write_reg_addr(write_reg_addr),
+        .write_reg_addr_inw(write_reg_addr_inw));
 endmodule
 `ifndef GLBL
 `define GLBL

@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Wed Dec 27 20:14:48 2023
+-- Date        : Sat Jan  6 10:28:24 2024
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top bluex_v_2_1_reg_wb_0_0 -prefix
---               bluex_v_2_1_reg_wb_0_0_ bluex_v_2_1_reg_wb_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_reg_wb_0_0/bluex_v_2_1_reg_wb_0_0_sim_netlist.vhdl
 -- Design      : bluex_v_2_1_reg_wb_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -29,11 +29,12 @@ entity bluex_v_2_1_reg_wb_0_0_reg_wb is
     reg_write_inw : in STD_LOGIC;
     rst_n : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bluex_v_2_1_reg_wb_0_0_reg_wb : entity is "reg_wb";
 end bluex_v_2_1_reg_wb_0_0_reg_wb;
 
 architecture STRUCTURE of bluex_v_2_1_reg_wb_0_0_reg_wb is
   signal alu_result_inr : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal mem_rd_inr : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal memory_to_reg : STD_LOGIC;
   signal \write_reg_addr[4]_i_1_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
@@ -326,262 +327,6 @@ begin
       D => alu_result_inw(9),
       Q => alu_result_inr(9)
     );
-\mem_rd_inr_reg[0]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(0),
-      Q => mem_rd_inr(0)
-    );
-\mem_rd_inr_reg[10]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(10),
-      Q => mem_rd_inr(10)
-    );
-\mem_rd_inr_reg[11]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(11),
-      Q => mem_rd_inr(11)
-    );
-\mem_rd_inr_reg[12]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(12),
-      Q => mem_rd_inr(12)
-    );
-\mem_rd_inr_reg[13]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(13),
-      Q => mem_rd_inr(13)
-    );
-\mem_rd_inr_reg[14]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(14),
-      Q => mem_rd_inr(14)
-    );
-\mem_rd_inr_reg[15]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(15),
-      Q => mem_rd_inr(15)
-    );
-\mem_rd_inr_reg[16]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(16),
-      Q => mem_rd_inr(16)
-    );
-\mem_rd_inr_reg[17]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(17),
-      Q => mem_rd_inr(17)
-    );
-\mem_rd_inr_reg[18]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(18),
-      Q => mem_rd_inr(18)
-    );
-\mem_rd_inr_reg[19]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(19),
-      Q => mem_rd_inr(19)
-    );
-\mem_rd_inr_reg[1]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(1),
-      Q => mem_rd_inr(1)
-    );
-\mem_rd_inr_reg[20]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(20),
-      Q => mem_rd_inr(20)
-    );
-\mem_rd_inr_reg[21]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(21),
-      Q => mem_rd_inr(21)
-    );
-\mem_rd_inr_reg[22]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(22),
-      Q => mem_rd_inr(22)
-    );
-\mem_rd_inr_reg[23]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(23),
-      Q => mem_rd_inr(23)
-    );
-\mem_rd_inr_reg[24]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(24),
-      Q => mem_rd_inr(24)
-    );
-\mem_rd_inr_reg[25]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(25),
-      Q => mem_rd_inr(25)
-    );
-\mem_rd_inr_reg[26]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(26),
-      Q => mem_rd_inr(26)
-    );
-\mem_rd_inr_reg[27]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(27),
-      Q => mem_rd_inr(27)
-    );
-\mem_rd_inr_reg[28]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(28),
-      Q => mem_rd_inr(28)
-    );
-\mem_rd_inr_reg[29]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(29),
-      Q => mem_rd_inr(29)
-    );
-\mem_rd_inr_reg[2]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(2),
-      Q => mem_rd_inr(2)
-    );
-\mem_rd_inr_reg[30]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(30),
-      Q => mem_rd_inr(30)
-    );
-\mem_rd_inr_reg[31]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(31),
-      Q => mem_rd_inr(31)
-    );
-\mem_rd_inr_reg[3]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(3),
-      Q => mem_rd_inr(3)
-    );
-\mem_rd_inr_reg[4]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(4),
-      Q => mem_rd_inr(4)
-    );
-\mem_rd_inr_reg[5]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(5),
-      Q => mem_rd_inr(5)
-    );
-\mem_rd_inr_reg[6]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(6),
-      Q => mem_rd_inr(6)
-    );
-\mem_rd_inr_reg[7]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(7),
-      Q => mem_rd_inr(7)
-    );
-\mem_rd_inr_reg[8]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(8),
-      Q => mem_rd_inr(8)
-    );
-\mem_rd_inr_reg[9]\: unisim.vcomponents.FDCE
-     port map (
-      C => clk,
-      CE => MEM_WB_cen,
-      CLR => \write_reg_addr[4]_i_1_n_0\,
-      D => mem_rd_inw(9),
-      Q => mem_rd_inr(9)
-    );
 memory_to_reg_reg: unisim.vcomponents.FDCE
      port map (
       C => clk,
@@ -603,7 +348,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(0),
+      I0 => mem_rd_inw(0),
       I1 => alu_result_inr(0),
       I2 => memory_to_reg,
       O => write_back_data(0)
@@ -613,7 +358,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(10),
+      I0 => mem_rd_inw(10),
       I1 => alu_result_inr(10),
       I2 => memory_to_reg,
       O => write_back_data(10)
@@ -623,7 +368,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(11),
+      I0 => mem_rd_inw(11),
       I1 => alu_result_inr(11),
       I2 => memory_to_reg,
       O => write_back_data(11)
@@ -633,7 +378,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(12),
+      I0 => mem_rd_inw(12),
       I1 => alu_result_inr(12),
       I2 => memory_to_reg,
       O => write_back_data(12)
@@ -643,7 +388,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(13),
+      I0 => mem_rd_inw(13),
       I1 => alu_result_inr(13),
       I2 => memory_to_reg,
       O => write_back_data(13)
@@ -653,7 +398,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(14),
+      I0 => mem_rd_inw(14),
       I1 => alu_result_inr(14),
       I2 => memory_to_reg,
       O => write_back_data(14)
@@ -663,7 +408,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(15),
+      I0 => mem_rd_inw(15),
       I1 => alu_result_inr(15),
       I2 => memory_to_reg,
       O => write_back_data(15)
@@ -673,7 +418,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(16),
+      I0 => mem_rd_inw(16),
       I1 => alu_result_inr(16),
       I2 => memory_to_reg,
       O => write_back_data(16)
@@ -683,7 +428,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(17),
+      I0 => mem_rd_inw(17),
       I1 => alu_result_inr(17),
       I2 => memory_to_reg,
       O => write_back_data(17)
@@ -693,7 +438,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(18),
+      I0 => mem_rd_inw(18),
       I1 => alu_result_inr(18),
       I2 => memory_to_reg,
       O => write_back_data(18)
@@ -703,7 +448,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(19),
+      I0 => mem_rd_inw(19),
       I1 => alu_result_inr(19),
       I2 => memory_to_reg,
       O => write_back_data(19)
@@ -713,7 +458,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(1),
+      I0 => mem_rd_inw(1),
       I1 => alu_result_inr(1),
       I2 => memory_to_reg,
       O => write_back_data(1)
@@ -723,7 +468,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(20),
+      I0 => mem_rd_inw(20),
       I1 => alu_result_inr(20),
       I2 => memory_to_reg,
       O => write_back_data(20)
@@ -733,7 +478,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(21),
+      I0 => mem_rd_inw(21),
       I1 => alu_result_inr(21),
       I2 => memory_to_reg,
       O => write_back_data(21)
@@ -743,7 +488,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(22),
+      I0 => mem_rd_inw(22),
       I1 => alu_result_inr(22),
       I2 => memory_to_reg,
       O => write_back_data(22)
@@ -753,7 +498,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(23),
+      I0 => mem_rd_inw(23),
       I1 => alu_result_inr(23),
       I2 => memory_to_reg,
       O => write_back_data(23)
@@ -763,7 +508,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(24),
+      I0 => mem_rd_inw(24),
       I1 => alu_result_inr(24),
       I2 => memory_to_reg,
       O => write_back_data(24)
@@ -773,7 +518,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(25),
+      I0 => mem_rd_inw(25),
       I1 => alu_result_inr(25),
       I2 => memory_to_reg,
       O => write_back_data(25)
@@ -783,7 +528,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(26),
+      I0 => mem_rd_inw(26),
       I1 => alu_result_inr(26),
       I2 => memory_to_reg,
       O => write_back_data(26)
@@ -793,7 +538,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(27),
+      I0 => mem_rd_inw(27),
       I1 => alu_result_inr(27),
       I2 => memory_to_reg,
       O => write_back_data(27)
@@ -803,7 +548,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(28),
+      I0 => mem_rd_inw(28),
       I1 => alu_result_inr(28),
       I2 => memory_to_reg,
       O => write_back_data(28)
@@ -813,7 +558,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(29),
+      I0 => mem_rd_inw(29),
       I1 => alu_result_inr(29),
       I2 => memory_to_reg,
       O => write_back_data(29)
@@ -823,7 +568,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(2),
+      I0 => mem_rd_inw(2),
       I1 => alu_result_inr(2),
       I2 => memory_to_reg,
       O => write_back_data(2)
@@ -833,7 +578,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(30),
+      I0 => mem_rd_inw(30),
       I1 => alu_result_inr(30),
       I2 => memory_to_reg,
       O => write_back_data(30)
@@ -843,7 +588,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(31),
+      I0 => mem_rd_inw(31),
       I1 => alu_result_inr(31),
       I2 => memory_to_reg,
       O => write_back_data(31)
@@ -853,7 +598,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(3),
+      I0 => mem_rd_inw(3),
       I1 => alu_result_inr(3),
       I2 => memory_to_reg,
       O => write_back_data(3)
@@ -863,7 +608,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(4),
+      I0 => mem_rd_inw(4),
       I1 => alu_result_inr(4),
       I2 => memory_to_reg,
       O => write_back_data(4)
@@ -873,7 +618,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(5),
+      I0 => mem_rd_inw(5),
       I1 => alu_result_inr(5),
       I2 => memory_to_reg,
       O => write_back_data(5)
@@ -883,7 +628,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(6),
+      I0 => mem_rd_inw(6),
       I1 => alu_result_inr(6),
       I2 => memory_to_reg,
       O => write_back_data(6)
@@ -893,7 +638,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(7),
+      I0 => mem_rd_inw(7),
       I1 => alu_result_inr(7),
       I2 => memory_to_reg,
       O => write_back_data(7)
@@ -903,7 +648,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(8),
+      I0 => mem_rd_inw(8),
       I1 => alu_result_inr(8),
       I2 => memory_to_reg,
       O => write_back_data(8)
@@ -913,7 +658,7 @@ reg_write_reg: unisim.vcomponents.FDCE
       INIT => X"AC"
     )
         port map (
-      I0 => mem_rd_inr(9),
+      I0 => mem_rd_inw(9),
       I1 => alu_result_inr(9),
       I2 => memory_to_reg,
       O => write_back_data(9)

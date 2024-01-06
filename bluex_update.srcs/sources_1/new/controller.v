@@ -80,8 +80,8 @@ module controller (
 			`ALO_ADDI, `ALO_SUBI, `ALO_NOT, 
 			`ALO_NOTI, `ALO_ORLI, `ALO_ANDI, 
 			`ALO_XORI, `ALO_JMP, `ALO_SLSI, 
-			`ALO_LDW, `ALO_MIRL, `ALO_MIRH//, `ALO_MVRR
-			: 
+			`ALO_LDW, `ALO_MIRL, `ALO_MIRH,
+			`ALO_MULI: 
 			read_rt = 1'b0;
 			default: read_rt = 1'b1;
 		endcase

@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 // Date        : Wed Dec 27 22:30:25 2023
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_PC_0_0/bluex_v_2_1_PC_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_PC_0_0 -prefix
+//               bluex_v_2_1_PC_0_0_ bluex_v_2_1_PC_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_PC_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -13,48 +13,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "bluex_v_2_1_PC_0_0,PC,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "PC,Vivado 2023.2" *) 
-(* NotValidForBitStream *)
-module bluex_v_2_1_PC_0_0
-   (clk,
-    rst_n,
-    ena_n,
-    next_addr_branch,
-    next_addr_jumpid,
-    PC_src,
-    current_addr,
-    next_addr_output);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bluex_v_2_1_clk_0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst_n;
-  input ena_n;
-  input [15:0]next_addr_branch;
-  input [15:0]next_addr_jumpid;
-  input [1:0]PC_src;
-  output [15:0]current_addr;
-  output [15:0]next_addr_output;
-
-  wire [1:0]PC_src;
-  wire clk;
-  wire [15:0]current_addr;
-  wire ena_n;
-  wire [15:0]next_addr_branch;
-  wire [15:0]next_addr_jumpid;
-  wire [15:0]next_addr_output;
-  wire rst_n;
-
-  bluex_v_2_1_PC_0_0_PC inst
-       (.PC_src(PC_src),
-        .clk(clk),
-        .current_addr(current_addr),
-        .ena_n(ena_n),
-        .next_addr_branch(next_addr_branch),
-        .next_addr_jumpid(next_addr_jumpid),
-        .next_addr_output(next_addr_output),
-        .rst_n(rst_n));
-endmodule
-
-(* ORIG_REF_NAME = "PC" *) 
 module bluex_v_2_1_PC_0_0_PC
    (current_addr,
     next_addr_output,
@@ -390,6 +348,47 @@ module bluex_v_2_1_PC_0_0_PC
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({NLW_next_addr_output_carry__2_O_UNCONNECTED[3],next_addr_output[15:13]}),
         .S({1'b0,current_addr[15:13]}));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "bluex_v_2_1_PC_0_0,PC,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "PC,Vivado 2023.2" *) 
+(* NotValidForBitStream *)
+module bluex_v_2_1_PC_0_0
+   (clk,
+    rst_n,
+    ena_n,
+    next_addr_branch,
+    next_addr_jumpid,
+    PC_src,
+    current_addr,
+    next_addr_output);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bluex_v_2_1_clk_0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst_n;
+  input ena_n;
+  input [15:0]next_addr_branch;
+  input [15:0]next_addr_jumpid;
+  input [1:0]PC_src;
+  output [15:0]current_addr;
+  output [15:0]next_addr_output;
+
+  wire [1:0]PC_src;
+  wire clk;
+  wire [15:0]current_addr;
+  wire ena_n;
+  wire [15:0]next_addr_branch;
+  wire [15:0]next_addr_jumpid;
+  wire [15:0]next_addr_output;
+  wire rst_n;
+
+  bluex_v_2_1_PC_0_0_PC inst
+       (.PC_src(PC_src),
+        .clk(clk),
+        .current_addr(current_addr),
+        .ena_n(ena_n),
+        .next_addr_branch(next_addr_branch),
+        .next_addr_jumpid(next_addr_jumpid),
+        .next_addr_output(next_addr_output),
+        .rst_n(rst_n));
 endmodule
 `ifndef GLBL
 `define GLBL

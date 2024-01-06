@@ -38,7 +38,7 @@ module decoder_id (
 			`ALO_ADDI, `ALO_SUBI, `ALO_NOTI, 
 			`ALO_ORLI, `ALO_ANDI, `ALO_XORI, 
 			`ALO_SLSI, `ALO_MIRL, `ALO_MIRH,
-			`ALO_LDW, `ALO_SVW: 
+			`ALO_LDW, `ALO_SVW, `ALO_MULI: 
 			alu_src = `ASR_IMM;
 			default: 
 			alu_src = `ASR_RTF;
@@ -49,7 +49,7 @@ module decoder_id (
 		case (real_op)
 			`ALO_ADDI, `ALO_SUBI, `ALO_NOTI, 
 			`ALO_ORLI, `ALO_ANDI, `ALO_XORI, 
-			`ALO_SLSI, `ALO_LDW,
+			`ALO_SLSI, `ALO_LDW, `ALO_MULI,
 			`ALO_MIRL, `ALO_MIRH:
 			addr_flag = `ADR_FRT;
 			default: 

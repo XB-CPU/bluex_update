@@ -15,21 +15,17 @@ module reg_wb (
 	output			[`GPR_BIT - 1 : 0]		write_back_data,
 	output	reg		[`GPR_ADR - 1 : 0]		write_reg_addr,
 	output	reg								reg_write
-	// output	reg								memory_to_reg
 );
 	reg [`GPR_BIT - 1 : 0] alu_result_inr;
-	reg [`GPR_BIT - 1 : 0] mem_rd_inr;
 	reg	memory_to_reg;
 
 	always @(posedge clk or negedge rst_n) begin
 		if (!rst_n) begin
 			alu_result_inr <= {`GPR_BIT{1'b0}};
-			mem_rd_inr <= {`GPR_BIT{1'b0}};
 		end
 		else begin
 			if (MEM_WB_cen) begin
 				alu_result_inr <= alu_result_inw;
-				mem_rd_inr <= mem_rd_inw;
 			end
 		end
 	end
@@ -49,5 +45,5 @@ module reg_wb (
 		end
 	end
 
-	assign write_back_data = (memory_to_reg == 1'b1) ? mem_rd_inr : alu_result_inr;
+	assign write_back_data = (memory_to_reg == 1'b1) ? mem_rd_inw : alu_result_inr;
 endmodule

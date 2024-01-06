@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 -- Date        : Wed Dec 27 22:30:25 2023
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_PC_0_0/bluex_v_2_1_PC_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top bluex_v_2_1_PC_0_0 -prefix
+--               bluex_v_2_1_PC_0_0_ bluex_v_2_1_PC_0_0_stub.vhdl
 -- Design      : bluex_v_2_1_PC_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-2

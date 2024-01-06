@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Wed Jan  3 20:00:50 2024
+-- Date        : Wed Jan  3 20:11:05 2024
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_demux_id_0_0/bluex_v_2_1_demux_id_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bluex_v_2_1_demux_id_0_0 -prefix
+--               bluex_v_2_1_demux_id_0_0_ bluex_v_2_1_demux_id_0_0_sim_netlist.vhdl
 -- Design      : bluex_v_2_1_demux_id_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,6 +20,7 @@ entity bluex_v_2_1_demux_id_0_0_demux_id is
     real_op : out STD_LOGIC_VECTOR ( 5 downto 0 );
     pc_next : out STD_LOGIC_VECTOR ( 15 downto 0 );
     SR : out STD_LOGIC_VECTOR ( 0 to 0 );
+    E : out STD_LOGIC_VECTOR ( 0 to 0 );
     isc : in STD_LOGIC_VECTOR ( 11 downto 0 );
     pc_next_inw : in STD_LOGIC_VECTOR ( 15 downto 0 );
     clk : in STD_LOGIC;
@@ -27,17 +28,24 @@ entity bluex_v_2_1_demux_id_0_0_demux_id is
     rst : in STD_LOGIC;
     branch_taken : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bluex_v_2_1_demux_id_0_0_demux_id : entity is "demux_id";
 end bluex_v_2_1_demux_id_0_0_demux_id;
 
 architecture STRUCTURE of bluex_v_2_1_demux_id_0_0_demux_id is
-  signal ID_IF_ena : STD_LOGIC;
+  signal \^e\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^sr\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \real_op[3]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \real_op[5]_INST_0_i_1_n_0\ : STD_LOGIC;
 begin
+  E(0) <= \^e\(0);
   SR(0) <= \^sr\(0);
+ROM_en_INST_0: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => ena_n,
+      O => \^e\(0)
+    );
 ROM_rst_INST_0: unisim.vcomponents.LUT2
     generic map(
       INIT => X"E"
@@ -47,18 +55,10 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
       I1 => branch_taken,
       O => \^sr\(0)
     );
-\pc_next[15]_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => ena_n,
-      O => ID_IF_ena
-    );
 \pc_next_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(0),
       Q => pc_next(0),
       R => \^sr\(0)
@@ -66,7 +66,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(10),
       Q => pc_next(10),
       R => \^sr\(0)
@@ -74,7 +74,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(11),
       Q => pc_next(11),
       R => \^sr\(0)
@@ -82,7 +82,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[12]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(12),
       Q => pc_next(12),
       R => \^sr\(0)
@@ -90,7 +90,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(13),
       Q => pc_next(13),
       R => \^sr\(0)
@@ -98,7 +98,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[14]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(14),
       Q => pc_next(14),
       R => \^sr\(0)
@@ -106,7 +106,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[15]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(15),
       Q => pc_next(15),
       R => \^sr\(0)
@@ -114,7 +114,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(1),
       Q => pc_next(1),
       R => \^sr\(0)
@@ -122,7 +122,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(2),
       Q => pc_next(2),
       R => \^sr\(0)
@@ -130,7 +130,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(3),
       Q => pc_next(3),
       R => \^sr\(0)
@@ -138,7 +138,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(4),
       Q => pc_next(4),
       R => \^sr\(0)
@@ -146,7 +146,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(5),
       Q => pc_next(5),
       R => \^sr\(0)
@@ -154,7 +154,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(6),
       Q => pc_next(6),
       R => \^sr\(0)
@@ -162,7 +162,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(7),
       Q => pc_next(7),
       R => \^sr\(0)
@@ -170,7 +170,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(8),
       Q => pc_next(8),
       R => \^sr\(0)
@@ -178,7 +178,7 @@ ROM_rst_INST_0: unisim.vcomponents.LUT2
 \pc_next_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ID_IF_ena,
+      CE => \^e\(0),
       D => pc_next_inw(9),
       Q => pc_next(9),
       R => \^sr\(0)
@@ -336,7 +336,6 @@ architecture STRUCTURE of bluex_v_2_1_demux_id_0_0 is
   attribute X_INTERFACE_PARAMETER of rst : signal is "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
 begin
   ROM_clk <= \^clk\;
-  ROM_en <= \<const0>\;
   ROM_we <= \<const0>\;
   \^clk\ <= clk;
   \^isc\(31 downto 0) <= isc(31 downto 0);
@@ -354,6 +353,7 @@ GND: unisim.vcomponents.GND
     );
 inst: entity work.bluex_v_2_1_demux_id_0_0_demux_id
      port map (
+      E(0) => ROM_en,
       SR(0) => ROM_rst,
       branch_taken => branch_taken,
       clk => \^clk\,

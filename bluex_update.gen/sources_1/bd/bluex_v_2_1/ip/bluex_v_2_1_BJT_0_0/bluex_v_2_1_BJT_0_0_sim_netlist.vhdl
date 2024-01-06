@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 -- Date        : Wed Dec 27 22:30:25 2023
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_BJT_0_0/bluex_v_2_1_BJT_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bluex_v_2_1_BJT_0_0 -prefix
+--               bluex_v_2_1_BJT_0_0_ bluex_v_2_1_BJT_0_0_sim_netlist.vhdl
 -- Design      : bluex_v_2_1_BJT_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,8 +26,6 @@ entity bluex_v_2_1_BJT_0_0_BJT is
     imm_id : in STD_LOGIC_VECTOR ( 15 downto 0 );
     pc_next_id : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bluex_v_2_1_BJT_0_0_BJT : entity is "BJT";
 end bluex_v_2_1_BJT_0_0_BJT;
 
 architecture STRUCTURE of bluex_v_2_1_BJT_0_0_BJT is

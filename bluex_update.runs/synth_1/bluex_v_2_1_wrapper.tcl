@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-2
@@ -92,6 +93,10 @@ set_property ip_output_repo d:/MyWorks/Programs/Verilog/vivado/bluex_update/blue
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files -quiet d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/ip/div_gen_0/div_gen_0.dcp
+set_property used_in_implementation false [get_files d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/ip/div_gen_0/div_gen_0.dcp]
+add_files -quiet d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/ip/mult_gen_0/mult_gen_0.dcp
+set_property used_in_implementation false [get_files d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/ip/mult_gen_0/mult_gen_0.dcp]
 read_verilog D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/global_macro.v
 set_property file_type "Verilog Header" [get_files D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/global_macro.v]
 set_property is_global_include true [get_files D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/global_macro.v]

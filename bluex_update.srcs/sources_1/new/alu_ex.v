@@ -99,11 +99,13 @@ module alu_ex (
 		endcase
 	end
 
+	wire rt_over = |(rt[`GPR_BIT - 1 : `GPR_ATM]);
+
 	always @(*) begin
 		case (alu_op)
 			`ALO_SLL, `ALO_SRL, `ALO_SRA: 
 			begin
-				if (rt >= 32) begin
+				if (rt_over == 1) begin
 					shift_error <= 1'b1;
 				end
 			end

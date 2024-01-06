@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Sat Jan  6 15:18:07 2024
+// Date        : Sat Jan  6 17:07:22 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top bluex_v_2_1_alu_ex_0_0 -prefix
 //               bluex_v_2_1_alu_ex_0_0_ bluex_v_2_1_alu_ex_0_0_stub.v

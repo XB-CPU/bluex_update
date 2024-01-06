@@ -81,8 +81,8 @@ output wire working;
 output wire result_valid;
 
   matcop #(
-    .MUL_PERIOD(3),
-    .DVM_PERIOD(20)
+    .MUL_PERIOD(2),
+    .DVM_PERIOD(12)
   ) inst (
     .clk(clk),
     .rst_n(rst_n),

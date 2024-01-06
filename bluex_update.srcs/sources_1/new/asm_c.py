@@ -17,7 +17,7 @@ OPC_BIT = 0
 asb_error_num = 0
 asb_warning_num = 0
 
-version = "2023.12.23.1.0"
+version = "2024.01.06.2.1"
 
 def show_version():
     return version

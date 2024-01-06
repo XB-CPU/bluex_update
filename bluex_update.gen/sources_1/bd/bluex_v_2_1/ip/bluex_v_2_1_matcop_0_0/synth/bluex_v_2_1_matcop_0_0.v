@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "matcop,Vivado 2023.2" *)
 (* CHECK_LICENSE_TYPE = "bluex_v_2_1_matcop_0_0,matcop,{}" *)
-(* CORE_GENERATION_INFO = "bluex_v_2_1_matcop_0_0,matcop,{x_ipProduct=Vivado 2023.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=matcop,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,MUL_PERIOD=3,DVM_PERIOD=20}" *)
+(* CORE_GENERATION_INFO = "bluex_v_2_1_matcop_0_0,matcop,{x_ipProduct=Vivado 2023.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=matcop,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,MUL_PERIOD=2,DVM_PERIOD=12}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bluex_v_2_1_matcop_0_0 (
@@ -82,8 +82,8 @@ output wire working;
 output wire result_valid;
 
   matcop #(
-    .MUL_PERIOD(3),
-    .DVM_PERIOD(20)
+    .MUL_PERIOD(2),
+    .DVM_PERIOD(12)
   ) inst (
     .clk(clk),
     .rst_n(rst_n),

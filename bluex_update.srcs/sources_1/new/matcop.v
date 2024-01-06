@@ -2,8 +2,8 @@
 `include ".//global_macro.v"
 
 module matcop #(
-    parameter MUL_PERIOD = 3,
-    parameter DVM_PERIOD = 20
+    parameter MUL_PERIOD = 2,
+    parameter DVM_PERIOD = 12
 ) (
     input                                   clk,
     input                                   rst_n,

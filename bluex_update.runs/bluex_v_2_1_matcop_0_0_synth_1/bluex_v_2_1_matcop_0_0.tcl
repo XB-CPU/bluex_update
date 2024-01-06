@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "bluex_v_2_1_matcop_0_0_synth_1" START { ROLLUP_AUTO }
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
@@ -99,8 +100,10 @@ set_property file_type "Verilog Header" [get_files D:/MyWorks/Programs/Verilog/v
 set_property is_global_include true [get_files D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/global_macro.v]
 read_verilog -library xil_defaultlib D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/matcop.v
 read_ip -quiet D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/ip/div_gen_0/div_gen_0.xci
+set_property used_in_implementation false [get_files -all d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/ip/div_gen_0/div_gen_0_ooc.xdc]
 
 read_ip -quiet D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/ip/mult_gen_0/mult_gen_0.xci
+set_property used_in_implementation false [get_files -all d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/ip/mult_gen_0/mult_gen_0_ooc.xdc]
 
 read_ip -quiet D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_matcop_0_0/bluex_v_2_1_matcop_0_0.xci
 set_property used_in_implementation false [get_files -all d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_matcop_0_0/bluex_v_2_1_matcop_0_0_ooc.xdc]

@@ -1359,9 +1359,9 @@
       "aux_ex_0_alu_op": {
         "ports": [
           "aux_ex_0/alu_op",
-          "matcop_0/op",
+          "BJT_0/alu_op_ex",
           "alu_ex_0/alu_op",
-          "BJT_0/alu_op_ex"
+          "matcop_0/op"
         ]
       },
       "aux_ex_0_branch_isc": {
@@ -1405,17 +1405,17 @@
       "aux_ex_0_rs": {
         "ports": [
           "aux_ex_0/rs",
-          "matcop_0/rs",
+          "BJT_0/rs",
           "alu_ex_0/rs",
-          "BJT_0/rs"
+          "matcop_0/rs"
         ]
       },
       "aux_ex_0_rt": {
         "ports": [
           "aux_ex_0/rt",
-          "matcop_0/rt",
+          "BJT_0/rt",
           "alu_ex_0/rt",
-          "BJT_0/rt"
+          "matcop_0/rt"
         ]
       },
       "aux_ex_0_write_data": {
@@ -1453,8 +1453,8 @@
           "reg_wb_0/clk",
           "demux_id_0/clk",
           "reg_heap_id_0/clk",
-          "matcop_0/clk",
-          "controller_0/clk"
+          "controller_0/clk",
+          "matcop_0/clk"
         ]
       },
       "controller_0_CPU_error": {

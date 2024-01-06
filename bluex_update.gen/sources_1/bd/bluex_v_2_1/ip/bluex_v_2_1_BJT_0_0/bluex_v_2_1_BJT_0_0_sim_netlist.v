@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Sat Jan  6 15:59:53 2024
+// Date        : Sat Jan  6 19:52:35 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_BJT_0_0 -prefix
-//               bluex_v_2_1_BJT_0_0_ bluex_v_2_1_BJT_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_BJT_0_0/bluex_v_2_1_BJT_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_BJT_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -13,24 +13,97 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "bluex_v_2_1_BJT_0_0,BJT,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "BJT,Vivado 2023.2" *) 
+(* NotValidForBitStream *)
+module bluex_v_2_1_BJT_0_0
+   (branch_isc,
+    alu_op_ex,
+    imm_ex,
+    rs,
+    rt,
+    pc_next_ex,
+    alu_op_id,
+    imm_id,
+    pc_next_id,
+    branch_jump_flag,
+    id_jump_flag,
+    branch_addr_ex,
+    branch_addr_id);
+  input branch_isc;
+  input [5:0]alu_op_ex;
+  input [31:0]imm_ex;
+  input [31:0]rs;
+  input [31:0]rt;
+  input [15:0]pc_next_ex;
+  input [5:0]alu_op_id;
+  input [31:0]imm_id;
+  input [15:0]pc_next_id;
+  output branch_jump_flag;
+  output id_jump_flag;
+  output [15:0]branch_addr_ex;
+  output [15:0]branch_addr_id;
+
+  wire [5:0]alu_op_ex;
+  wire [5:0]alu_op_id;
+  wire [15:0]branch_addr_ex;
+  wire [15:0]branch_addr_id;
+  wire branch_isc;
+  wire branch_jump_flag;
+  wire id_jump_flag;
+  wire [31:0]imm_ex;
+  wire [31:0]imm_id;
+  wire [15:0]pc_next_ex;
+  wire [15:0]pc_next_id;
+  wire [31:0]rs;
+  wire [31:0]rt;
+
+  bluex_v_2_1_BJT_0_0_BJT inst
+       (.alu_op_ex(alu_op_ex),
+        .alu_op_id(alu_op_id),
+        .branch_addr_ex(branch_addr_ex),
+        .branch_addr_id(branch_addr_id),
+        .branch_isc(branch_isc),
+        .branch_jump_flag(branch_jump_flag),
+        .id_jump_flag(id_jump_flag),
+        .imm_ex(imm_ex[15:0]),
+        .imm_id(imm_id[15:0]),
+        .pc_next_ex(pc_next_ex),
+        .pc_next_id(pc_next_id),
+        .rs(rs),
+        .rt(rt));
+endmodule
+
+(* ORIG_REF_NAME = "BJT" *) 
 module bluex_v_2_1_BJT_0_0_BJT
    (id_jump_flag,
     branch_addr_ex,
     branch_addr_id,
+    branch_jump_flag,
     alu_op_id,
     imm_ex,
     pc_next_ex,
     imm_id,
-    pc_next_id);
+    pc_next_id,
+    branch_isc,
+    alu_op_ex,
+    rt,
+    rs);
   output id_jump_flag;
   output [15:0]branch_addr_ex;
   output [15:0]branch_addr_id;
+  output branch_jump_flag;
   input [5:0]alu_op_id;
   input [15:0]imm_ex;
   input [15:0]pc_next_ex;
   input [15:0]imm_id;
   input [15:0]pc_next_id;
+  input branch_isc;
+  input [5:0]alu_op_ex;
+  input [31:0]rt;
+  input [31:0]rs;
 
+  wire [5:0]alu_op_ex;
   wire [5:0]alu_op_id;
   wire [15:0]branch_addr_ex;
   wire \branch_addr_ex[0]_INST_0_i_1_n_0 ;
@@ -96,13 +169,44 @@ module bluex_v_2_1_BJT_0_0_BJT
   wire \branch_addr_id[8]_INST_0_n_1 ;
   wire \branch_addr_id[8]_INST_0_n_2 ;
   wire \branch_addr_id[8]_INST_0_n_3 ;
+  wire branch_isc;
+  wire branch_jump_flag;
+  wire branch_jump_flag_INST_0_i_1_n_0;
   wire id_jump_flag;
   wire [15:0]imm_ex;
   wire [15:0]imm_id;
   wire [15:0]pc_next_ex;
   wire [15:0]pc_next_id;
+  wire [31:0]rs;
+  wire [31:0]rt;
+  wire rt_rs_diff__10;
+  wire rt_rs_diff_carry__0_i_1_n_0;
+  wire rt_rs_diff_carry__0_i_2_n_0;
+  wire rt_rs_diff_carry__0_i_3_n_0;
+  wire rt_rs_diff_carry__0_i_4_n_0;
+  wire rt_rs_diff_carry__0_n_0;
+  wire rt_rs_diff_carry__0_n_1;
+  wire rt_rs_diff_carry__0_n_2;
+  wire rt_rs_diff_carry__0_n_3;
+  wire rt_rs_diff_carry__1_i_1_n_0;
+  wire rt_rs_diff_carry__1_i_2_n_0;
+  wire rt_rs_diff_carry__1_i_3_n_0;
+  wire rt_rs_diff_carry__1_n_2;
+  wire rt_rs_diff_carry__1_n_3;
+  wire rt_rs_diff_carry_i_1_n_0;
+  wire rt_rs_diff_carry_i_2_n_0;
+  wire rt_rs_diff_carry_i_3_n_0;
+  wire rt_rs_diff_carry_i_4_n_0;
+  wire rt_rs_diff_carry_n_0;
+  wire rt_rs_diff_carry_n_1;
+  wire rt_rs_diff_carry_n_2;
+  wire rt_rs_diff_carry_n_3;
   wire [3:3]\NLW_branch_addr_ex[12]_INST_0_CO_UNCONNECTED ;
   wire [3:3]\NLW_branch_addr_id[12]_INST_0_CO_UNCONNECTED ;
+  wire [3:0]NLW_rt_rs_diff_carry_O_UNCONNECTED;
+  wire [3:0]NLW_rt_rs_diff_carry__0_O_UNCONNECTED;
+  wire [3:3]NLW_rt_rs_diff_carry__1_CO_UNCONNECTED;
+  wire [3:0]NLW_rt_rs_diff_carry__1_O_UNCONNECTED;
 
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 \branch_addr_ex[0]_INST_0 
@@ -360,6 +464,23 @@ module bluex_v_2_1_BJT_0_0_BJT
        (.I0(imm_id[8]),
         .I1(pc_next_id[8]),
         .O(\branch_addr_id[8]_INST_0_i_4_n_0 ));
+  LUT5 #(
+    .INIT(32'hC8CC0440)) 
+    branch_jump_flag_INST_0
+       (.I0(branch_jump_flag_INST_0_i_1_n_0),
+        .I1(branch_isc),
+        .I2(alu_op_ex[2]),
+        .I3(alu_op_ex[1]),
+        .I4(rt_rs_diff__10),
+        .O(branch_jump_flag));
+  LUT4 #(
+    .INIT(16'hFFFD)) 
+    branch_jump_flag_INST_0_i_1
+       (.I0(alu_op_ex[0]),
+        .I1(alu_op_ex[3]),
+        .I2(alu_op_ex[5]),
+        .I3(alu_op_ex[4]),
+        .O(branch_jump_flag_INST_0_i_1_n_0));
   LUT6 #(
     .INIT(64'h0000000000001000)) 
     id_jump_flag__0
@@ -370,81 +491,135 @@ module bluex_v_2_1_BJT_0_0_BJT
         .I4(alu_op_id[3]),
         .I5(alu_op_id[1]),
         .O(id_jump_flag));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "bluex_v_2_1_BJT_0_0,BJT,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "BJT,Vivado 2023.2" *) 
-(* NotValidForBitStream *)
-module bluex_v_2_1_BJT_0_0
-   (branch_isc,
-    alu_op_ex,
-    imm_ex,
-    rs,
-    rt,
-    pc_next_ex,
-    alu_op_id,
-    imm_id,
-    pc_next_id,
-    branch_jump_flag,
-    id_jump_flag,
-    branch_addr_ex,
-    branch_addr_id);
-  input branch_isc;
-  input [5:0]alu_op_ex;
-  input [31:0]imm_ex;
-  input [31:0]rs;
-  input [31:0]rt;
-  input [15:0]pc_next_ex;
-  input [5:0]alu_op_id;
-  input [31:0]imm_id;
-  input [15:0]pc_next_id;
-  output branch_jump_flag;
-  output id_jump_flag;
-  output [15:0]branch_addr_ex;
-  output [15:0]branch_addr_id;
-
-  wire [5:0]alu_op_ex;
-  wire [5:0]alu_op_id;
-  wire [15:0]branch_addr_ex;
-  wire [15:0]branch_addr_id;
-  wire branch_isc;
-  wire branch_jump_flag;
-  wire branch_jump_flag_INST_0_i_1_n_0;
-  wire id_jump_flag;
-  wire [31:0]imm_ex;
-  wire [31:0]imm_id;
-  wire [15:0]pc_next_ex;
-  wire [15:0]pc_next_id;
-  wire [31:0]rs;
-  wire [31:0]rt;
-
+  CARRY4 rt_rs_diff_carry
+       (.CI(1'b0),
+        .CO({rt_rs_diff_carry_n_0,rt_rs_diff_carry_n_1,rt_rs_diff_carry_n_2,rt_rs_diff_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b1,1'b1,1'b1,1'b1}),
+        .O(NLW_rt_rs_diff_carry_O_UNCONNECTED[3:0]),
+        .S({rt_rs_diff_carry_i_1_n_0,rt_rs_diff_carry_i_2_n_0,rt_rs_diff_carry_i_3_n_0,rt_rs_diff_carry_i_4_n_0}));
+  CARRY4 rt_rs_diff_carry__0
+       (.CI(rt_rs_diff_carry_n_0),
+        .CO({rt_rs_diff_carry__0_n_0,rt_rs_diff_carry__0_n_1,rt_rs_diff_carry__0_n_2,rt_rs_diff_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b1,1'b1,1'b1,1'b1}),
+        .O(NLW_rt_rs_diff_carry__0_O_UNCONNECTED[3:0]),
+        .S({rt_rs_diff_carry__0_i_1_n_0,rt_rs_diff_carry__0_i_2_n_0,rt_rs_diff_carry__0_i_3_n_0,rt_rs_diff_carry__0_i_4_n_0}));
   LUT6 #(
-    .INIT(64'h1FF100002DD20000)) 
-    branch_jump_flag_INST_0
-       (.I0(alu_op_ex[1]),
-        .I1(branch_jump_flag_INST_0_i_1_n_0),
-        .I2(rt[0]),
-        .I3(rs[0]),
-        .I4(branch_isc),
-        .I5(alu_op_ex[2]),
-        .O(branch_jump_flag));
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry__0_i_1
+       (.I0(rt[23]),
+        .I1(rs[23]),
+        .I2(rt[22]),
+        .I3(rs[22]),
+        .I4(rs[21]),
+        .I5(rt[21]),
+        .O(rt_rs_diff_carry__0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry__0_i_2
+       (.I0(rt[20]),
+        .I1(rs[20]),
+        .I2(rt[19]),
+        .I3(rs[19]),
+        .I4(rs[18]),
+        .I5(rt[18]),
+        .O(rt_rs_diff_carry__0_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry__0_i_3
+       (.I0(rt[17]),
+        .I1(rs[17]),
+        .I2(rt[16]),
+        .I3(rs[16]),
+        .I4(rs[15]),
+        .I5(rt[15]),
+        .O(rt_rs_diff_carry__0_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry__0_i_4
+       (.I0(rt[14]),
+        .I1(rs[14]),
+        .I2(rt[13]),
+        .I3(rs[13]),
+        .I4(rs[12]),
+        .I5(rt[12]),
+        .O(rt_rs_diff_carry__0_i_4_n_0));
+  CARRY4 rt_rs_diff_carry__1
+       (.CI(rt_rs_diff_carry__0_n_0),
+        .CO({NLW_rt_rs_diff_carry__1_CO_UNCONNECTED[3],rt_rs_diff__10,rt_rs_diff_carry__1_n_2,rt_rs_diff_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b1,1'b1,1'b1}),
+        .O(NLW_rt_rs_diff_carry__1_O_UNCONNECTED[3:0]),
+        .S({1'b0,rt_rs_diff_carry__1_i_1_n_0,rt_rs_diff_carry__1_i_2_n_0,rt_rs_diff_carry__1_i_3_n_0}));
   LUT4 #(
-    .INIT(16'hFFFD)) 
-    branch_jump_flag_INST_0_i_1
-       (.I0(alu_op_ex[0]),
-        .I1(alu_op_ex[3]),
-        .I2(alu_op_ex[5]),
-        .I3(alu_op_ex[4]),
-        .O(branch_jump_flag_INST_0_i_1_n_0));
-  bluex_v_2_1_BJT_0_0_BJT inst
-       (.alu_op_id(alu_op_id),
-        .branch_addr_ex(branch_addr_ex),
-        .branch_addr_id(branch_addr_id),
-        .id_jump_flag(id_jump_flag),
-        .imm_ex(imm_ex[15:0]),
-        .imm_id(imm_id[15:0]),
-        .pc_next_ex(pc_next_ex),
-        .pc_next_id(pc_next_id));
+    .INIT(16'h9009)) 
+    rt_rs_diff_carry__1_i_1
+       (.I0(rt[31]),
+        .I1(rs[31]),
+        .I2(rt[30]),
+        .I3(rs[30]),
+        .O(rt_rs_diff_carry__1_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry__1_i_2
+       (.I0(rt[29]),
+        .I1(rs[29]),
+        .I2(rt[28]),
+        .I3(rs[28]),
+        .I4(rs[27]),
+        .I5(rt[27]),
+        .O(rt_rs_diff_carry__1_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry__1_i_3
+       (.I0(rt[26]),
+        .I1(rs[26]),
+        .I2(rt[25]),
+        .I3(rs[25]),
+        .I4(rs[24]),
+        .I5(rt[24]),
+        .O(rt_rs_diff_carry__1_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry_i_1
+       (.I0(rt[11]),
+        .I1(rs[11]),
+        .I2(rt[10]),
+        .I3(rs[10]),
+        .I4(rs[9]),
+        .I5(rt[9]),
+        .O(rt_rs_diff_carry_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry_i_2
+       (.I0(rt[8]),
+        .I1(rs[8]),
+        .I2(rt[7]),
+        .I3(rs[7]),
+        .I4(rs[6]),
+        .I5(rt[6]),
+        .O(rt_rs_diff_carry_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry_i_3
+       (.I0(rt[5]),
+        .I1(rs[5]),
+        .I2(rt[4]),
+        .I3(rs[4]),
+        .I4(rs[3]),
+        .I5(rt[3]),
+        .O(rt_rs_diff_carry_i_3_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    rt_rs_diff_carry_i_4
+       (.I0(rt[2]),
+        .I1(rs[2]),
+        .I2(rt[1]),
+        .I3(rs[1]),
+        .I4(rs[0]),
+        .I5(rt[0]),
+        .O(rt_rs_diff_carry_i_4_n_0));
 endmodule
 `ifndef GLBL
 `define GLBL

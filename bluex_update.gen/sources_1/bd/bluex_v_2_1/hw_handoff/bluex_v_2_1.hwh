@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Jan  6 17:54:26 2024" VIVADOVERSION="2023.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Jan  6 19:52:00 2024" VIVADOVERSION="2023.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="bluex_v_2_1" PACKAGE="clg400" SPEEDGRADE="-2"/>
 
@@ -326,9 +326,9 @@
       <PORTS>
         <PORT DIR="O" LEFT="5" NAME="alu_op" RIGHT="0" SIGIS="undef" SIGNAME="aux_ex_0_alu_op">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="BJT_0" PORT="alu_op_ex"/>
             <CONNECTION INSTANCE="alu_ex_0" PORT="alu_op"/>
             <CONNECTION INSTANCE="matcop_0" PORT="op"/>
+            <CONNECTION INSTANCE="BJT_0" PORT="alu_op_ex"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="5" NAME="alu_op_inw" RIGHT="0" SIGIS="undef" SIGNAME="demux_id_0_real_op">
@@ -420,9 +420,9 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="rs" RIGHT="0" SIGIS="undef" SIGNAME="aux_ex_0_rs">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="BJT_0" PORT="rs"/>
             <CONNECTION INSTANCE="alu_ex_0" PORT="rs"/>
             <CONNECTION INSTANCE="matcop_0" PORT="rs"/>
+            <CONNECTION INSTANCE="BJT_0" PORT="rs"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="rs_forward_inw" RIGHT="0" SIGIS="undef" SIGNAME="controller_0_rs_forward">
@@ -442,9 +442,9 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="rt" RIGHT="0" SIGIS="undef" SIGNAME="aux_ex_0_rt">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="BJT_0" PORT="rt"/>
             <CONNECTION INSTANCE="alu_ex_0" PORT="rt"/>
             <CONNECTION INSTANCE="matcop_0" PORT="rt"/>
+            <CONNECTION INSTANCE="BJT_0" PORT="rt"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="rt_forward_inw" RIGHT="0" SIGIS="undef" SIGNAME="controller_0_rt_forward">

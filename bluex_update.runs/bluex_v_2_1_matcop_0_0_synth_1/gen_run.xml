@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="bluex_v_2_1_matcop_0_0_synth_1" LaunchPart="xc7z020clg400-2" LaunchTime="1704534866">
+<GenRun Id="bluex_v_2_1_matcop_0_0_synth_1" LaunchPart="xc7z020clg400-2" LaunchTime="1704539849">
   <File Type="PA-TCL" Name="bluex_v_2_1_matcop_0_0.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="bluex_v_2_1_matcop_0_0_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="bluex_v_2_1_matcop_0_0_reports.tcl"/>

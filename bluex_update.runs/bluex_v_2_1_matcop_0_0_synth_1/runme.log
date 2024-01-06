@@ -14,7 +14,6 @@ ECHO 处于关闭状态。
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source bluex_v_2_1_matcop_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 471.559 ; gain = 180.586
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/MyWorks/Programs/Verilog/vivado/cpu_test/ip_repo/bluex2'; Can't find the specified path.
 If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
@@ -28,9 +27,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 16672
+INFO: [Synth 8-7075] Helper process launched with PID 19292
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1343.375 ; gain = 438.961
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1343.941 ; gain = 439.059
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'mul_result_valid', assumed default net type 'wire' [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/matcop.v:49]
 INFO: [Synth 8-11241] undeclared symbol 'dvm_result_valid', assumed default net type 'wire' [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/matcop.v:50]
@@ -38,10 +37,10 @@ INFO: [Synth 8-6157] synthesizing module 'bluex_v_2_1_matcop_0_0' [d:/MyWorks/Pr
 INFO: [Synth 8-6157] synthesizing module 'matcop' [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/matcop.v:4]
 	Parameter MUL_PERIOD bound to: 2 - type: integer 
 	Parameter DVM_PERIOD bound to: 12 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'mult_gen_0' [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-1516-DESKTOP-50PL36L/realtime/mult_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'mult_gen_0' (0#1) [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-1516-DESKTOP-50PL36L/realtime/mult_gen_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'div_gen_0' [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-1516-DESKTOP-50PL36L/realtime/div_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'div_gen_0' (0#1) [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-1516-DESKTOP-50PL36L/realtime/div_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'mult_gen_0' [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-4612-DESKTOP-50PL36L/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'mult_gen_0' (0#1) [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-4612-DESKTOP-50PL36L/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'div_gen_0' [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-4612-DESKTOP-50PL36L/realtime/div_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'div_gen_0' (0#1) [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/.Xil/Vivado-4612-DESKTOP-50PL36L/realtime/div_gen_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'matcop' (0#1) [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.srcs/sources_1/new/matcop.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'bluex_v_2_1_matcop_0_0' (0#1) [d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_matcop_0_0/synth/bluex_v_2_1_matcop_0_0.v:53]
 WARNING: [Synth 8-7129] Port rs[31] in module matcop is either unconnected or has no load
@@ -77,18 +76,18 @@ WARNING: [Synth 8-7129] Port rt[18] in module matcop is either unconnected or ha
 WARNING: [Synth 8-7129] Port rt[17] in module matcop is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rt[16] in module matcop is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1450.711 ; gain = 546.297
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1450.375 ; gain = 545.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1450.711 ; gain = 546.297
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1450.375 ; gain = 545.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1450.711 ; gain = 546.297
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1450.375 ; gain = 545.492
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1450.711 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1450.375 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -103,22 +102,22 @@ Parsing XDC File [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.r
 Finished Parsing XDC File [D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1514.301 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1452.301 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 系统找不到指定的路径。
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1514.375 ; gain = 0.074
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1457.551 ; gain = 5.250
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1457.551 ; gain = 552.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1457.551 ; gain = 552.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -127,10 +126,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  D:/MyWork
 Applied set_property KEEP_HIERARCHY = SOFT for inst/u_dvm_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for inst/u_multiplier_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1457.551 ; gain = 552.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1457.551 ; gain = 552.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -195,25 +194,25 @@ WARNING: [Synth 8-7129] Port rt[18] in module matcop is either unconnected or ha
 WARNING: [Synth 8-7129] Port rt[17] in module matcop is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rt[16] in module matcop is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1457.551 ; gain = 552.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1457.551 ; gain = 552.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -231,37 +230,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -288,16 +287,16 @@ Report Cell Usage:
 |7     |FDRE     |     4|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 33 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1514.375 ; gain = 546.297
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1514.375 ; gain = 609.961
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 1463.066 ; gain = 551.008
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1463.066 ; gain = 558.184
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1514.375 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1472.395 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1514.375 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1480.047 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -306,9 +305,9 @@ Synth Design complete | Checksum: 97426950
 INFO: [Common 17-83] Releasing license: Synthesis
 27 Infos, 66 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1514.375 ; gain = 1027.574
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1480.047 ; gain = 995.480
 INFO: [Coretcl 2-1174] Renamed 3 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1514.375 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1480.047 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.runs/bluex_v_2_1_matcop_0_0_synth_1/bluex_v_2_1_matcop_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file bluex_v_2_1_matcop_0_0_utilization_synth.rpt -pb bluex_v_2_1_matcop_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jan  6 17:55:09 2024...
+INFO: [Common 17-206] Exiting Vivado at Sat Jan  6 19:18:06 2024...

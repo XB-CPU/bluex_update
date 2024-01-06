@@ -70,8 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "bluex_v_2_1_matcop_0_0_synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 set_param ips.modRefOverrideMrefDirPath d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/mref

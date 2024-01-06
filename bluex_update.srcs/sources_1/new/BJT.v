@@ -22,7 +22,7 @@ module BJT (
 	reg jump, branch_eq;
 	assign branch_addr_ex = imm_ex + pc_next_ex;
 	assign branch_addr_id = imm_id + pc_next_id;
-	wire rt_rs_diff = rs - rt;
+	wire rt_rs_diff = |(rs - rt);
 
 	always @(*) begin
 		case (alu_op_ex)

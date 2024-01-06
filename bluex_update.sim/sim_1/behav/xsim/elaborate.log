@@ -113,7 +113,7 @@ Compiling architecture synth of entity xbip_pipe_v3_0_7.xbip_pipe_v3_0_7_viv [\x
 Compiling architecture synth of entity div_gen_v5_1_20.div_gen_v5_1_20_viv [\div_gen_v5_1_20_viv(c_xdevicefa...]
 Compiling architecture xilinx of entity div_gen_v5_1_20.div_gen_v5_1_20 [\div_gen_v5_1_20(c_xdevicefamily...]
 Compiling architecture div_gen_0_arch of entity xil_defaultlib.div_gen_0 [div_gen_0_default]
-Compiling module xil_defaultlib.matcop(MUL_PERIOD=3,DVM_PERIOD=2...
+Compiling module xil_defaultlib.matcop
 Compiling module xil_defaultlib.bluex_v_2_1_matcop_0_0
 Compiling module xil_defaultlib.reg_heap_id
 Compiling module xil_defaultlib.bluex_v_2_1_reg_heap_id_0_0

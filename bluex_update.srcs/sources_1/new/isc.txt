@@ -94,6 +94,10 @@
 # r1: dividend; r2: divisor; r3: dvm result; r4: ; r5: quotient; r8: remainder:
 mirl r1, 34
 mirl r2, 7
+mirl r12, 4
+mirl r14, 3
+mirl r13, 0
+for:
 svw r2, r0, 0
 mirl r2, 9999
 mirl r6, 16
@@ -103,7 +107,9 @@ srl r5, r3, r6 # 4, quotient
 sll r4, r5, r6
 sub r8, r3, r4 # 6, remainder
 mul r7, r2, r5 # 28
+addi r13, r13, 1
 dvmi r9, r1, 9 # 3, 7
+bne r13, r14, for
 muli r10, r6, -9 # -144
 muli r11, r6, 9 # 144
 jmp -1

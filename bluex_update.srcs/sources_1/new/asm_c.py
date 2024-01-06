@@ -468,7 +468,7 @@ def compile(f:io.TextIOWrapper):
 								if line[0] == "DVMI":
 									if im_num == 0:
 										asb_print(f"divisor should not be zero", f, index)
-									ic.add_im(im_num, f, index)
+								ic.add_im(im_num, f, index)
 					ic.set_cmd_str(line[0])
 				elif line[0] in ("BEQ", "BNE"):
 					if len(line) > 4:

@@ -121,62 +121,71 @@
 # for:
 # srl r1, r3, r6
 
-`def x r1
-`def a r2
-`def s r3
-`def i r4
-`def it r5
-`def sf1 r6
-`def tmp r7
-`def sf16 r8
-`def j r9
-`def jt r10
-`def err r11
-`def sum r12
-`def sumj r13
-`def ave_err r14
+# `def x r1
+# `def a r2
+# `def s r3
+# `def i r4
+# `def it r5
+# `def sf1 r6
+# `def tmp r7
+# `def sf16 r8
+# `def j r9
+# `def jt r10
+# `def err r11
+# `def sum r12
+# `def sumj r13
+# `def ave_err r14
+# 
+# mirl it, 10
+# mirl jt, 4
+# mirl sf1, 1
+# mirl sf16, 16
+# 
+# add j, r0, r0
+# forj:
+# mirl a, 32767
+# sub a, a, j
+# add s, a, r0
+# 
+# add i, r0, r0
+# fori:
+# srl x, s, sf1
+# dvm r7, a, x
+# srl tmp, r7, sf16
+# add s, tmp, x
+# 
+# addi i, i, 1
+# bne i, it, fori
+# 
+# mul x, x, x
+# sls err, x, a
+# beq err, sf1, xsmall
+# xlarge:
+# sub err, x, a
+# jmp 1
+# xsmall:
+# sub err, a, x
+# svw err, j, 0
+# 
+# addi j, j, 1
+# bne j, jt, forj
+# 
+# add j, r0, r0
+# forsum:
+# ldw sumj, j, 0
+# add sum, sum, sumj
+# addi j, j, 1
+# bne j, jt, forsum
+# dvm tmp, sum, jt
+# srl ave_err, tmp, sf16
+# 
+# jmp -1
 
-mirl it, 10
-mirl jt, 4
-mirl sf1, 1
-mirl sf16, 16
-
-add j, r0, r0
-forj:
-mirl a, 32767
-sub a, a, j
-add s, a, r0
-
-add i, r0, r0
-fori:
-srl x, s, sf1
-dvm r7, a, x
-srl tmp, r7, sf16
-add s, tmp, x
-
-addi i, i, 1
-bne i, it, fori
-
-mul x, x, x
-sls err, x, a
-beq err, sf1, xsmall
-xlarge:
-sub err, x, a
-jmp 1
-xsmall:
-sub err, a, x
-svw err, j, 0
-
-addi j, j, 1
-bne j, jt, forj
-
-add j, r0, r0
-forsum:
-ldw sumj, j, 0
-add sum, sum, sumj
-addi j, j, 1
-bne j, jt, forsum
-dvm tmp, sum, jt
-srl ave_err, tmp, sf16
-
+mirl r8, 128
+mirl r9, 0
+lpp:
+svw r9, r9, 0
+addi r9, r9, 1
+bne r8, r9, lpp
+addi r9, r9, 0
 jmp -1

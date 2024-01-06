@@ -34,7 +34,6 @@ wire  ram_rst                              ;
 wire  [3:0]  ram_we                        ;
 wire  [31:0]  ram_wr_data                  ;
 wire  CPU_error                            ;
-wire  real_rst                             ; 
 wire  [15:0]  write_mem_addr               ;
 wire  write_mem_clk                        ;
 wire  [31:0]  write_mem_data               ;
@@ -139,7 +138,7 @@ end
 initial
 begin
 	// #(PERIOD*2.5) enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
-	#(PERIOD*2000) 
+	#(PERIOD*100) 
 	// for (i = 0; i < 20; i = i + 1) begin
 	// 	enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
 	// end

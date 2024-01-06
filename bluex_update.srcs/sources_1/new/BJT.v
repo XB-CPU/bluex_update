@@ -49,10 +49,10 @@ module BJT (
 			end
 			else begin
 				if (branch_eq) begin
-					branch_jump_flag = (rs == rt) ? 1'b1 : 1'b0;
+					branch_jump_flag = (rt_rs_diff == 0) ? 1'b1 : 1'b0;
 				end
 				else begin
-					branch_jump_flag = (rs != rt) ? 1'b1 : 1'b0;
+					branch_jump_flag = (rt_rs_diff != 0) ? 1'b1 : 1'b0;
 				end
 			end
 		end

@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Sat Jan  6 15:59:53 2024
+// Date        : Sat Jan  6 16:17:01 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_BJT_0_0/bluex_v_2_1_BJT_0_0_sim_netlist.v
@@ -50,7 +50,51 @@ module bluex_v_2_1_BJT_0_0
   wire [15:0]branch_addr_id;
   wire branch_isc;
   wire branch_jump_flag;
+  wire branch_jump_flag_INST_0_i_10_n_0;
+  wire branch_jump_flag_INST_0_i_11_n_0;
+  wire branch_jump_flag_INST_0_i_12_n_0;
+  wire branch_jump_flag_INST_0_i_12_n_1;
+  wire branch_jump_flag_INST_0_i_12_n_2;
+  wire branch_jump_flag_INST_0_i_12_n_3;
+  wire branch_jump_flag_INST_0_i_13_n_0;
+  wire branch_jump_flag_INST_0_i_14_n_0;
+  wire branch_jump_flag_INST_0_i_15_n_0;
+  wire branch_jump_flag_INST_0_i_16_n_0;
+  wire branch_jump_flag_INST_0_i_17_n_0;
+  wire branch_jump_flag_INST_0_i_17_n_1;
+  wire branch_jump_flag_INST_0_i_17_n_2;
+  wire branch_jump_flag_INST_0_i_17_n_3;
+  wire branch_jump_flag_INST_0_i_18_n_0;
+  wire branch_jump_flag_INST_0_i_19_n_0;
   wire branch_jump_flag_INST_0_i_1_n_0;
+  wire branch_jump_flag_INST_0_i_20_n_0;
+  wire branch_jump_flag_INST_0_i_21_n_0;
+  wire branch_jump_flag_INST_0_i_22_n_0;
+  wire branch_jump_flag_INST_0_i_23_n_0;
+  wire branch_jump_flag_INST_0_i_24_n_0;
+  wire branch_jump_flag_INST_0_i_25_n_0;
+  wire branch_jump_flag_INST_0_i_26_n_0;
+  wire branch_jump_flag_INST_0_i_27_n_0;
+  wire branch_jump_flag_INST_0_i_28_n_0;
+  wire branch_jump_flag_INST_0_i_29_n_0;
+  wire branch_jump_flag_INST_0_i_2_n_1;
+  wire branch_jump_flag_INST_0_i_2_n_2;
+  wire branch_jump_flag_INST_0_i_2_n_3;
+  wire branch_jump_flag_INST_0_i_3_n_1;
+  wire branch_jump_flag_INST_0_i_3_n_2;
+  wire branch_jump_flag_INST_0_i_3_n_3;
+  wire branch_jump_flag_INST_0_i_4_n_0;
+  wire branch_jump_flag_INST_0_i_4_n_1;
+  wire branch_jump_flag_INST_0_i_4_n_2;
+  wire branch_jump_flag_INST_0_i_4_n_3;
+  wire branch_jump_flag_INST_0_i_5_n_0;
+  wire branch_jump_flag_INST_0_i_6_n_0;
+  wire branch_jump_flag_INST_0_i_7_n_0;
+  wire branch_jump_flag_INST_0_i_8_n_0;
+  wire branch_jump_flag_INST_0_i_8_n_1;
+  wire branch_jump_flag_INST_0_i_8_n_2;
+  wire branch_jump_flag_INST_0_i_8_n_3;
+  wire branch_jump_flag_INST_0_i_9_n_0;
   wire id_jump_flag;
   wire [31:0]imm_ex;
   wire [31:0]imm_id;
@@ -58,25 +102,292 @@ module bluex_v_2_1_BJT_0_0
   wire [15:0]pc_next_id;
   wire [31:0]rs;
   wire [31:0]rt;
+  wire [3:0]NLW_branch_jump_flag_INST_0_i_12_O_UNCONNECTED;
+  wire [3:0]NLW_branch_jump_flag_INST_0_i_17_O_UNCONNECTED;
+  wire [3:3]NLW_branch_jump_flag_INST_0_i_2_CO_UNCONNECTED;
+  wire [3:0]NLW_branch_jump_flag_INST_0_i_2_O_UNCONNECTED;
+  wire [3:3]NLW_branch_jump_flag_INST_0_i_3_CO_UNCONNECTED;
+  wire [3:0]NLW_branch_jump_flag_INST_0_i_3_O_UNCONNECTED;
+  wire [3:0]NLW_branch_jump_flag_INST_0_i_4_O_UNCONNECTED;
+  wire [3:0]NLW_branch_jump_flag_INST_0_i_8_O_UNCONNECTED;
 
-  LUT6 #(
-    .INIT(64'h1FF100002DD20000)) 
+  LUT5 #(
+    .INIT(32'hF0E20000)) 
     branch_jump_flag_INST_0
-       (.I0(alu_op_ex[1]),
-        .I1(branch_jump_flag_INST_0_i_1_n_0),
-        .I2(rt[0]),
-        .I3(rs[0]),
-        .I4(branch_isc),
-        .I5(alu_op_ex[2]),
-        .O(branch_jump_flag));
-  LUT4 #(
-    .INIT(16'hFFFD)) 
-    branch_jump_flag_INST_0_i_1
-       (.I0(alu_op_ex[0]),
-        .I1(alu_op_ex[3]),
-        .I2(alu_op_ex[5]),
+       (.I0(branch_jump_flag_INST_0_i_1_n_0),
+        .I1(alu_op_ex[5]),
+        .I2(branch_jump_flag_INST_0_i_2_n_1),
         .I3(alu_op_ex[4]),
+        .I4(branch_isc),
+        .O(branch_jump_flag));
+  LUT6 #(
+    .INIT(64'hFFFBFFFF03080000)) 
+    branch_jump_flag_INST_0_i_1
+       (.I0(branch_jump_flag_INST_0_i_3_n_1),
+        .I1(alu_op_ex[1]),
+        .I2(alu_op_ex[3]),
+        .I3(alu_op_ex[2]),
+        .I4(alu_op_ex[0]),
+        .I5(branch_jump_flag_INST_0_i_2_n_1),
         .O(branch_jump_flag_INST_0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_10
+       (.I0(rs[29]),
+        .I1(rs[28]),
+        .I2(rs[27]),
+        .I3(rt[27]),
+        .I4(rt[28]),
+        .I5(rt[29]),
+        .O(branch_jump_flag_INST_0_i_10_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_11
+       (.I0(rs[26]),
+        .I1(rt[24]),
+        .I2(rs[25]),
+        .I3(rt[25]),
+        .I4(rs[24]),
+        .I5(rt[26]),
+        .O(branch_jump_flag_INST_0_i_11_n_0));
+  CARRY4 branch_jump_flag_INST_0_i_12
+       (.CI(1'b0),
+        .CO({branch_jump_flag_INST_0_i_12_n_0,branch_jump_flag_INST_0_i_12_n_1,branch_jump_flag_INST_0_i_12_n_2,branch_jump_flag_INST_0_i_12_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b1,1'b1,1'b1,1'b1}),
+        .O(NLW_branch_jump_flag_INST_0_i_12_O_UNCONNECTED[3:0]),
+        .S({branch_jump_flag_INST_0_i_22_n_0,branch_jump_flag_INST_0_i_23_n_0,branch_jump_flag_INST_0_i_24_n_0,branch_jump_flag_INST_0_i_25_n_0}));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_13
+       (.I0(rs[23]),
+        .I1(rt[21]),
+        .I2(rs[22]),
+        .I3(rt[22]),
+        .I4(rs[21]),
+        .I5(rt[23]),
+        .O(branch_jump_flag_INST_0_i_13_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_14
+       (.I0(rs[20]),
+        .I1(rt[19]),
+        .I2(rs[18]),
+        .I3(rt[18]),
+        .I4(rs[19]),
+        .I5(rt[20]),
+        .O(branch_jump_flag_INST_0_i_14_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_15
+       (.I0(rs[17]),
+        .I1(rt[16]),
+        .I2(rs[15]),
+        .I3(rt[15]),
+        .I4(rs[16]),
+        .I5(rt[17]),
+        .O(branch_jump_flag_INST_0_i_15_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_16
+       (.I0(rs[14]),
+        .I1(rt[13]),
+        .I2(rs[12]),
+        .I3(rt[12]),
+        .I4(rs[13]),
+        .I5(rt[14]),
+        .O(branch_jump_flag_INST_0_i_16_n_0));
+  CARRY4 branch_jump_flag_INST_0_i_17
+       (.CI(1'b0),
+        .CO({branch_jump_flag_INST_0_i_17_n_0,branch_jump_flag_INST_0_i_17_n_1,branch_jump_flag_INST_0_i_17_n_2,branch_jump_flag_INST_0_i_17_n_3}),
+        .CYINIT(1'b1),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_branch_jump_flag_INST_0_i_17_O_UNCONNECTED[3:0]),
+        .S({branch_jump_flag_INST_0_i_26_n_0,branch_jump_flag_INST_0_i_27_n_0,branch_jump_flag_INST_0_i_28_n_0,branch_jump_flag_INST_0_i_29_n_0}));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_18
+       (.I0(rs[23]),
+        .I1(rt[21]),
+        .I2(rs[22]),
+        .I3(rt[22]),
+        .I4(rs[21]),
+        .I5(rt[23]),
+        .O(branch_jump_flag_INST_0_i_18_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_19
+       (.I0(rs[20]),
+        .I1(rt[19]),
+        .I2(rs[18]),
+        .I3(rt[18]),
+        .I4(rs[19]),
+        .I5(rt[20]),
+        .O(branch_jump_flag_INST_0_i_19_n_0));
+  CARRY4 branch_jump_flag_INST_0_i_2
+       (.CI(branch_jump_flag_INST_0_i_4_n_0),
+        .CO({NLW_branch_jump_flag_INST_0_i_2_CO_UNCONNECTED[3],branch_jump_flag_INST_0_i_2_n_1,branch_jump_flag_INST_0_i_2_n_2,branch_jump_flag_INST_0_i_2_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b1,1'b1,1'b1}),
+        .O(NLW_branch_jump_flag_INST_0_i_2_O_UNCONNECTED[3:0]),
+        .S({1'b0,branch_jump_flag_INST_0_i_5_n_0,branch_jump_flag_INST_0_i_6_n_0,branch_jump_flag_INST_0_i_7_n_0}));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_20
+       (.I0(rs[17]),
+        .I1(rt[16]),
+        .I2(rs[15]),
+        .I3(rt[15]),
+        .I4(rs[16]),
+        .I5(rt[17]),
+        .O(branch_jump_flag_INST_0_i_20_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_21
+       (.I0(rs[14]),
+        .I1(rt[13]),
+        .I2(rs[12]),
+        .I3(rt[12]),
+        .I4(rs[13]),
+        .I5(rt[14]),
+        .O(branch_jump_flag_INST_0_i_21_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_22
+       (.I0(rs[11]),
+        .I1(rt[10]),
+        .I2(rs[9]),
+        .I3(rt[9]),
+        .I4(rs[10]),
+        .I5(rt[11]),
+        .O(branch_jump_flag_INST_0_i_22_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_23
+       (.I0(rs[8]),
+        .I1(rt[7]),
+        .I2(rs[6]),
+        .I3(rt[6]),
+        .I4(rs[7]),
+        .I5(rt[8]),
+        .O(branch_jump_flag_INST_0_i_23_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_24
+       (.I0(rs[5]),
+        .I1(rt[4]),
+        .I2(rs[3]),
+        .I3(rt[3]),
+        .I4(rs[4]),
+        .I5(rt[5]),
+        .O(branch_jump_flag_INST_0_i_24_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_25
+       (.I0(rs[2]),
+        .I1(rt[1]),
+        .I2(rs[0]),
+        .I3(rt[0]),
+        .I4(rs[1]),
+        .I5(rt[2]),
+        .O(branch_jump_flag_INST_0_i_25_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_26
+       (.I0(rs[11]),
+        .I1(rt[10]),
+        .I2(rs[9]),
+        .I3(rt[9]),
+        .I4(rs[10]),
+        .I5(rt[11]),
+        .O(branch_jump_flag_INST_0_i_26_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_27
+       (.I0(rs[8]),
+        .I1(rt[7]),
+        .I2(rs[6]),
+        .I3(rt[6]),
+        .I4(rs[7]),
+        .I5(rt[8]),
+        .O(branch_jump_flag_INST_0_i_27_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_28
+       (.I0(rs[5]),
+        .I1(rt[4]),
+        .I2(rs[3]),
+        .I3(rt[3]),
+        .I4(rs[4]),
+        .I5(rt[5]),
+        .O(branch_jump_flag_INST_0_i_28_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_29
+       (.I0(rs[2]),
+        .I1(rt[1]),
+        .I2(rs[0]),
+        .I3(rt[0]),
+        .I4(rs[1]),
+        .I5(rt[2]),
+        .O(branch_jump_flag_INST_0_i_29_n_0));
+  CARRY4 branch_jump_flag_INST_0_i_3
+       (.CI(branch_jump_flag_INST_0_i_8_n_0),
+        .CO({NLW_branch_jump_flag_INST_0_i_3_CO_UNCONNECTED[3],branch_jump_flag_INST_0_i_3_n_1,branch_jump_flag_INST_0_i_3_n_2,branch_jump_flag_INST_0_i_3_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_branch_jump_flag_INST_0_i_3_O_UNCONNECTED[3:0]),
+        .S({1'b0,branch_jump_flag_INST_0_i_9_n_0,branch_jump_flag_INST_0_i_10_n_0,branch_jump_flag_INST_0_i_11_n_0}));
+  CARRY4 branch_jump_flag_INST_0_i_4
+       (.CI(branch_jump_flag_INST_0_i_12_n_0),
+        .CO({branch_jump_flag_INST_0_i_4_n_0,branch_jump_flag_INST_0_i_4_n_1,branch_jump_flag_INST_0_i_4_n_2,branch_jump_flag_INST_0_i_4_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b1,1'b1,1'b1,1'b1}),
+        .O(NLW_branch_jump_flag_INST_0_i_4_O_UNCONNECTED[3:0]),
+        .S({branch_jump_flag_INST_0_i_13_n_0,branch_jump_flag_INST_0_i_14_n_0,branch_jump_flag_INST_0_i_15_n_0,branch_jump_flag_INST_0_i_16_n_0}));
+  LUT4 #(
+    .INIT(16'h8241)) 
+    branch_jump_flag_INST_0_i_5
+       (.I0(rs[31]),
+        .I1(rs[30]),
+        .I2(rt[30]),
+        .I3(rt[31]),
+        .O(branch_jump_flag_INST_0_i_5_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_6
+       (.I0(rs[29]),
+        .I1(rs[28]),
+        .I2(rs[27]),
+        .I3(rt[27]),
+        .I4(rt[28]),
+        .I5(rt[29]),
+        .O(branch_jump_flag_INST_0_i_6_n_0));
+  LUT6 #(
+    .INIT(64'h8008200240041001)) 
+    branch_jump_flag_INST_0_i_7
+       (.I0(rs[26]),
+        .I1(rt[24]),
+        .I2(rs[25]),
+        .I3(rt[25]),
+        .I4(rs[24]),
+        .I5(rt[26]),
+        .O(branch_jump_flag_INST_0_i_7_n_0));
+  CARRY4 branch_jump_flag_INST_0_i_8
+       (.CI(branch_jump_flag_INST_0_i_17_n_0),
+        .CO({branch_jump_flag_INST_0_i_8_n_0,branch_jump_flag_INST_0_i_8_n_1,branch_jump_flag_INST_0_i_8_n_2,branch_jump_flag_INST_0_i_8_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_branch_jump_flag_INST_0_i_8_O_UNCONNECTED[3:0]),
+        .S({branch_jump_flag_INST_0_i_18_n_0,branch_jump_flag_INST_0_i_19_n_0,branch_jump_flag_INST_0_i_20_n_0,branch_jump_flag_INST_0_i_21_n_0}));
+  LUT4 #(
+    .INIT(16'h8241)) 
+    branch_jump_flag_INST_0_i_9
+       (.I0(rs[31]),
+        .I1(rs[30]),
+        .I2(rt[30]),
+        .I3(rt[31]),
+        .O(branch_jump_flag_INST_0_i_9_n_0));
   bluex_v_2_1_BJT_0_0_BJT inst
        (.alu_op_id(alu_op_id),
         .branch_addr_ex(branch_addr_ex),

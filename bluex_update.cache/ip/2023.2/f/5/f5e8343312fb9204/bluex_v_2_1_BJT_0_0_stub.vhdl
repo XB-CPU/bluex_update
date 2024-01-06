@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 -- Date        : Sat Jan  6 16:17:01 2024
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_BJT_0_0/bluex_v_2_1_BJT_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+--               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ bluex_v_2_1_BJT_0_0_stub.vhdl
 -- Design      : bluex_v_2_1_BJT_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-2
@@ -13,7 +13,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity bluex_v_2_1_BJT_0_0 is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   Port ( 
     branch_isc : in STD_LOGIC;
     alu_op_ex : in STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -30,9 +30,9 @@ entity bluex_v_2_1_BJT_0_0 is
     branch_addr_id : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
 
-end bluex_v_2_1_BJT_0_0;
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
 
-architecture stub of bluex_v_2_1_BJT_0_0 is
+architecture stub of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;

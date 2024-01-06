@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 import os
 import sys
-from typing import List
+from typing import List, Literal
 import re
 import io
 
@@ -101,11 +101,11 @@ def imm_proc(user_imm:str, f:io.TextIOWrapper, line_index, im_limit_bit:int=15):
 			imm_type = "bin "
 			imm = int(user_imm, 2)
 	except:
-		asb_print(f"unable to convert the given imm {user_imm} to {imm_type}integer, please check it", f, line_index)
+		asb_print(f"unable to convert the given imm '{user_imm}' to {imm_type}integer, please check it", f, line_index)
 	if imm >= (1 << IMM_BIT):
 		asb_print(f"converted imm is larger than {(1 << IMM_BIT) - 1}, consider reduce it", f, line_index)
 	elif imm >= (1 << (IMM_BIT - 1)) or imm < -(1 << (IMM_BIT - 1)):
-		warning_print("converted imm exceed the range of a 16 bit 2' complement, which may cause unexpected result.")
+		asb_print(f"converted imm({imm}) exceed the range of a 16 bit 2' complement, which may cause unexpected result", f, line_index, 1)
 	elif imm >= (1 << (im_limit_bit)) or imm < -(1 << (im_limit_bit)):
 		asb_print(f"converted imm exceed the range of a {im_limit_bit} bit 2' complement, which is prohibited here", f, line_index)
 	return (imm & 0xffff)
@@ -184,11 +184,15 @@ class isc_code:
 			asb_print(f"Compile error: ad value must be less than {1 << ADR_BIT} and greater than 0, but {ad_value} are given", f, line_index)
 		self.isc += ad_value << isc_code.IM_DISP
 
-	def code(self, bin_str:bool=True):
-		if bin_str:
+	def code(self, radix:Literal[2, 10, 16] = 2):
+		if radix == 2:
 			return bin(self.isc)[2:].zfill(32)
-		else:
+		elif radix == 16:
+			return hex(self.isc)[2:].zfill(8)
+		elif radix == 10:
 			return self.isc
+		else:
+			error_print(f"radix {radix} not supportted! Abort.")
 
 	def set_cmd_type(self, cmd_type:str):
 		self.cmd_type = cmd_type
@@ -211,6 +215,7 @@ def machine_code_print(code:str, ic:isc_code):#, cmd_type:str
 		res.insert(32-16, " ")
 		res.insert(32-21, " ")
 		res.insert(32-26, " ")
+		res.append("\t")
 		op_code = int("".join(res[31:]), 2)
 	elif ic.cmd_type == "I":
 		res.insert(32-16, " ")
@@ -225,6 +230,8 @@ def machine_code_print(code:str, ic:isc_code):#, cmd_type:str
 		ad_code = int("".join(res[17:]), 2)
 		res.append("  \t" + str(ad_code))
 	res.insert(0, str(ic.asb_line + 1) + "->" + str(ic.bin_line + 1) + "#\t" +str(op_code) + "\t" + ic.cmd + "\t")
+	res.append("\t")
+	res.append(ic.code(16))
 	print("".join(res))
 
 def load_macro():
@@ -372,7 +379,7 @@ def compile(f:io.TextIOWrapper):
 			if line[0] in R_set:
 				cmd_type = "R"
 				ic.set_cmd_type(cmd_type)
-				if line[0] in ("ADD", "SUB", "MUL", "ORL", "AND", "XOR", "SLL", "SRL", "SRA", "SLS"):
+				if line[0] in ("ADD", "SUB", "MUL", "DVM", "ORL", "AND", "XOR", "SLL", "SRL", "SRA", "SLS"):
 					if len(line) > 4:
 						if line[4].startswith("#") or line[4].startswith("//"):
 							line = line[0:4]
@@ -389,10 +396,14 @@ def compile(f:io.TextIOWrapper):
 						except:
 							asb_print(f"reg should have a form like \"Rx\" where x is a integer, but unrecognizable form {reg} are found", f, index)
 						if reg_pos == 0:
+							if reg_num == 0:
+								asb_print("write to reg 0 is not use because it is always zero", f, index, 1)
 							ic.add_rd(reg_num, f, index)
 						elif reg_pos == 1:
 							ic.add_rs(reg_num, f, index)
 						elif reg_pos == 2:
+							if line[0] == 'DVM' and reg_num == 0:
+								asb_print("divisor should not be zero", f, index)
 							ic.add_rt(reg_num, f, index)
 					ic.set_cmd_str(line[0])
 				elif line[0] in ("NOT"):
@@ -422,7 +433,7 @@ def compile(f:io.TextIOWrapper):
 			elif line[0] in I_set:
 				cmd_type = "I"
 				ic.set_cmd_type(cmd_type)
-				if line[0] in ("ADDI", "SUBI", "MULI", "ORLI", "ANDI", "XORI", "SLSI", "LDW", "SVW"):
+				if line[0] in ("ADDI", "SUBI", "MULI", "DVMI", "ORLI", "ANDI", "XORI", "SLSI", "LDW", "SVW"):
 					if len(line) > 4:
 						if line[4].startswith("#") or line[4].startswith("//"):
 							line = line[0:4]
@@ -453,7 +464,11 @@ def compile(f:io.TextIOWrapper):
 							if line[0] == "MULI":
 								ic.add_im(imm_proc(rim, f, index, IMM_BIT-1), f, index)
 							else:
-								ic.add_im(imm_proc(rim, f, index), f, index)
+								im_num = imm_proc(rim, f, index)
+								if line[0] == "DVMI":
+									if im_num == 0:
+										asb_print(f"divisor should not be zero", f, index)
+									ic.add_im(im_num, f, index)
 					ic.set_cmd_str(line[0])
 				elif line[0] in ("BEQ", "BNE"):
 					if len(line) > 4:
@@ -560,7 +575,8 @@ def output_to_file():
 	with open(cli_args.output, "a") as output:
 		l = len(isc_code_list)
 		if cli_args.c_header is not None:
-			output.write(f"const static u32 {cli_args.c_header}[{l}] = {{\n")
+			output.write(f"#define CODE_LENGTH {l}\n")
+			output.write(f"const static u32 {cli_args.c_header}[CODE_LENGTH] = {{\n")
 		elif cli_args.coe_format:
 			output.write(f"memory_initialization_radix=2;\n")
 			output.write(f"memory_initialization_vector =\n")

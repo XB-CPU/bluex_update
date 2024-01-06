@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Sat Jan  6 10:52:53 2024
+// Date        : Sat Jan  6 14:18:49 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_decoder_id_0_0/bluex_v_2_1_decoder_id_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_decoder_id_0_0 -prefix
+//               bluex_v_2_1_decoder_id_0_0_ bluex_v_2_1_decoder_id_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_decoder_id_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -50,7 +50,6 @@ module bluex_v_2_1_decoder_id_0_0
         .reg_write(reg_write));
 endmodule
 
-(* ORIG_REF_NAME = "decoder_id" *) 
 module bluex_v_2_1_decoder_id_0_0_decoder_id
    (reg_write,
     memory_to_reg,
@@ -86,17 +85,17 @@ module bluex_v_2_1_decoder_id_0_0_decoder_id
         .I5(real_op[5]),
         .O(branch_isc));
   LUT6 #(
-    .INIT(64'hFFF7FDD57F777F77)) 
+    .INIT(64'hF7D5FFFFD7D5DF5F)) 
     addr_flag__0
        (.I0(real_op[0]),
-        .I1(real_op[4]),
-        .I2(real_op[3]),
+        .I1(real_op[3]),
+        .I2(real_op[5]),
         .I3(real_op[2]),
-        .I4(real_op[1]),
-        .I5(real_op[5]),
+        .I4(real_op[4]),
+        .I5(real_op[1]),
         .O(addr_flag));
   LUT6 #(
-    .INIT(64'h02028A00022A8A00)) 
+    .INIT(64'h02028A00222A8A00)) 
     alu_src__0
        (.I0(real_op[0]),
         .I1(real_op[3]),

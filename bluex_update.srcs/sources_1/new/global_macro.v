@@ -30,9 +30,10 @@
 `define ALO_SUB			6'b01_0010			//R R[rd]=R[rs]-R[rt]
 `define ALO_ADDI		6'b01_0001			//I R[rt]=R[rs]+Imm
 `define ALO_SUBI		6'b01_0011			//I R[rt]=R[rs]-Imm
-`define ALO_MUL			6'b11_0010			//R don't implement
-`define ALO_MULI		6'b11_0011			//I don't implement
-// `define ALO_DVM			6'b11_0011			// don't implement
+`define ALO_MUL			6'b11_0010			//R R[rd]=R[rs]*R[rt]
+`define ALO_MULI		6'b11_0011			//I R[rt]=R[rs]*Imm
+`define ALO_DVM			6'b11_0100			//R R[rd]=R[rs]/R[rt]
+`define ALO_DVMI		6'b11_0101			//I R[rt]=R[rs]/Imm
 // `define ALO_MAC			6'd15			// don't implement
 /* logic */
 `define ALO_NOT			6'b01_1000			//R R[rd]=~R[rs]

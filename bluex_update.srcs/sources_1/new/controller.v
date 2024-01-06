@@ -2,8 +2,10 @@
 `include ".//global_macro.v"
 
 module controller (
+	input									clk,
 	input									rst,
 	input									enable_CPU,
+	input									shift_error,
 
 	input			[`GPR_ADR - 1 : 0]		rs,
 	input			[`GPR_ADR - 1 : 0]		rt,
@@ -19,6 +21,10 @@ module controller (
 	input			[`OPC_BIT - 1 : 0]		real_op,
 	input									id_jump_flag,
 
+	input									mat_cop_error,
+	input									mat_cop_working,
+	input									mat_cop_result_valid,
+
 	output									IF_ID_flush, // divided for potential different use
 	output									ID_EX_flush,
 	
@@ -28,7 +34,9 @@ module controller (
 	output									MEM_WB_cen,
 	output	reg		[			1 : 0]		PC_src,
 	output	reg		[			1 : 0]		rs_forward,
-	output	reg		[ 			1 : 0]		rt_forward
+	output	reg		[ 			1 : 0]		rt_forward,
+
+	output									CPU_error
 );
 	reg read_rs;
 	reg read_rt;
@@ -81,7 +89,7 @@ module controller (
 			`ALO_NOTI, `ALO_ORLI, `ALO_ANDI, 
 			`ALO_XORI, `ALO_JMP, `ALO_SLSI, 
 			`ALO_LDW, `ALO_MIRL, `ALO_MIRH,
-			`ALO_MULI: 
+			`ALO_MULI, `ALO_DVMI: 
 			read_rt = 1'b0;
 			default: read_rt = 1'b1;
 		endcase
@@ -90,22 +98,42 @@ module controller (
 	wire rs_load_use = read_rs & write_reg_addr_ex_is_rs & mem_rd_ex & write_reg_addr_ex_not_zero;
 	wire rt_load_use = read_rt & write_reg_addr_ex_is_rt & mem_rd_ex & write_reg_addr_ex_not_zero;
 	wire load_use = rs_load_use | rt_load_use;
+	reg in_error = 0;
+	wire need_work_time = ((~mat_cop_result_valid) && mat_cop_working);
 
-	assign IF_ID_stall = load_use | (~enable_CPU);
-	assign ID_EX_cen = enable_CPU;
-	assign EX_MEM_cen = enable_CPU;
-	assign MEM_WB_cen = enable_CPU;
+	assign IF_ID_stall = load_use | (~enable_CPU) | in_error | need_work_time;
+	assign ID_EX_cen  = enable_CPU && (~in_error) && (~need_work_time);
+	assign EX_MEM_cen = enable_CPU && (~in_error) && (~need_work_time);
+	assign MEM_WB_cen = enable_CPU && (~in_error) && (~need_work_time);
 
-	assign IF_ID_flush = branch_taken_ex | id_jump_flag | rst;
-	assign ID_EX_flush = branch_taken_ex | id_jump_flag | load_use | rst;
+	wire jump_flag_permit = id_jump_flag && (~need_work_time);
+
+	assign IF_ID_flush = branch_taken_ex | jump_flag_permit | rst;
+	assign ID_EX_flush = branch_taken_ex | jump_flag_permit | load_use | rst;
 
 	always @(*) begin
 		// as long as branch in ex happened, PC src is determined by branch
 		// otherwise, determined by jump flag in ID
-		case ({id_jump_flag, branch_taken_ex})
+		case ({jump_flag_permit, branch_taken_ex})
 			2'b10: PC_src <= `PCS_JPA;
 			2'b11, 2'b01: PC_src <= `PCS_BRA;
 			default: PC_src <= `PCS_NRM;
 		endcase
 	end
+
+	always @(posedge clk) begin
+		if (rst) begin
+			in_error <= 0;
+		end
+		else begin
+			if (mat_cop_error && mat_cop_result_valid) begin
+				in_error <= 1;
+			end
+			if (shift_error) begin
+				in_error <= 1;
+			end
+		end
+	end
+
+	assign CPU_error = in_error;
 endmodule

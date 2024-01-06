@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-//Date        : Sat Jan  6 10:54:59 2024
+//Date        : Sat Jan  6 15:59:13 2024
 //Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 //Command     : generate_target bluex_v_2_1.bd
 //Design      : bluex_v_2_1
@@ -10,9 +10,10 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "bluex_v_2_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bluex_v_2_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=11,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=11,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=6,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "bluex_v_2_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "bluex_v_2_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bluex_v_2_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=7,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "bluex_v_2_1.hwdef" *) 
 module bluex_v_2_1
-   (ROM_clk,
+   (CPU_error,
+    ROM_clk,
     ROM_en,
     ROM_rst,
     ROM_we,
@@ -37,11 +38,12 @@ module bluex_v_2_1
     write_mem_en,
     write_mem_rst,
     write_mem_we);
+  output CPU_error;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.ROM_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.ROM_CLK, CLK_DOMAIN bluex_v_2_1_demux_id_0_0_ROM_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output ROM_clk;
   output ROM_en;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.ROM_RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.ROM_RST, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) output ROM_rst;
   output ROM_we;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN bluex_v_2_1_clk_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_RESET rst, CLK_DOMAIN bluex_v_2_1_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
   output [15:0]current_addr;
   input enable_CPU;
   input [31:0]isc;
@@ -70,6 +72,7 @@ module bluex_v_2_1
   wire [15:0]PC_0_current_addr;
   wire [15:0]PC_0_next_addr_output;
   wire [31:0]alu_ex_0_rd_value;
+  wire [1:0]alu_ex_0_shift_error;
   wire [5:0]aux_ex_0_alu_op;
   wire aux_ex_0_branch_isc;
   wire [31:0]aux_ex_0_imm;
@@ -84,6 +87,7 @@ module bluex_v_2_1
   wire [4:0]aux_id_0_addr_reg;
   wire [31:0]aux_id_0_sext_imm;
   wire clk_0_1;
+  wire controller_0_CPU_error;
   wire controller_0_EX_MEM_cen;
   wire controller_0_ID_EX_cen;
   wire controller_0_ID_EX_flush;
@@ -111,6 +115,10 @@ module bluex_v_2_1
   wire [4:0]demux_id_0_rt;
   wire enable_CPU_0_1;
   wire [31:0]isc_0_1;
+  wire matcop_0_error;
+  wire [31:0]matcop_0_rd_value;
+  wire matcop_0_result_valid;
+  wire matcop_0_working;
   wire [31:0]ram_rd_data_0_1;
   wire [31:0]read_mem_out_inw_0_1;
   wire [31:0]reg_heap_id_0_ram_addr;
@@ -139,6 +147,7 @@ module bluex_v_2_1
   wire wrapper_mem_0_write_mem_we;
   wire [4:0]wrapper_mem_0_write_reg_addr;
 
+  assign CPU_error = controller_0_CPU_error;
   assign ROM_clk = demux_id_0_ROM_clk;
   assign ROM_en = demux_id_0_ROM_en;
   assign ROM_rst = demux_id_0_ROM_rst;
@@ -189,10 +198,11 @@ module bluex_v_2_1
         .rst_n(rst_n_0_1));
   bluex_v_2_1_alu_ex_0_0 alu_ex_0
        (.alu_op(aux_ex_0_alu_op),
-        .imm(aux_ex_0_imm),
+        .mat_cop_res(matcop_0_rd_value),
         .rd_value(alu_ex_0_rd_value),
         .rs(aux_ex_0_rs),
-        .rt(aux_ex_0_rt));
+        .rt(aux_ex_0_rt),
+        .shift_error(alu_ex_0_shift_error));
   bluex_v_2_1_aux_ex_0_0 aux_ex_0
        (.alu_op(aux_ex_0_alu_op),
         .alu_op_inw(demux_id_0_real_op),
@@ -231,7 +241,8 @@ module bluex_v_2_1
         .imm(demux_id_0_imm),
         .sext_imm(aux_id_0_sext_imm));
   bluex_v_2_1_controller_0_0 controller_0
-       (.EX_MEM_cen(controller_0_EX_MEM_cen),
+       (.CPU_error(controller_0_CPU_error),
+        .EX_MEM_cen(controller_0_EX_MEM_cen),
         .ID_EX_cen(controller_0_ID_EX_cen),
         .ID_EX_flush(controller_0_ID_EX_flush),
         .IF_ID_flush(controller_0_IF_ID_flush),
@@ -239,8 +250,12 @@ module bluex_v_2_1
         .MEM_WB_cen(controller_0_MEM_WB_cen),
         .PC_src(controller_0_PC_src),
         .branch_taken_ex(BJT_0_branch_jump_flag),
+        .clk(clk_0_1),
         .enable_CPU(enable_CPU_0_1),
         .id_jump_flag(BJT_0_id_jump_flag),
+        .mat_cop_error(matcop_0_error),
+        .mat_cop_result_valid(matcop_0_result_valid),
+        .mat_cop_working(matcop_0_working),
         .mem_rd_ex(aux_ex_0_mem_to_reg_ex),
         .real_op(demux_id_0_real_op),
         .reg_write_ex(aux_ex_0_reg_write_ex),
@@ -250,6 +265,7 @@ module bluex_v_2_1
         .rst(rst_0_1),
         .rt(demux_id_0_rt),
         .rt_forward(controller_0_rt_forward),
+        .shift_error(alu_ex_0_shift_error[0]),
         .write_reg_addr_ex(aux_ex_0_write_reg_addr),
         .write_reg_addr_mem(wrapper_mem_0_write_reg_addr));
   bluex_v_2_1_decoder_id_0_0 decoder_id_0
@@ -278,6 +294,16 @@ module bluex_v_2_1
         .rs(demux_id_0_rs),
         .rst(controller_0_IF_ID_flush),
         .rt(demux_id_0_rt));
+  bluex_v_2_1_matcop_0_0 matcop_0
+       (.clk(clk_0_1),
+        .error(matcop_0_error),
+        .op(aux_ex_0_alu_op),
+        .rd_value(matcop_0_rd_value),
+        .result_valid(matcop_0_result_valid),
+        .rs(aux_ex_0_rs),
+        .rst_n(rst_n_0_1),
+        .rt(aux_ex_0_rt),
+        .working(matcop_0_working));
   bluex_v_2_1_reg_heap_id_0_0 reg_heap_id_0
        (.addr_rs(demux_id_0_rs),
         .addr_rt(demux_id_0_rt),

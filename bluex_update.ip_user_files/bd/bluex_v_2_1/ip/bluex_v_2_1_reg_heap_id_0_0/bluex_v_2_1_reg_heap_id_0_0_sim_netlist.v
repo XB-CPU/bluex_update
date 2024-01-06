@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 // Date        : Sat Jan  6 10:52:57 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_reg_heap_id_0_0/bluex_v_2_1_reg_heap_id_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_reg_heap_id_0_0 -prefix
+//               bluex_v_2_1_reg_heap_id_0_0_ bluex_v_2_1_reg_heap_id_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_reg_heap_id_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -97,7 +97,6 @@ module bluex_v_2_1_reg_heap_id_0_0
         .wr_en_i(wr_en_i));
 endmodule
 
-(* ORIG_REF_NAME = "reg_heap_id" *) 
 module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
    (rst_n_0,
     ram_addr,

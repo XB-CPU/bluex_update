@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x3014C7EC9A1D5AE8",
+      "boundary_crc": "0xF63446AB7042F4F8",
       "device": "xc7z020clg400-2",
       "gen_directory": "../../../../bluex_update.gen/sources_1/bd/bluex_v_2_1",
       "name": "bluex_v_2_1",
@@ -21,15 +21,20 @@
       "reg_wb_0": "",
       "wrapper_mem_0": "",
       "decoder_id_0": "",
-      "controller_0": ""
+      "controller_0": "",
+      "matcop_0": ""
     },
     "ports": {
       "clk": {
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "rst",
+            "value_src": "default"
+          },
           "CLK_DOMAIN": {
-            "value": "bluex_v_2_1_clk_0",
+            "value": "bluex_v_2_1_clk",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -262,6 +267,9 @@
             "value_src": "user_prop"
           }
         }
+      },
+      "CPU_error": {
+        "direction": "O"
       }
     },
     "components": {
@@ -286,7 +294,7 @@
                 "value_src": "constant"
               },
               "CLK_DOMAIN": {
-                "value": "bluex_v_2_1_clk_0",
+                "value": "bluex_v_2_1_clk",
                 "value_src": "default_prop"
               }
             }
@@ -507,7 +515,7 @@
             "direction": "I",
             "parameters": {
               "CLK_DOMAIN": {
-                "value": "bluex_v_2_1_clk_0",
+                "value": "bluex_v_2_1_clk",
                 "value_src": "default_prop"
               }
             }
@@ -574,7 +582,7 @@
             "left": "31",
             "right": "0"
           },
-          "imm": {
+          "mat_cop_res": {
             "direction": "I",
             "left": "31",
             "right": "0"
@@ -587,6 +595,11 @@
           "rd_value": {
             "direction": "O",
             "left": "31",
+            "right": "0"
+          },
+          "shift_error": {
+            "direction": "O",
+            "left": "1",
             "right": "0"
           }
         }
@@ -654,7 +667,7 @@
                 "value_src": "constant"
               },
               "CLK_DOMAIN": {
-                "value": "bluex_v_2_1_clk_0",
+                "value": "bluex_v_2_1_clk",
                 "value_src": "default_prop"
               }
             }
@@ -781,7 +794,7 @@
             "direction": "I",
             "parameters": {
               "CLK_DOMAIN": {
-                "value": "bluex_v_2_1_clk_0",
+                "value": "bluex_v_2_1_clk",
                 "value_src": "default_prop"
               }
             }
@@ -888,7 +901,7 @@
             "direction": "I",
             "parameters": {
               "CLK_DOMAIN": {
-                "value": "bluex_v_2_1_clk_0",
+                "value": "bluex_v_2_1_clk",
                 "value_src": "default_prop"
               }
             }
@@ -959,7 +972,7 @@
             "direction": "I",
             "parameters": {
               "CLK_DOMAIN": {
-                "value": "bluex_v_2_1_clk_0",
+                "value": "bluex_v_2_1_clk",
                 "value_src": "default_prop"
               }
             }
@@ -1113,6 +1126,20 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "bluex_v_2_1_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
           "rst": {
             "type": "rst",
             "direction": "I",
@@ -1123,6 +1150,9 @@
             }
           },
           "enable_CPU": {
+            "direction": "I"
+          },
+          "shift_error": {
             "direction": "I"
           },
           "rs": {
@@ -1165,6 +1195,15 @@
           "id_jump_flag": {
             "direction": "I"
           },
+          "mat_cop_error": {
+            "direction": "I"
+          },
+          "mat_cop_working": {
+            "direction": "I"
+          },
+          "mat_cop_result_valid": {
+            "direction": "I"
+          },
           "IF_ID_flush": {
             "direction": "O"
           },
@@ -1197,6 +1236,72 @@
             "direction": "O",
             "left": "1",
             "right": "0"
+          },
+          "CPU_error": {
+            "direction": "O"
+          }
+        }
+      },
+      "matcop_0": {
+        "vlnv": "xilinx.com:module_ref:matcop:1.0",
+        "ip_revision": "1",
+        "xci_name": "bluex_v_2_1_matcop_0_0",
+        "xci_path": "ip\\bluex_v_2_1_matcop_0_0\\bluex_v_2_1_matcop_0_0.xci",
+        "inst_hier_path": "matcop_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "matcop",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "bluex_v_2_1_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "op": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "rs": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "rt": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "error": {
+            "direction": "O"
+          },
+          "rd_value": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "working": {
+            "direction": "O"
+          },
+          "result_valid": {
+            "direction": "O"
           }
         }
       }
@@ -1245,11 +1350,18 @@
           "wrapper_mem_0/alu_result_inw"
         ]
       },
+      "alu_ex_0_shift_error": {
+        "ports": [
+          "alu_ex_0/shift_error",
+          "controller_0/shift_error"
+        ]
+      },
       "aux_ex_0_alu_op": {
         "ports": [
           "aux_ex_0/alu_op",
-          "BJT_0/alu_op_ex",
-          "alu_ex_0/alu_op"
+          "matcop_0/op",
+          "alu_ex_0/alu_op",
+          "BJT_0/alu_op_ex"
         ]
       },
       "aux_ex_0_branch_isc": {
@@ -1261,8 +1373,7 @@
       "aux_ex_0_imm": {
         "ports": [
           "aux_ex_0/imm",
-          "BJT_0/imm_ex",
-          "alu_ex_0/imm"
+          "BJT_0/imm_ex"
         ]
       },
       "aux_ex_0_mem_to_reg_ex": {
@@ -1294,15 +1405,17 @@
       "aux_ex_0_rs": {
         "ports": [
           "aux_ex_0/rs",
-          "BJT_0/rs",
-          "alu_ex_0/rs"
+          "matcop_0/rs",
+          "alu_ex_0/rs",
+          "BJT_0/rs"
         ]
       },
       "aux_ex_0_rt": {
         "ports": [
           "aux_ex_0/rt",
-          "BJT_0/rt",
-          "alu_ex_0/rt"
+          "matcop_0/rt",
+          "alu_ex_0/rt",
+          "BJT_0/rt"
         ]
       },
       "aux_ex_0_write_data": {
@@ -1327,8 +1440,8 @@
       "aux_id_0_sext_imm": {
         "ports": [
           "aux_id_0/sext_imm",
-          "BJT_0/imm_id",
-          "aux_ex_0/imm_inw"
+          "aux_ex_0/imm_inw",
+          "BJT_0/imm_id"
         ]
       },
       "clk_0_1": {
@@ -1339,7 +1452,15 @@
           "aux_ex_0/clk",
           "reg_wb_0/clk",
           "demux_id_0/clk",
-          "reg_heap_id_0/clk"
+          "reg_heap_id_0/clk",
+          "matcop_0/clk",
+          "controller_0/clk"
+        ]
+      },
+      "controller_0_CPU_error": {
+        "ports": [
+          "controller_0/CPU_error",
+          "CPU_error"
         ]
       },
       "controller_0_EX_MEM_cen": {
@@ -1466,8 +1587,8 @@
       "demux_id_0_pc_next": {
         "ports": [
           "demux_id_0/pc_next",
-          "BJT_0/pc_next_id",
-          "aux_ex_0/pc_next_inw"
+          "aux_ex_0/pc_next_inw",
+          "BJT_0/pc_next_id"
         ]
       },
       "demux_id_0_rd": {
@@ -1479,25 +1600,25 @@
       "demux_id_0_real_op": {
         "ports": [
           "demux_id_0/real_op",
-          "BJT_0/alu_op_id",
           "aux_ex_0/alu_op_inw",
           "decoder_id_0/real_op",
-          "controller_0/real_op"
+          "controller_0/real_op",
+          "BJT_0/alu_op_id"
         ]
       },
       "demux_id_0_rs": {
         "ports": [
           "demux_id_0/rs",
-          "controller_0/rs",
-          "reg_heap_id_0/addr_rs"
+          "reg_heap_id_0/addr_rs",
+          "controller_0/rs"
         ]
       },
       "demux_id_0_rt": {
         "ports": [
           "demux_id_0/rt",
           "aux_id_0/addr_rt",
-          "controller_0/rt",
-          "reg_heap_id_0/addr_rt"
+          "reg_heap_id_0/addr_rt",
+          "controller_0/rt"
         ]
       },
       "enable_CPU_0_1": {
@@ -1511,6 +1632,30 @@
         "ports": [
           "isc",
           "demux_id_0/isc"
+        ]
+      },
+      "matcop_0_error": {
+        "ports": [
+          "matcop_0/error",
+          "controller_0/mat_cop_error"
+        ]
+      },
+      "matcop_0_rd_value": {
+        "ports": [
+          "matcop_0/rd_value",
+          "alu_ex_0/mat_cop_res"
+        ]
+      },
+      "matcop_0_result_valid": {
+        "ports": [
+          "matcop_0/result_valid",
+          "controller_0/mat_cop_result_valid"
+        ]
+      },
+      "matcop_0_working": {
+        "ports": [
+          "matcop_0/working",
+          "controller_0/mat_cop_working"
         ]
       },
       "ram_rd_data_0_1": {
@@ -1604,7 +1749,8 @@
           "wrapper_mem_0/rst_n",
           "PC_0/rst_n",
           "reg_wb_0/rst_n",
-          "reg_heap_id_0/rst_n"
+          "reg_heap_id_0/rst_n",
+          "matcop_0/rst_n"
         ]
       },
       "wr_en_i_0_1": {

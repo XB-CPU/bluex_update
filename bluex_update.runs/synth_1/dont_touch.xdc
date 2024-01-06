@@ -3,6 +3,9 @@
 
 # XDC: new/bluex_v_2_1_wrapper.xdc
 
+# IP: ip/div_gen_0/div_gen_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==div_gen_0 || ORIG_REF_NAME==div_gen_0} -quiet] -quiet
+
 # IP: ip/mult_gen_0/mult_gen_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mult_gen_0 || ORIG_REF_NAME==mult_gen_0} -quiet] -quiet
 
@@ -20,9 +23,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bluex_v_2_1
 
 # IP: bd/bluex_v_2_1/ip/bluex_v_2_1_alu_ex_0_0/bluex_v_2_1_alu_ex_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bluex_v_2_1_alu_ex_0_0 || ORIG_REF_NAME==bluex_v_2_1_alu_ex_0_0} -quiet] -quiet
-
-# IP: ip/mult_gen_0/mult_gen_0.xci
-#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mult_gen_0 || ORIG_REF_NAME==mult_gen_0} -quiet] -quiet
 
 # IP: bd/bluex_v_2_1/ip/bluex_v_2_1_aux_id_0_0/bluex_v_2_1_aux_id_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bluex_v_2_1_aux_id_0_0 || ORIG_REF_NAME==bluex_v_2_1_aux_id_0_0} -quiet] -quiet
@@ -44,5 +44,14 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bluex_v_2_1
 
 # IP: bd/bluex_v_2_1/ip/bluex_v_2_1_controller_0_0/bluex_v_2_1_controller_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bluex_v_2_1_controller_0_0 || ORIG_REF_NAME==bluex_v_2_1_controller_0_0} -quiet] -quiet
+
+# IP: bd/bluex_v_2_1/ip/bluex_v_2_1_matcop_0_0/bluex_v_2_1_matcop_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bluex_v_2_1_matcop_0_0 || ORIG_REF_NAME==bluex_v_2_1_matcop_0_0} -quiet] -quiet
+
+# IP: ip/div_gen_0/div_gen_0.xci
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==div_gen_0 || ORIG_REF_NAME==div_gen_0} -quiet] -quiet
+
+# IP: ip/mult_gen_0/mult_gen_0.xci
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mult_gen_0 || ORIG_REF_NAME==mult_gen_0} -quiet] -quiet
 
 # XDC: d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/bluex_v_2_1_ooc.xdc

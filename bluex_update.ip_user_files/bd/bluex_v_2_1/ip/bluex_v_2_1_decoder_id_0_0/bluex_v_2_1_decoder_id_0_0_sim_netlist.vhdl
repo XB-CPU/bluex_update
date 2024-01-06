@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Sat Jan  6 10:52:53 2024
+-- Date        : Sat Jan  6 14:18:49 2024
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_decoder_id_0_0/bluex_v_2_1_decoder_id_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top bluex_v_2_1_decoder_id_0_0 -prefix
+--               bluex_v_2_1_decoder_id_0_0_ bluex_v_2_1_decoder_id_0_0_sim_netlist.vhdl
 -- Design      : bluex_v_2_1_decoder_id_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,8 +25,6 @@ entity bluex_v_2_1_decoder_id_0_0_decoder_id is
     addr_flag : out STD_LOGIC;
     real_op : in STD_LOGIC_VECTOR ( 5 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of bluex_v_2_1_decoder_id_0_0_decoder_id : entity is "decoder_id";
 end bluex_v_2_1_decoder_id_0_0_decoder_id;
 
 architecture STRUCTURE of bluex_v_2_1_decoder_id_0_0_decoder_id is
@@ -46,20 +44,20 @@ begin
     );
 \addr_flag__0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFF7FDD57F777F77"
+      INIT => X"F7D5FFFFD7D5DF5F"
     )
         port map (
       I0 => real_op(0),
-      I1 => real_op(4),
-      I2 => real_op(3),
+      I1 => real_op(3),
+      I2 => real_op(5),
       I3 => real_op(2),
-      I4 => real_op(1),
-      I5 => real_op(5),
+      I4 => real_op(4),
+      I5 => real_op(1),
       O => addr_flag
     );
 \alu_src__0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"02028A00022A8A00"
+      INIT => X"02028A00222A8A00"
     )
         port map (
       I0 => real_op(0),

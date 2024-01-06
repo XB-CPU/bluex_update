@@ -56,8 +56,10 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bluex_v_2_1_controller_0_0 (
+  clk,
   rst,
   enable_CPU,
+  shift_error,
   rs,
   rt,
   reg_write_ex,
@@ -68,6 +70,9 @@ module bluex_v_2_1_controller_0_0 (
   write_reg_addr_mem,
   real_op,
   id_jump_flag,
+  mat_cop_error,
+  mat_cop_working,
+  mat_cop_result_valid,
   IF_ID_flush,
   ID_EX_flush,
   IF_ID_stall,
@@ -76,13 +81,18 @@ module bluex_v_2_1_controller_0_0 (
   MEM_WB_cen,
   PC_src,
   rs_forward,
-  rt_forward
+  rt_forward,
+  CPU_error
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bluex_v_2_1_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
 input wire enable_CPU;
+input wire shift_error;
 input wire [4 : 0] rs;
 input wire [4 : 0] rt;
 input wire reg_write_ex;
@@ -93,6 +103,9 @@ input wire reg_write_mem;
 input wire [4 : 0] write_reg_addr_mem;
 input wire [5 : 0] real_op;
 input wire id_jump_flag;
+input wire mat_cop_error;
+input wire mat_cop_working;
+input wire mat_cop_result_valid;
 output wire IF_ID_flush;
 output wire ID_EX_flush;
 output wire IF_ID_stall;
@@ -102,10 +115,13 @@ output wire MEM_WB_cen;
 output wire [1 : 0] PC_src;
 output wire [1 : 0] rs_forward;
 output wire [1 : 0] rt_forward;
+output wire CPU_error;
 
   controller inst (
+    .clk(clk),
     .rst(rst),
     .enable_CPU(enable_CPU),
+    .shift_error(shift_error),
     .rs(rs),
     .rt(rt),
     .reg_write_ex(reg_write_ex),
@@ -116,6 +132,9 @@ output wire [1 : 0] rt_forward;
     .write_reg_addr_mem(write_reg_addr_mem),
     .real_op(real_op),
     .id_jump_flag(id_jump_flag),
+    .mat_cop_error(mat_cop_error),
+    .mat_cop_working(mat_cop_working),
+    .mat_cop_result_valid(mat_cop_result_valid),
     .IF_ID_flush(IF_ID_flush),
     .ID_EX_flush(ID_EX_flush),
     .IF_ID_stall(IF_ID_stall),
@@ -124,6 +143,7 @@ output wire [1 : 0] rt_forward;
     .MEM_WB_cen(MEM_WB_cen),
     .PC_src(PC_src),
     .rs_forward(rs_forward),
-    .rt_forward(rt_forward)
+    .rt_forward(rt_forward),
+    .CPU_error(CPU_error)
   );
 endmodule

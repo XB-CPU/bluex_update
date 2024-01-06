@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1,099.760 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,217.161 ns"></ZoomEndTime>
-      <Cursor1Time time="1,174.560 ns"></Cursor1Time>
+      <ZoomStartTime time="1,382.085 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,501.886 ns"></ZoomEndTime>
+      <Cursor1Time time="1,400.085 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="251"></NameColumnWidth>
+      <NameColumnWidth column_width="239"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="32" />
+   <WVObjectSize size="41" />
    <wvobject fp_name="/tb_ROM/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -39,10 +39,6 @@
    <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/alu_ex_0/rt" type="array">
       <obj_property name="ElementShortName">rt[31:0]</obj_property>
       <obj_property name="ObjectShortName">rt[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/alu_ex_0/imm" type="array">
-      <obj_property name="ElementShortName">imm[31:0]</obj_property>
-      <obj_property name="ObjectShortName">imm[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/alu_ex_0/alu_op" type="array">
       <obj_property name="ElementShortName">alu_op[5:0]</obj_property>
@@ -149,5 +145,45 @@
       <obj_property name="ElementShortName">ram_reg[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">ram_reg[31:0][31:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/controller_0/IF_ID_stall" type="logic">
+      <obj_property name="ElementShortName">IF_ID_stall</obj_property>
+      <obj_property name="ObjectShortName">IF_ID_stall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/controller_0/ID_EX_cen" type="logic">
+      <obj_property name="ElementShortName">ID_EX_cen</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_cen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/controller_0/mat_cop_working" type="logic">
+      <obj_property name="ElementShortName">mat_cop_working</obj_property>
+      <obj_property name="ObjectShortName">mat_cop_working</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/matcop_0/inst/dvm_rd_value" type="array">
+      <obj_property name="ElementShortName">dvm_rd_value[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dvm_rd_value[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/matcop_0/inst/mul_rd_value" type="array">
+      <obj_property name="ElementShortName">mul_rd_value[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_rd_value[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/matcop_0/inst/dvm_result_valid" type="logic">
+      <obj_property name="ElementShortName">dvm_result_valid</obj_property>
+      <obj_property name="ObjectShortName">dvm_result_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/matcop_0/inst/divide_by_zero" type="logic">
+      <obj_property name="ElementShortName">divide_by_zero</obj_property>
+      <obj_property name="ObjectShortName">divide_by_zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/matcop_0/rd_value" type="array">
+      <obj_property name="ElementShortName">rd_value[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_value[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/controller_0/inst/in_error" type="logic">
+      <obj_property name="ElementShortName">in_error</obj_property>
+      <obj_property name="ObjectShortName">in_error</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/controller_0/inst/need_work_time" type="logic">
+      <obj_property name="ElementShortName">need_work_time</obj_property>
+      <obj_property name="ObjectShortName">need_work_time</obj_property>
    </wvobject>
 </wave_config>

@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-//Date        : Sat Jan  6 10:54:59 2024
+//Date        : Sat Jan  6 15:59:13 2024
 //Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 //Command     : generate_target bluex_v_2_1_wrapper.bd
 //Design      : bluex_v_2_1_wrapper
@@ -11,7 +11,8 @@
 `timescale 1 ps / 1 ps
 
 module bluex_v_2_1_wrapper
-   (ROM_clk,
+   (CPU_error,
+    ROM_clk,
     ROM_en,
     ROM_rst,
     ROM_we,
@@ -36,6 +37,7 @@ module bluex_v_2_1_wrapper
     write_mem_en,
     write_mem_rst,
     write_mem_we);
+  output CPU_error;
   output ROM_clk;
   output ROM_en;
   output ROM_rst;
@@ -62,6 +64,7 @@ module bluex_v_2_1_wrapper
   output write_mem_rst;
   output write_mem_we;
 
+  wire CPU_error;
   wire ROM_clk;
   wire ROM_en;
   wire ROM_rst;
@@ -89,7 +92,8 @@ module bluex_v_2_1_wrapper
   wire write_mem_we;
 
   bluex_v_2_1 bluex_v_2_1_i
-       (.ROM_clk(ROM_clk),
+       (.CPU_error(CPU_error),
+        .ROM_clk(ROM_clk),
         .ROM_en(ROM_en),
         .ROM_rst(ROM_rst),
         .ROM_we(ROM_we),

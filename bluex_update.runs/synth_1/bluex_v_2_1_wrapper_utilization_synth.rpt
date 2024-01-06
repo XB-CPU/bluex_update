@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Sat Jan  6 11:01:30 2024
+| Date         : Sat Jan  6 16:01:48 2024
 | Host         : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file bluex_v_2_1_wrapper_utilization_synth.rpt -pb bluex_v_2_1_wrapper_utilization_synth.pb
 | Design       : bluex_v_2_1_wrapper
@@ -92,7 +92,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+--------+
 |          Site Type          | Used | Fixed | Prohibited | Available |  Util% |
 +-----------------------------+------+-------+------------+-----------+--------+
-| Bonded IOB                  |  244 |     0 |          0 |       125 | 195.20 |
+| Bonded IOB                  |  245 |     0 |          0 |       125 | 196.00 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |   0.00 |
 | Bonded IOPADs               |    0 |     0 |          0 |       130 |   0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         4 |   0.00 |
@@ -148,7 +148,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |  143 |                  IO |
+| OBUF     |  144 |                  IO |
 | IBUF     |  101 |                  IO |
 +----------+------+---------------------+
 
@@ -162,6 +162,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | bluex_v_2_1_wrapper_mem_0_0 |    1 |
 | bluex_v_2_1_reg_wb_0_0      |    1 |
 | bluex_v_2_1_reg_heap_id_0_0 |    1 |
+| bluex_v_2_1_matcop_0_0      |    1 |
 | bluex_v_2_1_demux_id_0_0    |    1 |
 | bluex_v_2_1_decoder_id_0_0  |    1 |
 | bluex_v_2_1_controller_0_0  |    1 |

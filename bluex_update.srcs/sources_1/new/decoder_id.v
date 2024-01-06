@@ -12,6 +12,8 @@ module decoder_id (
 
 	output	reg								addr_flag
 );
+
+	// write reg or not
 	always @(*) begin
 		case (real_op)
 			`ALO_BEQ, `ALO_BNE, `ALO_JMP, 
@@ -24,6 +26,8 @@ module decoder_id (
 	
 	assign memory_to_reg = (real_op == `ALO_LDW) ? 1'b1 : 1'b0;
 	assign memory_write = (real_op == `ALO_SVW) ? 1'b1 : 1'b0;
+
+	// be branch(jump) isc or not
 	always @(*) begin
 		case (real_op)
 			`ALO_BEQ, `ALO_BNE, `ALO_JMP: 
@@ -33,24 +37,26 @@ module decoder_id (
 		endcase
 	end
 
+	// use imm or not
 	always @(*) begin
 		case (real_op)
 			`ALO_ADDI, `ALO_SUBI, `ALO_NOTI, 
 			`ALO_ORLI, `ALO_ANDI, `ALO_XORI, 
 			`ALO_SLSI, `ALO_MIRL, `ALO_MIRH,
-			`ALO_LDW, `ALO_SVW, `ALO_MULI: 
+			`ALO_LDW, `ALO_SVW, `ALO_MULI, `ALO_DVMI: 
 			alu_src = `ASR_IMM;
 			default: 
 			alu_src = `ASR_RTF;
 		endcase
 	end
 
+	// write to which reg
 	always @(*) begin
 		case (real_op)
 			`ALO_ADDI, `ALO_SUBI, `ALO_NOTI, 
 			`ALO_ORLI, `ALO_ANDI, `ALO_XORI, 
 			`ALO_SLSI, `ALO_LDW, `ALO_MULI,
-			`ALO_MIRL, `ALO_MIRH:
+			`ALO_MIRL, `ALO_MIRH, `ALO_DVMI:
 			addr_flag = `ADR_FRT;
 			default: 
 			addr_flag = `ADR_FRD;

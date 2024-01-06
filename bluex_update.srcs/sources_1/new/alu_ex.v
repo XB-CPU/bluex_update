@@ -5,13 +5,13 @@ module alu_ex (
 	/*data input*/
 	input			[`GPR_BIT - 1 : 0] 		rs,
 	input			[`GPR_BIT - 1 : 0] 		rt,
-	input	signed	[`GPR_BIT - 1 : 0]		imm,
+	input			[`GPR_BIT - 1 : 0]		mat_cop_res,
 	input			[`OPC_BIT - 1 : 0] 		alu_op,
 	// input			[`GPR_BIT - 1 : 0]		shift, // do not use
 	/*ALU data output*/
-	output	reg		[`GPR_BIT - 1 : 0]		rd_value
+	output	reg		[`GPR_BIT - 1 : 0]		rd_value,
 
-	// output	reg		[`ERR_BIT - 1 : 0]		error_type,
+	output	reg		[`ERR_BIT - 1 : 0]		shift_error
 	// output	reg		[`ERR_BIT - 1 : 0]		carry
 );
 	wire [`GPR_BIT : 0] rd_add = {rs + rt};
@@ -89,11 +89,9 @@ module alu_ex (
 			`ALO_MIRH:	begin
 				rd_value = rt << (`GPR_BIT - `IMM_BIT);
 			end
-			`ALO_MUL:	begin
-				rd_value = rd_mul;
-			end
-			`ALO_MULI:	begin
-				rd_value = rd_mul;
+			`ALO_MUL, `ALO_MULI, `ALO_DVM, `ALO_DVMI:	
+			begin
+				rd_value = mat_cop_res;
 			end
 			default: begin
 				rd_value = {(`GPR_BIT){1'b0}};
@@ -101,9 +99,16 @@ module alu_ex (
 		endcase
 	end
 
-	mult_gen_0 u_multiplier (
-		.A(rs[15 : 0]),  // input wire [15 : 0] A
-		.B(rt[15 : 0]),  // input wire [15 : 0] B
-		.P(rd_mul)  // output wire [31 : 0] P
-	);
+	always @(*) begin
+		case (alu_op)
+			`ALO_SLL, `ALO_SRL, `ALO_SRA: 
+			begin
+				if (rt >= 32) begin
+					shift_error <= 1'b1;
+				end
+			end
+			default: 
+			shift_error <= 1'b0;
+		endcase
+	end
 endmodule

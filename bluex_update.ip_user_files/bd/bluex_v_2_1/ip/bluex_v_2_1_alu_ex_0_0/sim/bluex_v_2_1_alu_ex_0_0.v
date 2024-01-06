@@ -57,22 +57,25 @@
 module bluex_v_2_1_alu_ex_0_0 (
   rs,
   rt,
-  imm,
+  mat_cop_res,
   alu_op,
-  rd_value
+  rd_value,
+  shift_error
 );
 
 input wire [31 : 0] rs;
 input wire [31 : 0] rt;
-input wire [31 : 0] imm;
+input wire [31 : 0] mat_cop_res;
 input wire [5 : 0] alu_op;
 output wire [31 : 0] rd_value;
+output wire [1 : 0] shift_error;
 
   alu_ex inst (
     .rs(rs),
     .rt(rt),
-    .imm(imm),
+    .mat_cop_res(mat_cop_res),
     .alu_op(alu_op),
-    .rd_value(rd_value)
+    .rd_value(rd_value),
+    .shift_error(shift_error)
   );
 endmodule

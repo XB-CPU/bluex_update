@@ -59,34 +59,51 @@
 #jmp -1
 
 
-mirl r6, 6
-mirl r7, 13
-svw r6, r7, 0
-mirh r6, 1
-svw r6, r7, 1
-mirl r6, 9
-svw r6, r7, 2
-mirl r4, 1b
-mirl r5, 3h
-mirl r2, 40H
-mirl r0, 40h # r0 is still 0
-mirl r1, 30H
-add r1, r0, r0 # r1 is 0
-subi r2, r0, 0 # r2 is 0
-for:
-ldw r8, r7, 0
-andi r3, r8, 1b
-addi r7, r7, 1
-beq r3, r4, odd
-even:
-mul r8, r8, R4
-jmp branch_done
-odd:
-muli r8, r8, -1
-branch_done:
-add r1, r1, r8
-addi r2, r2, 1
-bne r2, r5, for
+# mirl r6, 6
+# mirl r7, 13
+# svw r6, r7, 0
+# mirh r6, 1
+# svw r6, r7, 1
+# mirl r6, 9
+# svw r6, r7, 2
+# mirl r4, 1b
+# mirl r5, 3h
+# mirl r2, 40H
+# mirl r0, 40h # r0 is still 0
+# mirl r1, 30H
+# add r1, r0, r0 # r1 is 0
+# subi r2, r0, 0 # r2 is 0
+# for:
+# ldw r8, r7, 0
+# andi r3, r8, 1b
+# addi r7, r7, 1
+# beq r3, r4, odd
+# even:
+# mul r8, r8, R4
+# jmp branch_done
+# odd:
+# muli r8, r8, -1
+# branch_done:
+# add r1, r1, r8
+# addi r2, r2, 1
+# bne r2, r5, for
+# 
+# #over
+# jmp -1
 
-#over
+# r1: dividend; r2: divisor; r3: dvm result; r4: ; r5: quotient; r8: remainder:
+mirl r1, 34
+mirl r2, 7
+svw r2, r0, 0
+mirl r2, 9999
+mirl r6, 16
+ldw r2, r0, 0
+dvm r3, r1, r2 # 4, 6
+srl r5, r3, r6 # 4, quotient
+sll r4, r5, r6
+sub r8, r3, r4 # 6, remainder
+mul r7, r2, r5 # 28
+dvmi r9, r1, 9 # 3, 7
+muli r10, r6, -9 # -144
+muli r11, r6, 9 # 144
 jmp -1

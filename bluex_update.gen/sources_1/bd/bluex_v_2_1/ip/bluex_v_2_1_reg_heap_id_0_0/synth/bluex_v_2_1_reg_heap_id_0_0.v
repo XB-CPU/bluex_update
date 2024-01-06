@@ -66,8 +66,6 @@ module bluex_v_2_1_reg_heap_id_0_0 (
   rs,
   rt,
   wr_en_i,
-  wr_en_t,
-  wr_en_o,
   ram_clk,
   ram_rd_data,
   ram_en,
@@ -91,8 +89,6 @@ input wire we;
 output wire [31 : 0] rs;
 output wire [31 : 0] rt;
 input wire wr_en_i;
-input wire wr_en_t;
-output wire wr_en_o;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ram_clk, ASSOCIATED_RESET ram_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bluex_v_2_1_reg_heap_id_0_0_ram_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 ram_clk CLK" *)
 output wire ram_clk;
@@ -116,8 +112,6 @@ output wire ram_rst;
     .rs(rs),
     .rt(rt),
     .wr_en_i(wr_en_i),
-    .wr_en_t(wr_en_t),
-    .wr_en_o(wr_en_o),
     .ram_clk(ram_clk),
     .ram_rd_data(ram_rd_data),
     .ram_en(ram_en),

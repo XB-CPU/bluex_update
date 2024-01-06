@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-2" LaunchTime="1704287176" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bluex_v_2_1_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-2" LaunchTime="1704510051" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/bluex_v_2_1_wrapper.dcp">
   <File Type="PA-TCL" Name="bluex_v_2_1_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="bluex_v_2_1_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="bluex_v_2_1_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="bluex_v_2_1_wrapper.vds"/>
   <File Type="RDS-UTIL" Name="bluex_v_2_1_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="bluex_v_2_1_wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="bluex_v_2_1_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="bluex_v_2_1_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="bluex_v_2_1_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/global_macro.v">
@@ -31,6 +34,13 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/PC.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/mult_gen_0/mult_gen_0.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -115,14 +125,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/reg_heap_ram_id.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="bluex_v_2_1_wrapper"/>
@@ -159,10 +161,10 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_controller_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_PC_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_alu_ex_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_decoder_id_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_reg_wb_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_demux_id_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_BJT_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_aux_ex_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_reg_heap_id_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bluex_v_2_1_controller_0_0"/>
 </GenRun>

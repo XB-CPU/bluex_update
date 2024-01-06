@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Wed Jan  3 21:06:56 2024
+// Date        : Sat Jan  6 10:52:57 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_reg_heap_id_0_0 -prefix
-//               bluex_v_2_1_reg_heap_id_0_0_ bluex_v_2_1_reg_heap_id_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_reg_heap_id_0_0/bluex_v_2_1_reg_heap_id_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_reg_heap_id_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,8 +27,6 @@ module bluex_v_2_1_reg_heap_id_0_0
     rs,
     rt,
     wr_en_i,
-    wr_en_t,
-    wr_en_o,
     ram_clk,
     ram_rd_data,
     ram_en,
@@ -46,8 +44,6 @@ module bluex_v_2_1_reg_heap_id_0_0
   output [31:0]rs;
   output [31:0]rt;
   input wr_en_i;
-  input wr_en_t;
-  output wr_en_o;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 ram_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ram_clk, ASSOCIATED_RESET ram_rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN bluex_v_2_1_reg_heap_id_0_0_ram_clk, INSERT_VIP 0" *) output ram_clk;
   input [31:0]ram_rd_data;
   output ram_en;
@@ -81,7 +77,6 @@ module bluex_v_2_1_reg_heap_id_0_0
   assign ram_we[2] = \^ram_we [2];
   assign ram_we[1] = \^ram_we [2];
   assign ram_we[0] = \^ram_we [2];
-  assign wr_en_o = \<const0> ;
   GND GND
        (.G(\<const0> ));
   bluex_v_2_1_reg_heap_id_0_0_reg_heap_id inst
@@ -102,6 +97,7 @@ module bluex_v_2_1_reg_heap_id_0_0
         .wr_en_i(wr_en_i));
 endmodule
 
+(* ORIG_REF_NAME = "reg_heap_id" *) 
 module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
    (rst_n_0,
     ram_addr,
@@ -7408,13 +7404,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[29]),
         .Q(\ram_reg_reg[28]_3 [29]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[28][2] 
        (.C(clk),
         .CE(\__2/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[2]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[28]_3 [2]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -7432,21 +7428,21 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[31]),
         .Q(\ram_reg_reg[28]_3 [31]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[28][3] 
        (.C(clk),
         .CE(\__2/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[3]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[28]_3 [3]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[28][4] 
        (.C(clk),
         .CE(\__2/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[4]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[28]_3 [4]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -7488,13 +7484,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[9]),
         .Q(\ram_reg_reg[28]_3 [9]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[29][0] 
        (.C(clk),
         .CE(\__1/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[0]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[29]_2 [0]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -7664,13 +7660,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[29]),
         .Q(\ram_reg_reg[29]_2 [29]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[29][2] 
        (.C(clk),
         .CE(\__1/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[2]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[29]_2 [2]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -7688,21 +7684,21 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[31]),
         .Q(\ram_reg_reg[29]_2 [31]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[29][3] 
        (.C(clk),
         .CE(\__1/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[3]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[29]_2 [3]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[29][4] 
        (.C(clk),
         .CE(\__1/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[4]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[29]_2 [4]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -8088,13 +8084,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[19]),
         .Q(\ram_reg_reg[30]_1 [19]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[30][1] 
        (.C(clk),
         .CE(\__0/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[1]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[30]_1 [1]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -8176,13 +8172,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[29]),
         .Q(\ram_reg_reg[30]_1 [29]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[30][2] 
        (.C(clk),
         .CE(\__0/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[2]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[30]_1 [2]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -8200,21 +8196,21 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[31]),
         .Q(\ram_reg_reg[30]_1 [31]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[30][3] 
        (.C(clk),
         .CE(\__0/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[3]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[30]_1 [3]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[30][4] 
        (.C(clk),
         .CE(\__0/i__n_0 ),
+        .CLR(rst_n_0),
         .D(wd[4]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[30]_1 [4]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -8256,13 +8252,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[9]),
         .Q(\ram_reg_reg[30]_1 [9]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[31][0] 
        (.C(clk),
         .CE(ram_reg),
+        .CLR(rst_n_0),
         .D(wd[0]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[31]_0 [0]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -8344,13 +8340,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[19]),
         .Q(\ram_reg_reg[31]_0 [19]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[31][1] 
        (.C(clk),
         .CE(ram_reg),
+        .CLR(rst_n_0),
         .D(wd[1]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[31]_0 [1]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -8432,13 +8428,13 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[29]),
         .Q(\ram_reg_reg[31]_0 [29]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[31][2] 
        (.C(clk),
         .CE(ram_reg),
+        .CLR(rst_n_0),
         .D(wd[2]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[31]_0 [2]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 
@@ -8456,21 +8452,21 @@ module bluex_v_2_1_reg_heap_id_0_0_reg_heap_id
         .CLR(rst_n_0),
         .D(wd[31]),
         .Q(\ram_reg_reg[31]_0 [31]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[31][3] 
        (.C(clk),
         .CE(ram_reg),
+        .CLR(rst_n_0),
         .D(wd[3]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[31]_0 [3]));
-  FDPE #(
+  FDCE #(
     .IS_C_INVERTED(1'b1)) 
     \ram_reg_reg[31][4] 
        (.C(clk),
         .CE(ram_reg),
+        .CLR(rst_n_0),
         .D(wd[4]),
-        .PRE(rst_n_0),
         .Q(\ram_reg_reg[31]_0 [4]));
   FDCE #(
     .IS_C_INVERTED(1'b1)) 

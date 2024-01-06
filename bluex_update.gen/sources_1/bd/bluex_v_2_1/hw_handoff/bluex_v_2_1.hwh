@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Jan  6 10:27:43 2024" VIVADOVERSION="2023.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Jan  6 10:54:59 2024" VIVADOVERSION="2023.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="bluex_v_2_1" PACKAGE="clg400" SPEEDGRADE="-2"/>
 
@@ -29,9 +29,9 @@
         <CONNECTION INSTANCE="wrapper_mem_0" PORT="clk"/>
         <CONNECTION INSTANCE="PC_0" PORT="clk"/>
         <CONNECTION INSTANCE="aux_ex_0" PORT="clk"/>
+        <CONNECTION INSTANCE="reg_wb_0" PORT="clk"/>
         <CONNECTION INSTANCE="demux_id_0" PORT="clk"/>
         <CONNECTION INSTANCE="reg_heap_id_0" PORT="clk"/>
-        <CONNECTION INSTANCE="reg_wb_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="15" NAME="current_addr" RIGHT="0" SIGIS="undef" SIGNAME="PC_0_current_addr">
@@ -41,8 +41,8 @@
     </PORT>
     <PORT DIR="I" NAME="enable_CPU" SIGIS="undef" SIGNAME="External_Ports_enable_CPU">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="controller_0" PORT="enable_CPU"/>
         <CONNECTION INSTANCE="demux_id_0" PORT="enable_CPU"/>
+        <CONNECTION INSTANCE="controller_0" PORT="enable_CPU"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="31" NAME="isc" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_isc">
@@ -99,23 +99,13 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="wrapper_mem_0" PORT="rst_n"/>
         <CONNECTION INSTANCE="PC_0" PORT="rst_n"/>
-        <CONNECTION INSTANCE="reg_heap_id_0" PORT="rst_n"/>
         <CONNECTION INSTANCE="reg_wb_0" PORT="rst_n"/>
+        <CONNECTION INSTANCE="reg_heap_id_0" PORT="rst_n"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="wr_en_i" SIGIS="undef" SIGNAME="External_Ports_wr_en_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="reg_heap_id_0" PORT="wr_en_i"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="wr_en_o" SIGIS="undef" SIGNAME="reg_heap_id_0_wr_en_o">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="reg_heap_id_0" PORT="wr_en_o"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="wr_en_t" SIGIS="undef" SIGNAME="External_Ports_wr_en_t">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="reg_heap_id_0" PORT="wr_en_t"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="15" NAME="write_mem_addr" RIGHT="0" SIGIS="undef" SIGNAME="wrapper_mem_0_write_mem_addr">
@@ -187,8 +177,8 @@
         </PORT>
         <PORT DIR="O" NAME="branch_jump_flag" SIGIS="undef" SIGNAME="BJT_0_branch_jump_flag">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="controller_0" PORT="branch_taken_ex"/>
             <CONNECTION INSTANCE="demux_id_0" PORT="branch_taken"/>
+            <CONNECTION INSTANCE="controller_0" PORT="branch_taken_ex"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="id_jump_flag" SIGIS="undef" SIGNAME="BJT_0_id_jump_flag">
@@ -755,10 +745,10 @@
         </PORT>
         <PORT DIR="O" LEFT="5" NAME="real_op" RIGHT="0" SIGIS="undef" SIGNAME="demux_id_0_real_op">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="decoder_id_0" PORT="real_op"/>
-            <CONNECTION INSTANCE="controller_0" PORT="real_op"/>
             <CONNECTION INSTANCE="BJT_0" PORT="alu_op_id"/>
             <CONNECTION INSTANCE="aux_ex_0" PORT="alu_op_inw"/>
+            <CONNECTION INSTANCE="decoder_id_0" PORT="real_op"/>
+            <CONNECTION INSTANCE="controller_0" PORT="real_op"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="5" NAME="rfunct" RIGHT="0" SIGIS="undef"/>
@@ -775,8 +765,8 @@
         </PORT>
         <PORT DIR="O" LEFT="4" NAME="rt" RIGHT="0" SIGIS="undef" SIGNAME="demux_id_0_rt">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="controller_0" PORT="rt"/>
             <CONNECTION INSTANCE="aux_id_0" PORT="addr_rt"/>
+            <CONNECTION INSTANCE="controller_0" PORT="rt"/>
             <CONNECTION INSTANCE="reg_heap_id_0" PORT="addr_rt"/>
           </CONNECTIONS>
         </PORT>
@@ -874,16 +864,6 @@
         <PORT DIR="I" NAME="wr_en_i" SIGIS="undef" SIGNAME="External_Ports_wr_en_i">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="wr_en_i"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="wr_en_o" SIGIS="undef" SIGNAME="reg_heap_id_0_wr_en_o">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="wr_en_o"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="wr_en_t" SIGIS="undef" SIGNAME="External_Ports_wr_en_t">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="wr_en_t"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1010,8 +990,8 @@
         </PORT>
         <PORT DIR="O" NAME="reg_write" SIGIS="undef" SIGNAME="wrapper_mem_0_reg_write">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="controller_0" PORT="reg_write_mem"/>
             <CONNECTION INSTANCE="reg_wb_0" PORT="reg_write_inw"/>
+            <CONNECTION INSTANCE="controller_0" PORT="reg_write_mem"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="reg_write_inw" SIGIS="undef" SIGNAME="aux_ex_0_reg_write_ex">
@@ -1061,8 +1041,8 @@
         </PORT>
         <PORT DIR="O" LEFT="4" NAME="write_reg_addr" RIGHT="0" SIGIS="undef" SIGNAME="wrapper_mem_0_write_reg_addr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="controller_0" PORT="write_reg_addr_mem"/>
             <CONNECTION INSTANCE="reg_wb_0" PORT="write_reg_addr_inw"/>
+            <CONNECTION INSTANCE="controller_0" PORT="write_reg_addr_mem"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="4" NAME="write_reg_addr_inw" RIGHT="0" SIGIS="undef" SIGNAME="aux_ex_0_write_reg_addr">

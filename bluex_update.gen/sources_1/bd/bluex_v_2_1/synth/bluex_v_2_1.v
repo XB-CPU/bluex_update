@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-//Date        : Sat Jan  6 10:27:42 2024
+//Date        : Sat Jan  6 10:54:59 2024
 //Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 //Command     : generate_target bluex_v_2_1.bd
 //Design      : bluex_v_2_1
@@ -31,8 +31,6 @@ module bluex_v_2_1
     rst,
     rst_n,
     wr_en_i,
-    wr_en_o,
-    wr_en_t,
     write_mem_addr,
     write_mem_clk,
     write_mem_data,
@@ -58,8 +56,6 @@ module bluex_v_2_1
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input rst;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST_N RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST_N, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input rst_n;
   input wr_en_i;
-  output wr_en_o;
-  input wr_en_t;
   output [15:0]write_mem_addr;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.WRITE_MEM_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.WRITE_MEM_CLK, CLK_DOMAIN bluex_v_2_1_wrapper_mem_0_0_write_mem_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output write_mem_clk;
   output [31:0]write_mem_data;
@@ -125,14 +121,12 @@ module bluex_v_2_1
   wire [31:0]reg_heap_id_0_ram_wr_data;
   wire [31:0]reg_heap_id_0_rs;
   wire [31:0]reg_heap_id_0_rt;
-  wire reg_heap_id_0_wr_en_o;
   wire reg_wb_0_reg_write;
   wire [31:0]reg_wb_0_write_back_data;
   wire [4:0]reg_wb_0_write_reg_addr;
   wire rst_0_1;
   wire rst_n_0_1;
   wire wr_en_i_0_1;
-  wire wr_en_t_0_1;
   wire [31:0]wrapper_mem_0_alu_result;
   wire wrapper_mem_0_memory_to_reg;
   wire [31:0]wrapper_mem_0_read_mem_out;
@@ -164,8 +158,6 @@ module bluex_v_2_1
   assign rst_0_1 = rst;
   assign rst_n_0_1 = rst_n;
   assign wr_en_i_0_1 = wr_en_i;
-  assign wr_en_o = reg_heap_id_0_wr_en_o;
-  assign wr_en_t_0_1 = wr_en_t;
   assign write_mem_addr[15:0] = wrapper_mem_0_write_mem_addr;
   assign write_mem_clk = wrapper_mem_0_write_mem_clk;
   assign write_mem_data[31:0] = wrapper_mem_0_write_mem_data;
@@ -303,9 +295,7 @@ module bluex_v_2_1
         .rt(reg_heap_id_0_rt),
         .wd(reg_wb_0_write_back_data),
         .we(reg_wb_0_reg_write),
-        .wr_en_i(wr_en_i_0_1),
-        .wr_en_o(reg_heap_id_0_wr_en_o),
-        .wr_en_t(wr_en_t_0_1));
+        .wr_en_i(wr_en_i_0_1));
   bluex_v_2_1_reg_wb_0_0 reg_wb_0
        (.MEM_WB_cen(controller_0_MEM_WB_cen),
         .alu_result_inw(wrapper_mem_0_alu_result),

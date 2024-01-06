@@ -20,7 +20,6 @@ reg   [31:0]  read_mem_out_inw              ;
 reg   rst_n                                = 0 ;
 reg   rst                                  = 1 ;
 reg   wr_en_i                              = 0 ;
-reg   wr_en_t                              = 0 ;
 
 // bluex_wrapper Outputs
 wire  ROM_clk                              ;
@@ -34,7 +33,6 @@ wire  ram_en                               ;
 wire  ram_rst                              ;
 wire  [3:0]  ram_we                        ;
 wire  [31:0]  ram_wr_data                  ;
-wire  wr_en_o                              ;
 wire  real_rst                             ; 
 wire  [15:0]  write_mem_addr               ;
 wire  write_mem_clk                        ;
@@ -110,7 +108,6 @@ bluex_v_2_1_wrapper  u_bluex_v_2_1_wrapper (
     .rst                     ( rst                      ),
     .rst_n                   ( rst_n                    ),
     .wr_en_i                 ( wr_en_i                  ),
-    .wr_en_t                 ( wr_en_t                  ),
 
     .ROM_clk                 ( ROM_clk                  ),
     .ROM_en                  ( ROM_en                   ),
@@ -123,7 +120,6 @@ bluex_v_2_1_wrapper  u_bluex_v_2_1_wrapper (
     .ram_rst                 ( ram_rst                  ),
     .ram_we                  ( ram_we            [3:0]  ),
     .ram_wr_data             ( ram_wr_data       [31:0] ),
-    .wr_en_o                 ( wr_en_o                  ),
     .write_mem_addr          ( write_mem_addr    [15:0] ),
     .write_mem_clk           ( write_mem_clk            ),
     .write_mem_data          ( write_mem_data    [31:0] ),
@@ -141,7 +137,7 @@ end
 initial
 begin
 	// #(PERIOD*2.5) enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
-	#(PERIOD*110) 
+	#(PERIOD*50) 
 	// for (i = 0; i < 20; i = i + 1) begin
 	// 	enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
 	// end

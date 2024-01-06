@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xA6E44D8F14DDD80D",
+      "boundary_crc": "0x3014C7EC9A1D5AE8",
       "device": "xc7z020clg400-2",
       "gen_directory": "../../../../bluex_update.gen/sources_1/bd/bluex_v_2_1",
       "name": "bluex_v_2_1",
@@ -190,16 +190,10 @@
           }
         }
       },
-      "wr_en_o": {
-        "direction": "O"
-      },
       "ram_rd_data": {
         "direction": "I",
         "left": "31",
         "right": "0"
-      },
-      "wr_en_t": {
-        "direction": "I"
       },
       "wr_en_i": {
         "direction": "I"
@@ -838,12 +832,6 @@
           "wr_en_i": {
             "direction": "I"
           },
-          "wr_en_t": {
-            "direction": "I"
-          },
-          "wr_en_o": {
-            "direction": "O"
-          },
           "ram_clk": {
             "type": "clk",
             "direction": "O",
@@ -1229,8 +1217,8 @@
       "BJT_0_branch_jump_flag": {
         "ports": [
           "BJT_0/branch_jump_flag",
-          "controller_0/branch_taken_ex",
-          "demux_id_0/branch_taken"
+          "demux_id_0/branch_taken",
+          "controller_0/branch_taken_ex"
         ]
       },
       "BJT_0_id_jump_flag": {
@@ -1349,9 +1337,9 @@
           "wrapper_mem_0/clk",
           "PC_0/clk",
           "aux_ex_0/clk",
+          "reg_wb_0/clk",
           "demux_id_0/clk",
-          "reg_heap_id_0/clk",
-          "reg_wb_0/clk"
+          "reg_heap_id_0/clk"
         ]
       },
       "controller_0_EX_MEM_cen": {
@@ -1491,10 +1479,10 @@
       "demux_id_0_real_op": {
         "ports": [
           "demux_id_0/real_op",
-          "decoder_id_0/real_op",
-          "controller_0/real_op",
           "BJT_0/alu_op_id",
-          "aux_ex_0/alu_op_inw"
+          "aux_ex_0/alu_op_inw",
+          "decoder_id_0/real_op",
+          "controller_0/real_op"
         ]
       },
       "demux_id_0_rs": {
@@ -1507,16 +1495,16 @@
       "demux_id_0_rt": {
         "ports": [
           "demux_id_0/rt",
-          "controller_0/rt",
           "aux_id_0/addr_rt",
+          "controller_0/rt",
           "reg_heap_id_0/addr_rt"
         ]
       },
       "enable_CPU_0_1": {
         "ports": [
           "enable_CPU",
-          "controller_0/enable_CPU",
-          "demux_id_0/enable_CPU"
+          "demux_id_0/enable_CPU",
+          "controller_0/enable_CPU"
         ]
       },
       "isc_0_1": {
@@ -1585,12 +1573,6 @@
           "aux_ex_0/rt_inw"
         ]
       },
-      "reg_heap_id_0_wr_en_o": {
-        "ports": [
-          "reg_heap_id_0/wr_en_o",
-          "wr_en_o"
-        ]
-      },
       "reg_wb_0_reg_write": {
         "ports": [
           "reg_wb_0/reg_write",
@@ -1621,20 +1603,14 @@
           "rst_n",
           "wrapper_mem_0/rst_n",
           "PC_0/rst_n",
-          "reg_heap_id_0/rst_n",
-          "reg_wb_0/rst_n"
+          "reg_wb_0/rst_n",
+          "reg_heap_id_0/rst_n"
         ]
       },
       "wr_en_i_0_1": {
         "ports": [
           "wr_en_i",
           "reg_heap_id_0/wr_en_i"
-        ]
-      },
-      "wr_en_t_0_1": {
-        "ports": [
-          "wr_en_t",
-          "reg_heap_id_0/wr_en_t"
         ]
       },
       "wrapper_mem_0_alu_result": {
@@ -1659,8 +1635,8 @@
       "wrapper_mem_0_reg_write": {
         "ports": [
           "wrapper_mem_0/reg_write",
-          "controller_0/reg_write_mem",
-          "reg_wb_0/reg_write_inw"
+          "reg_wb_0/reg_write_inw",
+          "controller_0/reg_write_mem"
         ]
       },
       "wrapper_mem_0_write_mem_addr": {
@@ -1702,8 +1678,8 @@
       "wrapper_mem_0_write_reg_addr": {
         "ports": [
           "wrapper_mem_0/write_reg_addr",
-          "controller_0/write_reg_addr_mem",
-          "reg_wb_0/write_reg_addr_inw"
+          "reg_wb_0/write_reg_addr_inw",
+          "controller_0/write_reg_addr_mem"
         ]
       }
     }

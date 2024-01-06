@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-//Date        : Sat Jan  6 10:27:42 2024
+//Date        : Sat Jan  6 10:54:59 2024
 //Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 //Command     : generate_target bluex_v_2_1_wrapper.bd
 //Design      : bluex_v_2_1_wrapper
@@ -30,8 +30,6 @@ module bluex_v_2_1_wrapper
     rst,
     rst_n,
     wr_en_i,
-    wr_en_o,
-    wr_en_t,
     write_mem_addr,
     write_mem_clk,
     write_mem_data,
@@ -57,8 +55,6 @@ module bluex_v_2_1_wrapper
   input rst;
   input rst_n;
   input wr_en_i;
-  output wr_en_o;
-  input wr_en_t;
   output [15:0]write_mem_addr;
   output write_mem_clk;
   output [31:0]write_mem_data;
@@ -85,8 +81,6 @@ module bluex_v_2_1_wrapper
   wire rst;
   wire rst_n;
   wire wr_en_i;
-  wire wr_en_o;
-  wire wr_en_t;
   wire [15:0]write_mem_addr;
   wire write_mem_clk;
   wire [31:0]write_mem_data;
@@ -114,8 +108,6 @@ module bluex_v_2_1_wrapper
         .rst(rst),
         .rst_n(rst_n),
         .wr_en_i(wr_en_i),
-        .wr_en_o(wr_en_o),
-        .wr_en_t(wr_en_t),
         .write_mem_addr(write_mem_addr),
         .write_mem_clk(write_mem_clk),
         .write_mem_data(write_mem_data),

@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Wed Dec 27 22:30:24 2023
+// Date        : Sat Jan  6 10:52:53 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top bluex_v_2_1_controller_0_0 -prefix
-//               bluex_v_2_1_controller_0_0_ bluex_v_2_1_controller_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_controller_0_0/bluex_v_2_1_controller_0_0_sim_netlist.v
 // Design      : bluex_v_2_1_controller_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -97,7 +97,7 @@ module bluex_v_2_1_controller_0_0
   assign PC_src[1] = \^PC_src [1];
   assign PC_src[0] = branch_taken_ex;
   LUT6 #(
-    .INIT(64'hEEEEAAAEAAAEAAAE)) 
+    .INIT(64'hEEEEAAEAAAEAAAEA)) 
     ID_EX_flush_INST_0
        (.I0(IF_ID_flush),
         .I1(mem_rd_ex),
@@ -107,37 +107,37 @@ module bluex_v_2_1_controller_0_0
         .I5(ID_EX_flush_INST_0_i_4_n_0),
         .O(ID_EX_flush));
   LUT6 #(
-    .INIT(64'h0000023400000000)) 
+    .INIT(64'h2002000000002002)) 
     ID_EX_flush_INST_0_i_1
-       (.I0(real_op[3]),
-        .I1(real_op[2]),
-        .I2(real_op[5]),
-        .I3(real_op[4]),
-        .I4(real_op[1]),
-        .I5(real_op[0]),
-        .O(ID_EX_flush_INST_0_i_1_n_0));
-  LUT6 #(
-    .INIT(64'hEFFEFFFFFFFFEFFE)) 
-    ID_EX_flush_INST_0_i_2
        (.I0(ID_EX_flush_INST_0_i_5_n_0),
         .I1(ID_EX_flush_INST_0_i_6_n_0),
-        .I2(rs[1]),
-        .I3(write_reg_addr_ex[1]),
+        .I2(rs[0]),
+        .I3(write_reg_addr_ex[0]),
         .I4(rs[2]),
         .I5(write_reg_addr_ex[2]),
+        .O(ID_EX_flush_INST_0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h0004004000040400)) 
+    ID_EX_flush_INST_0_i_2
+       (.I0(real_op[1]),
+        .I1(real_op[0]),
+        .I2(real_op[4]),
+        .I3(real_op[2]),
+        .I4(real_op[5]),
+        .I5(real_op[3]),
         .O(ID_EX_flush_INST_0_i_2_n_0));
   LUT6 #(
-    .INIT(64'hFFFDFDDD5F45FDFF)) 
+    .INIT(64'hBBFFFCFFB9FB31FF)) 
     ID_EX_flush_INST_0_i_3
-       (.I0(real_op[0]),
-        .I1(real_op[1]),
-        .I2(real_op[3]),
-        .I3(real_op[2]),
-        .I4(real_op[4]),
-        .I5(real_op[5]),
+       (.I0(real_op[5]),
+        .I1(real_op[4]),
+        .I2(real_op[1]),
+        .I3(real_op[0]),
+        .I4(real_op[3]),
+        .I5(real_op[2]),
         .O(ID_EX_flush_INST_0_i_3_n_0));
   LUT6 #(
-    .INIT(64'h1001000000001001)) 
+    .INIT(64'h2002000000002002)) 
     ID_EX_flush_INST_0_i_4
        (.I0(ID_EX_flush_INST_0_i_5_n_0),
         .I1(ID_EX_flush_INST_0_i_7_n_0),
@@ -147,23 +147,23 @@ module bluex_v_2_1_controller_0_0
         .I5(write_reg_addr_ex[2]),
         .O(ID_EX_flush_INST_0_i_4_n_0));
   LUT5 #(
-    .INIT(32'h00000001)) 
+    .INIT(32'hFFFFFFFE)) 
     ID_EX_flush_INST_0_i_5
-       (.I0(write_reg_addr_ex[4]),
-        .I1(write_reg_addr_ex[3]),
-        .I2(write_reg_addr_ex[1]),
-        .I3(write_reg_addr_ex[0]),
-        .I4(write_reg_addr_ex[2]),
+       (.I0(write_reg_addr_ex[1]),
+        .I1(write_reg_addr_ex[0]),
+        .I2(write_reg_addr_ex[2]),
+        .I3(write_reg_addr_ex[4]),
+        .I4(write_reg_addr_ex[3]),
         .O(ID_EX_flush_INST_0_i_5_n_0));
   LUT6 #(
     .INIT(64'h6FF6FFFFFFFF6FF6)) 
     ID_EX_flush_INST_0_i_6
-       (.I0(rs[0]),
-        .I1(write_reg_addr_ex[0]),
-        .I2(write_reg_addr_ex[4]),
-        .I3(rs[4]),
-        .I4(write_reg_addr_ex[3]),
-        .I5(rs[3]),
+       (.I0(rs[1]),
+        .I1(write_reg_addr_ex[1]),
+        .I2(write_reg_addr_ex[3]),
+        .I3(rs[3]),
+        .I4(write_reg_addr_ex[4]),
+        .I5(rs[4]),
         .O(ID_EX_flush_INST_0_i_6_n_0));
   LUT6 #(
     .INIT(64'h6FF6FFFFFFFF6FF6)) 
@@ -183,7 +183,7 @@ module bluex_v_2_1_controller_0_0
         .I2(id_jump_flag),
         .O(IF_ID_flush));
   LUT6 #(
-    .INIT(64'hAA020202FFFFFFFF)) 
+    .INIT(64'hAA080808FFFFFFFF)) 
     IF_ID_stall_INST_0
        (.I0(mem_rd_ex),
         .I1(ID_EX_flush_INST_0_i_1_n_0),
@@ -198,45 +198,45 @@ module bluex_v_2_1_controller_0_0
        (.I0(id_jump_flag),
         .I1(branch_taken_ex),
         .O(\^PC_src ));
-  LUT4 #(
-    .INIT(16'h0020)) 
+  LUT3 #(
+    .INIT(8'h02)) 
     \rs_forward[0]_INST_0 
-       (.I0(ID_EX_flush_INST_0_i_2_n_0),
-        .I1(ID_EX_flush_INST_0_i_1_n_0),
-        .I2(\rs_forward[0]_INST_0_i_1_n_0 ),
-        .I3(\rs_forward[0]_INST_0_i_2_n_0 ),
+       (.I0(\rs_forward[0]_INST_0_i_1_n_0 ),
+        .I1(ID_EX_flush_INST_0_i_2_n_0),
+        .I2(ID_EX_flush_INST_0_i_1_n_0),
         .O(rs_forward[0]));
   LUT6 #(
-    .INIT(64'hAAAAAAAAAAAAAAA8)) 
+    .INIT(64'h2002000000002002)) 
     \rs_forward[0]_INST_0_i_1 
+       (.I0(\rs_forward[0]_INST_0_i_2_n_0 ),
+        .I1(\rs_forward[0]_INST_0_i_3_n_0 ),
+        .I2(rs[0]),
+        .I3(write_reg_addr_mem[0]),
+        .I4(rs[3]),
+        .I5(write_reg_addr_mem[3]),
+        .O(\rs_forward[0]_INST_0_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAAAAA8)) 
+    \rs_forward[0]_INST_0_i_2 
        (.I0(reg_write_mem),
         .I1(write_reg_addr_mem[2]),
         .I2(write_reg_addr_mem[4]),
         .I3(write_reg_addr_mem[1]),
         .I4(write_reg_addr_mem[0]),
         .I5(write_reg_addr_mem[3]),
-        .O(\rs_forward[0]_INST_0_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hF6FFFFF6)) 
-    \rs_forward[0]_INST_0_i_2 
-       (.I0(rs[3]),
-        .I1(write_reg_addr_mem[3]),
-        .I2(\rs_forward[0]_INST_0_i_3_n_0 ),
-        .I3(write_reg_addr_mem[4]),
-        .I4(rs[4]),
         .O(\rs_forward[0]_INST_0_i_2_n_0 ));
   LUT6 #(
     .INIT(64'h6FF6FFFFFFFF6FF6)) 
     \rs_forward[0]_INST_0_i_3 
-       (.I0(rs[0]),
-        .I1(write_reg_addr_mem[0]),
+       (.I0(rs[2]),
+        .I1(write_reg_addr_mem[2]),
         .I2(write_reg_addr_mem[1]),
         .I3(rs[1]),
-        .I4(write_reg_addr_mem[2]),
-        .I5(rs[2]),
+        .I4(write_reg_addr_mem[4]),
+        .I5(rs[4]),
         .O(\rs_forward[0]_INST_0_i_3_n_0 ));
   LUT3 #(
-    .INIT(8'h02)) 
+    .INIT(8'h08)) 
     \rs_forward[1]_INST_0 
        (.I0(reg_write_ex),
         .I1(ID_EX_flush_INST_0_i_1_n_0),
@@ -252,7 +252,7 @@ module bluex_v_2_1_controller_0_0
   LUT6 #(
     .INIT(64'h2002000000002002)) 
     \rt_forward[0]_INST_0_i_1 
-       (.I0(\rs_forward[0]_INST_0_i_1_n_0 ),
+       (.I0(\rs_forward[0]_INST_0_i_2_n_0 ),
         .I1(\rt_forward[0]_INST_0_i_2_n_0 ),
         .I2(rt[3]),
         .I3(write_reg_addr_mem[3]),
@@ -264,10 +264,10 @@ module bluex_v_2_1_controller_0_0
     \rt_forward[0]_INST_0_i_2 
        (.I0(rt[4]),
         .I1(write_reg_addr_mem[4]),
-        .I2(write_reg_addr_mem[0]),
-        .I3(rt[0]),
-        .I4(write_reg_addr_mem[1]),
-        .I5(rt[1]),
+        .I2(write_reg_addr_mem[1]),
+        .I3(rt[1]),
+        .I4(write_reg_addr_mem[0]),
+        .I5(rt[0]),
         .O(\rt_forward[0]_INST_0_i_2_n_0 ));
   LUT3 #(
     .INIT(8'h80)) 

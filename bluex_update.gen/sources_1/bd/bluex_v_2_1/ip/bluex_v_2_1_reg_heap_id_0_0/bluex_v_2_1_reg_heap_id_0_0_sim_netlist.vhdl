@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Wed Jan  3 21:06:56 2024
+-- Date        : Sat Jan  6 10:52:57 2024
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top bluex_v_2_1_reg_heap_id_0_0 -prefix
---               bluex_v_2_1_reg_heap_id_0_0_ bluex_v_2_1_reg_heap_id_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_reg_heap_id_0_0/bluex_v_2_1_reg_heap_id_0_0_sim_netlist.vhdl
 -- Design      : bluex_v_2_1_reg_heap_id_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -33,6 +33,8 @@ entity bluex_v_2_1_reg_heap_id_0_0_reg_heap_id is
     addr_rt : in STD_LOGIC_VECTOR ( 4 downto 0 );
     rst_n : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of bluex_v_2_1_reg_heap_id_0_0_reg_heap_id : entity is "reg_heap_id";
 end bluex_v_2_1_reg_heap_id_0_0_reg_heap_id;
 
 architecture STRUCTURE of bluex_v_2_1_reg_heap_id_0_0_reg_heap_id is
@@ -9568,15 +9570,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(29),
       Q => \ram_reg_reg[28]_3\(29)
     );
-\ram_reg_reg[28][2]\: unisim.vcomponents.FDPE
+\ram_reg_reg[28][2]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__2/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(2),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[28]_3\(2)
     );
 \ram_reg_reg[28][30]\: unisim.vcomponents.FDCE
@@ -9601,26 +9603,26 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(31),
       Q => \ram_reg_reg[28]_3\(31)
     );
-\ram_reg_reg[28][3]\: unisim.vcomponents.FDPE
+\ram_reg_reg[28][3]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__2/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(3),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[28]_3\(3)
     );
-\ram_reg_reg[28][4]\: unisim.vcomponents.FDPE
+\ram_reg_reg[28][4]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__2/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(4),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[28]_3\(4)
     );
 \ram_reg_reg[28][5]\: unisim.vcomponents.FDCE
@@ -9678,15 +9680,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(9),
       Q => \ram_reg_reg[28]_3\(9)
     );
-\ram_reg_reg[29][0]\: unisim.vcomponents.FDPE
+\ram_reg_reg[29][0]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__1/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(0),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[29]_2\(0)
     );
 \ram_reg_reg[29][10]\: unisim.vcomponents.FDCE
@@ -9920,15 +9922,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(29),
       Q => \ram_reg_reg[29]_2\(29)
     );
-\ram_reg_reg[29][2]\: unisim.vcomponents.FDPE
+\ram_reg_reg[29][2]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__1/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(2),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[29]_2\(2)
     );
 \ram_reg_reg[29][30]\: unisim.vcomponents.FDCE
@@ -9953,26 +9955,26 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(31),
       Q => \ram_reg_reg[29]_2\(31)
     );
-\ram_reg_reg[29][3]\: unisim.vcomponents.FDPE
+\ram_reg_reg[29][3]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__1/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(3),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[29]_2\(3)
     );
-\ram_reg_reg[29][4]\: unisim.vcomponents.FDPE
+\ram_reg_reg[29][4]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__1/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(4),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[29]_2\(4)
     );
 \ram_reg_reg[29][5]\: unisim.vcomponents.FDCE
@@ -10503,15 +10505,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(19),
       Q => \ram_reg_reg[30]_1\(19)
     );
-\ram_reg_reg[30][1]\: unisim.vcomponents.FDPE
+\ram_reg_reg[30][1]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__0/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(1),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[30]_1\(1)
     );
 \ram_reg_reg[30][20]\: unisim.vcomponents.FDCE
@@ -10624,15 +10626,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(29),
       Q => \ram_reg_reg[30]_1\(29)
     );
-\ram_reg_reg[30][2]\: unisim.vcomponents.FDPE
+\ram_reg_reg[30][2]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__0/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(2),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[30]_1\(2)
     );
 \ram_reg_reg[30][30]\: unisim.vcomponents.FDCE
@@ -10657,26 +10659,26 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(31),
       Q => \ram_reg_reg[30]_1\(31)
     );
-\ram_reg_reg[30][3]\: unisim.vcomponents.FDPE
+\ram_reg_reg[30][3]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__0/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(3),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[30]_1\(3)
     );
-\ram_reg_reg[30][4]\: unisim.vcomponents.FDPE
+\ram_reg_reg[30][4]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => \__0/i__n_0\,
+      CLR => \^rst_n_0\,
       D => wd(4),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[30]_1\(4)
     );
 \ram_reg_reg[30][5]\: unisim.vcomponents.FDCE
@@ -10734,15 +10736,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(9),
       Q => \ram_reg_reg[30]_1\(9)
     );
-\ram_reg_reg[31][0]\: unisim.vcomponents.FDPE
+\ram_reg_reg[31][0]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => ram_reg,
+      CLR => \^rst_n_0\,
       D => wd(0),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[31]_0\(0)
     );
 \ram_reg_reg[31][10]\: unisim.vcomponents.FDCE
@@ -10855,15 +10857,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(19),
       Q => \ram_reg_reg[31]_0\(19)
     );
-\ram_reg_reg[31][1]\: unisim.vcomponents.FDPE
+\ram_reg_reg[31][1]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => ram_reg,
+      CLR => \^rst_n_0\,
       D => wd(1),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[31]_0\(1)
     );
 \ram_reg_reg[31][20]\: unisim.vcomponents.FDCE
@@ -10976,15 +10978,15 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(29),
       Q => \ram_reg_reg[31]_0\(29)
     );
-\ram_reg_reg[31][2]\: unisim.vcomponents.FDPE
+\ram_reg_reg[31][2]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => ram_reg,
+      CLR => \^rst_n_0\,
       D => wd(2),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[31]_0\(2)
     );
 \ram_reg_reg[31][30]\: unisim.vcomponents.FDCE
@@ -11009,26 +11011,26 @@ ram_en_reg: unisim.vcomponents.FDCE
       D => wd(31),
       Q => \ram_reg_reg[31]_0\(31)
     );
-\ram_reg_reg[31][3]\: unisim.vcomponents.FDPE
+\ram_reg_reg[31][3]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => ram_reg,
+      CLR => \^rst_n_0\,
       D => wd(3),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[31]_0\(3)
     );
-\ram_reg_reg[31][4]\: unisim.vcomponents.FDPE
+\ram_reg_reg[31][4]\: unisim.vcomponents.FDCE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk,
       CE => ram_reg,
+      CLR => \^rst_n_0\,
       D => wd(4),
-      PRE => \^rst_n_0\,
       Q => \ram_reg_reg[31]_0\(4)
     );
 \ram_reg_reg[31][5]\: unisim.vcomponents.FDCE
@@ -27646,8 +27648,6 @@ entity bluex_v_2_1_reg_heap_id_0_0 is
     rs : out STD_LOGIC_VECTOR ( 31 downto 0 );
     rt : out STD_LOGIC_VECTOR ( 31 downto 0 );
     wr_en_i : in STD_LOGIC;
-    wr_en_t : in STD_LOGIC;
-    wr_en_o : out STD_LOGIC;
     ram_clk : out STD_LOGIC;
     ram_rd_data : in STD_LOGIC_VECTOR ( 31 downto 0 );
     ram_en : out STD_LOGIC;
@@ -27693,7 +27693,6 @@ begin
   ram_we(2) <= \^ram_we\(2);
   ram_we(1) <= \^ram_we\(2);
   ram_we(0) <= \^ram_we\(2);
-  wr_en_o <= \<const0>\;
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\

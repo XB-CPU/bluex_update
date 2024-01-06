@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-2
 
@@ -83,6 +82,7 @@ set_property parent.project_path D:/MyWorks/Programs/Verilog/vivado/bluex_update
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths {
+  d:/MyWorks/Programs/Verilog/vivado/cpu_test/ip_repo/bluex2
   d:/MyWorks/Programs/Verilog/vivado/cpu_test/ip_repo/bluex_v_2_1
   d:/MyWorks/Programs/Verilog/vivado/bluex_update/ip
 } [current_project]

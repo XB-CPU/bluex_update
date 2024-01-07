@@ -59,7 +59,7 @@ def asb_print(mes:str, file:io.TextIOWrapper=None, line_index:int=None, level:in
 		if line_index is None:
 			print(f"\033[0;91mCompile error:\033[0m {mes}.")
 		else:
-			print(f"\033[0;91mCompile error\033[0m in line \033[0;91m{line_index + 1}:\033[0m {mes}.", end=" ")
+			print(f"\033[0;91mCompile error\033[0m in line \033[0;91m{line_index + 1}:\033[0m {mes}.", end="\n\n")
 		if file is not None:
 			file.seek(0)
 			print(f"error content: \033[0;91m{file.readlines()[line_index]}\033[0m")
@@ -72,10 +72,10 @@ def asb_print(mes:str, file:io.TextIOWrapper=None, line_index:int=None, level:in
 			if line_index is None:
 				print(f"\033[0;95mCompile warning:\033[0m {mes}.")
 			else:
-				print(f"\033[0;95mCompile warning\033[0m in line \033[0;95m{line_index + 1}:\033[0m {mes}.", end=" ")
+				print(f"\033[0;95mCompile warning\033[0m in line \033[0;95m{line_index + 1}:\033[0m {mes}.", end="\n\n")
 			if file is not None:
 				file.seek(0)
-				print(f"warning content: \033[0;95m{file.readlines()[line_index].rstrip()}\033[0m")
+				print(f"warning content: \033[0;95m{file.readlines()[line_index].rstrip()}\033[0m\n")
 			else:
 				print()
 
@@ -619,7 +619,7 @@ def report():
 if __name__ == "__main__":
 	load_macro()
 	check_cli_arg_correctness()
-	with open(cli_args.raw_file_name) as f:
+	with open(cli_args.raw_file_name, encoding='utf-8') as f:
 		ssl = compile(f)
 		link(ssl)
 	output_to_file()

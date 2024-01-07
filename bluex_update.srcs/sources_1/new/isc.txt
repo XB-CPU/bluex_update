@@ -180,12 +180,68 @@
 # srl ave_err, tmp, sf16
 # 
 # jmp -1
+# mirl r8, 128
+# mirl r9, 0
+# lpp:
+# svw r9, r9, 0
+# addi r9, r9, 1
+# bne r8, r9, lpp
+# addi r9, r9, 0
+# jmp -1
 
+# mirl r6, 0
+# over:
+# mirl r3, 2
+# mirl r5, 20
+# add r7, r5, r0
+# srl r3, r3, r5
+# bne r7, r5, over
+# dvm, r5, r3, r6
+# jmp -1
+
+#主存最后一页更换
 mirl r8, 128
-mirl r9, 0
-lpp:
+mirl r9, 96
+lpp1:
 svw r9, r9, 0
 addi r9, r9, 1
-bne r8, r9, lpp
-addi r9, r9, 0
+bne r8, r9, lpp1
+#r1 r2 r3 r4乘除法
+mirl r1, 499
+mirl r2, 999
+mul r3, r1, r2
+dvm r4, r2, r1
+#r7显示1+2+3+...+1000d=7A314h
+mirl r5, 1000 
+mirl r6, 0
+mirl r7, 0
+addlpp:
+addi r6, r6, 1
+add r7, r7, r6
+bne r5, r6, addlpp
+#r11=r10>>5, r12=r10<<5, r13=5
+mirl r13, 5
+mirl r10, 3FH
+#srl r11, r10, r13
+#sll r12, r10, r13
+#把主存第一页存上平方0*0 1*1 2*2 3*3.....
+mirl r14, 0
+mirl r15, 32
+mirl r16, 0
+lpp2:
+addi r14, r16, 0
+mul r14, r14, r14
+svw r14, r16, 0
+addi r16, r16, 1
+bne r14, r15, lpp2
+mirl r14, FFFFH
+#把主存内容全部相加,r15=
+mirl r17, 0
+mirl r18, 128
+mirl r19, 0
+mirl r20, 0
+lpp3:
+ldw r19, r17, 0
+add r20, r19, r20,
+bne r17, r18, lpp3
 jmp -1

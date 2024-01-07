@@ -11,7 +11,7 @@ module alu_ex (
 	/*ALU data output*/
 	output	reg		[`GPR_BIT - 1 : 0]		rd_value,
 
-	output	reg		[`ERR_BIT - 1 : 0]		shift_error
+	output	reg								shift_error
 	// output	reg		[`ERR_BIT - 1 : 0]		carry
 );
 	wire [`GPR_BIT : 0] rd_add = {rs + rt};
@@ -107,6 +107,9 @@ module alu_ex (
 			begin
 				if (rt_over == 1) begin
 					shift_error <= 1'b1;
+				end
+				else begin
+					shift_error <= 1'b0;
 				end
 			end
 			default: 

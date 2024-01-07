@@ -138,7 +138,7 @@ end
 initial
 begin
 	// #(PERIOD*2.5) enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
-	#(PERIOD*100) 
+	#(PERIOD*3000) 
 	// for (i = 0; i < 20; i = i + 1) begin
 	// 	enable_CPU = 1'b1; isc = ROM[current_addr_0]; read_mem_out_inw = RAM[write_mem_addr];
 	// end

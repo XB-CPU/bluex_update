@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-//Date        : Sat Jan  6 19:52:00 2024
+//Date        : Sun Jan  7 11:26:30 2024
 //Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 //Command     : generate_target bluex_v_2_1.bd
 //Design      : bluex_v_2_1
@@ -72,7 +72,7 @@ module bluex_v_2_1
   wire [15:0]PC_0_current_addr;
   wire [15:0]PC_0_next_addr_output;
   wire [31:0]alu_ex_0_rd_value;
-  wire [1:0]alu_ex_0_shift_error;
+  wire alu_ex_0_shift_error;
   wire [5:0]aux_ex_0_alu_op;
   wire aux_ex_0_branch_isc;
   wire [31:0]aux_ex_0_imm;
@@ -265,7 +265,7 @@ module bluex_v_2_1
         .rst(rst_0_1),
         .rt(demux_id_0_rt),
         .rt_forward(controller_0_rt_forward),
-        .shift_error(alu_ex_0_shift_error[0]),
+        .shift_error(alu_ex_0_shift_error),
         .write_reg_addr_ex(aux_ex_0_write_reg_addr),
         .write_reg_addr_mem(wrapper_mem_0_write_reg_addr));
   bluex_v_2_1_decoder_id_0_0 decoder_id_0

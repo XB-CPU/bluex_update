@@ -2,7 +2,7 @@
 #include "stdlib.h"
 
 #define a_max 32767
-#define jt 4
+#define jt 8
 
 int err[jt];
 
@@ -18,7 +18,7 @@ int main()
 		{
 			x = s / 2;
 			s = x + a / x;
-			printf("iter: s:%d, x:%d\n", s, x);
+			// printf("iter: s:%d, x:%d\n", s, x);
 		}
 		err[j] = abs(x * x - a);
 		sum += err[j];

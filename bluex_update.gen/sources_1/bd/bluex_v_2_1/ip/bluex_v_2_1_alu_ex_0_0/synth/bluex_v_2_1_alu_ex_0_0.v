@@ -69,7 +69,7 @@ input wire [31 : 0] rt;
 input wire [31 : 0] mat_cop_res;
 input wire [5 : 0] alu_op;
 output wire [31 : 0] rd_value;
-output wire [1 : 0] shift_error;
+output wire shift_error;
 
   alu_ex inst (
     .rs(rs),

@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Sat Jan  6 17:07:22 2024
+-- Date        : Sun Jan  7 11:34:07 2024
 -- Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top bluex_v_2_1_alu_ex_0_0 -prefix
---               bluex_v_2_1_alu_ex_0_0_ bluex_v_2_1_alu_ex_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_alu_ex_0_0/bluex_v_2_1_alu_ex_0_0_stub.vhdl
 -- Design      : bluex_v_2_1_alu_ex_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-2
@@ -20,7 +20,7 @@ entity bluex_v_2_1_alu_ex_0_0 is
     mat_cop_res : in STD_LOGIC_VECTOR ( 31 downto 0 );
     alu_op : in STD_LOGIC_VECTOR ( 5 downto 0 );
     rd_value : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    shift_error : out STD_LOGIC_VECTOR ( 1 downto 0 )
+    shift_error : out STD_LOGIC
   );
 
 end bluex_v_2_1_alu_ex_0_0;
@@ -29,7 +29,7 @@ architecture stub of bluex_v_2_1_alu_ex_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "rs[31:0],rt[31:0],mat_cop_res[31:0],alu_op[5:0],rd_value[31:0],shift_error[1:0]";
+attribute black_box_pad_pin of stub : architecture is "rs[31:0],rt[31:0],mat_cop_res[31:0],alu_op[5:0],rd_value[31:0],shift_error";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "alu_ex,Vivado 2023.2";
 begin

@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.17761",
-   "Default View_TopLeft":"24,412",
+   "Default View_TopLeft":"2688,145",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
@@ -48,8 +48,8 @@ preplace netloc BJT_0_branch_addr_id 1 1 8 410J 630 NJ 630 1190J 490 1900J 480 2
 preplace netloc BJT_0_branch_jump_flag 1 1 7 440 580 NJ 580 1200J 540 1930J 530 2500J 240 2820J 290 3240
 preplace netloc BJT_0_id_jump_flag 1 1 7 NJ 600 NJ 600 1210J 550 1940J 540 2520J 250 2800J 300 3210
 preplace netloc PC_0_current_addr 1 9 1 NJ 280
-preplace netloc PC_0_next_addr_output 1 1 9 480 650 NJ 650 1240J 530 1910J 550 NJ 550 NJ 550 3150J 540 3700J 170 4190
-preplace netloc alu_ex_0_rd_value 1 7 2 3150 60 3730J
+preplace netloc PC_0_next_addr_output 1 1 9 480 650 NJ 650 1240J 530 1910J 550 NJ 550 NJ 550 3140J 540 3700J 170 4190
+preplace netloc alu_ex_0_rd_value 1 7 2 3140 60 3730J
 preplace netloc alu_ex_0_shift_error 1 7 1 N 180
 preplace netloc aux_ex_0_alu_op 1 0 7 0 400 NJ 400 860J 560 1160J 500 1910J 490 2400 200 NJ
 preplace netloc aux_ex_0_branch_isc 1 0 6 30 410 NJ 410 850J 590 NJ 590 NJ 590 2360
@@ -91,12 +91,12 @@ preplace netloc demux_id_0_rd 1 2 2 NJ 1260 1330
 preplace netloc demux_id_0_real_op 1 0 8 20 450 NJ 450 820 720 1230J 470 1870 580 NJ 580 NJ 580 3240J
 preplace netloc demux_id_0_rs 1 2 7 850J 970 NJ 970 NJ 970 NJ 970 NJ 970 3220 1080 NJ
 preplace netloc demux_id_0_rt 1 2 7 NJ 1240 1220 980 NJ 980 NJ 980 NJ 980 3230 1100 NJ
-preplace netloc enable_CPU_0_1 1 0 8 NJ 1150 460 700 NJ 700 1330J 670 NJ 670 NJ 670 NJ 670 3160
+preplace netloc enable_CPU_0_1 1 0 8 NJ 1150 460 700 NJ 700 1330J 670 NJ 670 NJ 670 NJ 670 3150
 preplace netloc isc_0_1 1 0 2 NJ 1370 NJ
 preplace netloc matcop_0_error 1 6 2 2800J 400 N
 preplace netloc matcop_0_rd_value 1 6 1 2810 180n
-preplace netloc matcop_0_result_valid 1 6 2 NJ 410 3150
-preplace netloc matcop_0_working 1 6 2 NJ 390 3170
+preplace netloc matcop_0_result_valid 1 6 2 NJ 410 3140
+preplace netloc matcop_0_working 1 6 2 NJ 390 3160
 preplace netloc ram_rd_data_0_1 1 0 9 NJ 1510 410J 1520 860J 1330 NJ 1330 NJ 1330 NJ 1330 NJ 1330 NJ 1330 3800J
 preplace netloc read_mem_out_inw_0_1 1 0 9 10J 750 450J 720 800J 710 NJ 710 NJ 710 NJ 710 NJ 710 NJ 710 3750J
 preplace netloc reg_heap_id_0_ram_addr 1 9 1 NJ 1130
@@ -110,9 +110,9 @@ preplace netloc reg_heap_id_0_rt 1 4 6 1960 740 NJ 740 NJ 740 NJ 740 NJ 740 4200
 preplace netloc reg_wb_0_reg_write 1 4 5 1780 960 NJ 960 NJ 960 NJ 960 3680J
 preplace netloc reg_wb_0_write_back_data 1 4 5 1890 940 NJ 940 NJ 940 NJ 940 3700J
 preplace netloc reg_wb_0_write_reg_addr 1 4 5 1790 950 NJ 950 NJ 950 NJ 950 3690J
-preplace netloc rst_0_1 1 0 8 40J 770 NJ 770 830J 750 1340J 680 NJ 680 2530J 80 NJ 80 3160J
+preplace netloc rst_0_1 1 0 8 40J 770 NJ 770 830J 750 1340J 680 NJ 680 2530J 80 NJ 80 3150J
 preplace netloc rst_n_0_1 1 0 9 NJ 960 NJ 960 NJ 960 1320 570 1940J 560 2540 560 NJ 560 NJ 560 3770
-preplace netloc wr_en_i_0_1 1 0 9 NJ 1110 NJ 1110 860J 990 NJ 990 NJ 990 NJ 990 NJ 990 3150J 1110 3670J
+preplace netloc wr_en_i_0_1 1 0 9 NJ 1110 NJ 1110 860J 990 NJ 990 NJ 990 NJ 990 NJ 990 3140J 1110 3670J
 preplace netloc wrapper_mem_0_alu_result 1 3 7 1370 580 1860 760 NJ 760 NJ 760 NJ 760 NJ 760 4220
 preplace netloc wrapper_mem_0_memory_to_reg 1 3 7 1350 690 1870J 770 NJ 770 NJ 770 NJ 770 NJ 770 4230
 preplace netloc wrapper_mem_0_read_mem_out 1 3 7 1400 700 1880J 750 NJ 750 NJ 750 NJ 750 NJ 750 4210

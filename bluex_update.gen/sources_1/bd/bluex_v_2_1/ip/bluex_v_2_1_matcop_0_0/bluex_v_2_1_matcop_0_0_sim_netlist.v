@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Sat Jan  6 19:18:06 2024
+// Date        : Thu Jan 25 15:48:39 2024
 // Host        : DESKTOP-50PL36L running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               d:/MyWorks/Programs/Verilog/vivado/bluex_update/bluex_update.gen/sources_1/bd/bluex_v_2_1/ip/bluex_v_2_1_matcop_0_0/bluex_v_2_1_matcop_0_0_sim_netlist.v
@@ -211,13 +211,13 @@ module bluex_v_2_1_matcop_0_0_matcop
         .Q(\cnt_reg_n_0_[3] ),
         .R(\cnt[3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0008080000000000)) 
+    .INIT(64'h0000080000000000)) 
     error_INST_0
        (.I0(op[5]),
         .I1(op[4]),
         .I2(op[3]),
-        .I3(op[1]),
-        .I4(op[2]),
+        .I3(op[2]),
+        .I4(op[1]),
         .I5(divide_by_zero),
         .O(error));
   LUT4 #(

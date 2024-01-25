@@ -959,8 +959,8 @@ const int NumRelocateId= 899;
 void relocate(char *dp)
 {
 	iki_relocate(dp, "xsim.dir/tb_ROM_behav/xsim.reloc",  (void **)funcTab, 899);
-	iki_vhdl_file_variable_register(dp + 521696);
-	iki_vhdl_file_variable_register(dp + 521752);
+	iki_vhdl_file_variable_register(dp + 523232);
+	iki_vhdl_file_variable_register(dp + 523288);
 
 
 	/*Populate the transaction function pointer field in the whole net structure */
@@ -977,13 +977,13 @@ void wrapper_func_0(char *dp)
 
 {
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 599408, dp + 581808, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 600944, dp + 583344, 0, 0, 0, 0, 1, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 584360, dp + 582032, 0, 31, 0, 31, 32, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 585896, dp + 583568, 0, 31, 0, 31, 32, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 599448, dp + 582088, 0, 31, 0, 31, 32, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 600984, dp + 583624, 0, 31, 0, 31, 32, 1);
 
-	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 599352, dp + 582144, 0, 0, 0, 0, 1, 1);
+	iki_vlog_schedule_transaction_signal_fast_vhdl_value_time_0(dp + 600888, dp + 583680, 0, 0, 0, 0, 1, 1);
 
 }
 

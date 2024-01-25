@@ -19,7 +19,7 @@ module matcop #(
     wire use_mul = (op == `ALO_MUL || op == `ALO_MULI);
     wire use_dvm = (op == `ALO_DVM || op == `ALO_DVMI);
     wire divide_by_zero;
-    assign error = divide_by_zero & working;
+    assign error = (divide_by_zero & use_dvm) & working;
 
     reg [$clog2(DVM_PERIOD) - 1 : 0] cnt;
     always @(posedge clk) begin

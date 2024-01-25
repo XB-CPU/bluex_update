@@ -1,247 +1,103 @@
-# the following code is the assemble version of the C code here:
-# int sum = 0;
-# for (int i = 0 ; i < 0x10; ++i)
-# {
-# 	if (i%2 == 1)
-# 	{
-# 		sum = sum - i;
-# 	}
-# 	else {
-# 		sum = sum + i;
-# 	}
-# }
+//平方根 求625 625-60 625-60*2 .... 25 的平方根
+`def x r1
+`def a r2
+`def s r3
+`def i r4
+`def it r5
+`def sf1 r6
+`def tmp r7
+`def sf16 r8
+`def j r9
+`def jt r10
+`def err r11
+`def sum r12
+`def sumj r13
+`def ave_err r14
+`def addr r15
 
-#param, r1:sum, r2:i, r3:tmp, r4:1, r5:0x10
-#mirl r6, 6
-#mirl r7, 13
-#svw r6, r7, 0
-#mirh r6, 1
-#svw r6, r7, 1
-#mirl r6, 9
-#svw r6, r7, 2
-#mirl r4, 1b
-#mirl r5, 3h
-#mirl r2, 40H
-#mirl r0, 40h # r0 is still 0
-#mirl r1, 30H
-#add r1, r0, r0 # r1 is 0
-#subi r2, r0, 0 # r2 is 0
-#add r6, r7, r0
-#beq r6, r7, eq
-#neq:
-#mirl r18, 64
-#jmp 1
-#eq:
-#mirl r19, 65
-#for:
-#ldw r8, r7, 0
-#andi r3, r8, 1b
-#addi r7, r7, 1
-#beq r3, r4, odd
-#even:
-#add r1, r1, r8
-#jmp branch_done
-#odd:
-#sub r1, r1, r8
-#branch_done:
-#addi r2, r2, 1
-#bne r2, r5, for
-#
-##over
-#jmp -1
+mirl it, 10
+mirl jt, 60
+mirl sf1, 1
+mirl sf16, 16
 
-#mirl r1, 20 # rd=20
-#mirl r5, 20h # rd=32
-#add r3, r1, r2 # rd=20, data hazard with 1
-#addi r4, r3, 10 # rd=30, data hazard with 3
-#orl r3, r1, r2 # r3=r1 | r2 # rd=20
-## because here is actually relative displacement
-#jmp -1
+add j, r0, r0
+forj:
+mirl a, 625
+muli addr, j, 10
+sub a, a, addr
+add s, a, r0
+
+add i, r0, r0
+fori:
+srl x, s, sf1
+dvm r7, a, x
+srl tmp, r7, sf16
+add s, tmp, x
+
+addi i, i, 1
+bne i, it, fori
+
+svw x, j, 0
+mul x, x, x
+sls err, x, a
+beq err, sf1, xsmall
+xlarge:
+sub err, x, a
+mirl r20, 0
+jmp 1
+xsmall:
+sub err, a, x
+
+addi j, j, 1
+bne j, jt, forj
+
+jmp -1
 
 
-# mirl r6, 6
-# mirl r7, 13
-# svw r6, r7, 0
-# mirh r6, 1
-# svw r6, r7, 1
-# mirl r6, 9
-# svw r6, r7, 2
-# mirl r4, 1b
-# mirl r5, 3h
-# mirl r2, 40H
-# mirl r0, 40h # r0 is still 0
-# mirl r1, 30H
-# add r1, r0, r0 # r1 is 0
-# subi r2, r0, 0 # r2 is 0
-# for:
-# ldw r8, r7, 0
-# andi r3, r8, 1b
-# addi r7, r7, 1
-# beq r3, r4, odd
-# even:
-# mul r8, r8, R4
-# jmp branch_done
-# odd:
-# muli r8, r8, -1
-# branch_done:
-# add r1, r1, r8
-# addi r2, r2, 1
-# bne r2, r5, for
-# 
-# #over
-# jmp -1
-
-# r1: dividend; r2: divisor; r3: dvm result; r4: ; r5: quotient; r8: remainder:
-# mirl r1, 34
-# mirl r2, 7
-# mirl r12, 4
-# mirl r14, 3
-# mirl r13, 0
-# for:
-# svw r2, r0, 0
-# mirl r2, 9999
-# mirl r6, 16
-# ldw r2, r0, 0
-# dvm r3, r1, r2 # 4, 6
-# srl r5, r3, r6 # 4, quotient
-# sll r4, r5, r6
-# sub r8, r3, r4 # 6, remainder
-# mul r7, r2, r5 # 28
-# addi r13, r13, 1
-# dvmi r9, r1, 9 # 3, 7
-# bne r13, r14, for
-# muli r10, r6, -9 # -144
-# muli r11, r6, 9 # 144
-# jmp -1
-
-# square function
-## r1: x; a: r2; r3: s; r4: i; r5: 10; r6: 2
-# mirl r2, 32109
-# add r3, r2, r0
-# for:
-# srl r1, r3, r6
-
-# `def x r1
-# `def a r2
-# `def s r3
-# `def i r4
-# `def it r5
-# `def sf1 r6
-# `def tmp r7
-# `def sf16 r8
-# `def j r9
-# `def jt r10
-# `def err r11
-# `def sum r12
-# `def sumj r13
-# `def ave_err r14
-# 
-# mirl it, 10
-# mirl jt, 4
-# mirl sf1, 1
-# mirl sf16, 16
-# 
-# add j, r0, r0
-# forj:
-# mirl a, 32767
-# sub a, a, j
-# add s, a, r0
-# 
-# add i, r0, r0
-# fori:
-# srl x, s, sf1
-# dvm r7, a, x
-# srl tmp, r7, sf16
-# add s, tmp, x
-# 
-# addi i, i, 1
-# bne i, it, fori
-# 
-# mul x, x, x
-# sls err, x, a
-# beq err, sf1, xsmall
-# xlarge:
-# sub err, x, a
-# jmp 1
-# xsmall:
-# sub err, a, x
-# svw err, j, 0
-# 
-# addi j, j, 1
-# bne j, jt, forj
-# 
-# add j, r0, r0
-# forsum:
-# ldw sumj, j, 0
-# add sum, sum, sumj
-# addi j, j, 1
-# bne j, jt, forsum
-# dvm tmp, sum, jt
-# srl ave_err, tmp, sf16
-# 
-# jmp -1
+# #主存最后一页更换
 # mirl r8, 128
-# mirl r9, 0
-# lpp:
+# mirl r9, 96
+# lpp1:
 # svw r9, r9, 0
 # addi r9, r9, 1
-# bne r8, r9, lpp
-# addi r9, r9, 0
-# jmp -1
-
+# bne r8, r9, lpp1
+# #r1 r2 r3 r4乘除法
+# mirl r1, 499
+# mirl r2, 999
+# mul r3, r1, r2
+# dvm r4, r2, r1
+# #r7显示1+2+3+...+1000d=7A314h
+# mirl r5, 1000 
 # mirl r6, 0
-# over:
-# mirl r3, 2
-# mirl r5, 20
-# add r7, r5, r0
-# srl r3, r3, r5
-# bne r7, r5, over
-# dvm, r5, r3, r6
+# mirl r7, 0
+# addlpp:
+# addi r6, r6, 1
+# add r7, r7, r6
+# bne r5, r6, addlpp
+# #r11=r10>>5, r12=r10<<5, r13=5
+# mirl r13, 5
+# mirl r10, 3FH
+# srl r11, r10, r13
+# sll r12, r10, r13
+# #把主存第一页存上平方0*0 1*1 2*2 3*3.....
+# mirl r14, 0
+# mirl r15, 32
+# mirl r16, 0
+# lpp2:
+# addi r14, r16, 0
+# mul r14, r14, r14
+# svw r14, r16, 0
+# addi r16, r16, 1
+# bne r16, r15, lpp2
+# mirl r14, FFFFH
+# #把主存内容全部相加,r15=
+# mirl r17, 0
+# mirl r18, 128
+# mirl r19, 0
+# mirl r20, 0
+# lpp3:
+# ldw r19, r17, 0
+# add r20, r19, r20
+# addi r17, r17, 1
+# bne r17, r18, lpp3
 # jmp -1
-
-#主存最后一页更换
-mirl r8, 128
-mirl r9, 96
-lpp1:
-svw r9, r9, 0
-addi r9, r9, 1
-bne r8, r9, lpp1
-#r1 r2 r3 r4乘除法
-mirl r1, 499
-mirl r2, 999
-mul r3, r1, r2
-dvm r4, r2, r1
-#r7显示1+2+3+...+1000d=7A314h
-mirl r5, 1000 
-mirl r6, 0
-mirl r7, 0
-addlpp:
-addi r6, r6, 1
-add r7, r7, r6
-bne r5, r6, addlpp
-#r11=r10>>5, r12=r10<<5, r13=5
-mirl r13, 5
-mirl r10, 3FH
-#srl r11, r10, r13
-#sll r12, r10, r13
-#把主存第一页存上平方0*0 1*1 2*2 3*3.....
-mirl r14, 0
-mirl r15, 32
-mirl r16, 0
-lpp2:
-addi r14, r16, 0
-mul r14, r14, r14
-svw r14, r16, 0
-addi r16, r16, 1
-bne r14, r15, lpp2
-mirl r14, FFFFH
-#把主存内容全部相加,r15=
-mirl r17, 0
-mirl r18, 128
-mirl r19, 0
-mirl r20, 0
-lpp3:
-ldw r19, r17, 0
-add r20, r19, r20,
-bne r17, r18, lpp3
-jmp -1

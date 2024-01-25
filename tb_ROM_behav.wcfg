@@ -11,12 +11,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="407.940 ns"></ZoomStartTime>
-      <ZoomEndTime time="493.173 ns"></ZoomEndTime>
-      <Cursor1Time time="450.000 ns"></Cursor1Time>
+      <ZoomStartTime time="127,464.600 ns"></ZoomStartTime>
+      <ZoomEndTime time="127,528.101 ns"></ZoomEndTime>
+      <Cursor1Time time="127,490.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="215"></NameColumnWidth>
+      <NameColumnWidth column_width="203"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="16" />
@@ -70,20 +70,20 @@
       <obj_property name="ObjectShortName">PC_src[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_ROM/RAM" type="array">
-      <obj_property name="ElementShortName">RAM[31:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">RAM[31:0][31:0]</obj_property>
+      <obj_property name="ElementShortName">RAM[127:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM[127:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/reg_heap_id_0/inst/ram_reg" type="array">
       <obj_property name="ElementShortName">ram_reg[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">ram_reg[31:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/CPU_error" type="logic">
       <obj_property name="ElementShortName">CPU_error</obj_property>
       <obj_property name="ObjectShortName">CPU_error</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/controller_0/shift_error" type="logic">
-      <obj_property name="ElementShortName">shift_error</obj_property>
-      <obj_property name="ObjectShortName">shift_error</obj_property>
+   <wvobject fp_name="/tb_ROM/u_bluex_v_2_1_wrapper/bluex_v_2_1_i/reg_heap_id_0/inst/ram_reg" type="array">
+      <obj_property name="ElementShortName">ram_reg[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_reg[31:0][31:0]</obj_property>
    </wvobject>
 </wave_config>
